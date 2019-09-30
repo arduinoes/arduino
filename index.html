@@ -547,41 +547,46 @@
        	<p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
           explicación de Open Source Hardware. Trata de compartir el desarrollo de
           proyectos electrónicos de arquitectura abierta, permitiendo a otros usuarios
-          a colaborar en el desarrollo, mejorando o añadiendo funcionalidades. </p> <br>
+          a colaborar en el desarrollo, mejorando o añadiendo funcionalidades. </p>
+          <br>
           <img class="img-responsive img-centered" src="img/portfolio/compartir.png" alt="">
+          <br>
           <p>Un ejemplo son las impresoras 3D, los drones o robótica educativa donde lideran
-          sin duda el mercado. <br> Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce. Pero sin duda el Arduino Uno sigue siendo la mejor opción para comenzar a crear los primeros proyectos, ya que tenemos una extensa documenación extensiones que añaden funcionalidades extra. Este es un Arduino Uno original con su protoboard. ¿Pero que és un Arduino Uno? Bueno, la clave es su microchip ATmega 328P, un circuito integrado que funciona al igual que una computadora Dispone de varias memorias, un procesador y pines de entradas y salidas. El diseño de la tarjeta de arduino uno facilita acceder él microchip a través de un puerto USB, poder alimentarlo con un conector de 5 a 12 v y etiquetando sus pines.</p><br>
+          sin duda el mercado. </p>
+          <br>
+          <img class="img-responsive img-centered" src="img/portfolio/robots.png" alt="">
 
-       	<p>2º Descarge la imagen de <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian </a>elija entre completa o mínima "Lite".</p><br>
+           <p>Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce.
+             Pero sin duda el <strong>Arduino Uno</strong> sigue siendo la mejor opción para comenzar
+             a crear los primeros proyectos, ya que tenemos una extensa documenación,
+             así como extensiones que añadern nuevas funcionalidades.
+          <br>
+          <img class="img-responsive img-centered" src="img/portfolio/extension.png" alt="">
+          <br>
+          <p>Este es un Arduino Uno original con su protoboard.</p>
+          <img class="img-responsive img-centered" src="img/portfolio/arduino.png" alt="">
+          <br>
+          <p><strong>¿Pero que és un Arduino Uno? </strong></p>Bueno, la clave es su microchip
+          ATmega 328P, un circuito integrado que funciona al igual que una computadora
+          Dispone de varias memorias, un procesador y pines de entradas y salidas.
+          <br>
+          <img class="img-responsive img-centered" src="img/portfolio/atmega.png" alt="">
+          <br>
+          <p>El diseño de la tarjeta de arduino uno facilita acceder él microchip a
+          través de un puerto USB, </p>
+          <br>
+          <img class="img-responsive img-centered" src="img/portfolio/usb.png" alt="">
+          <br>
+          <p>poder alimentarlo con un conector de 5 a 12 voltios</p>
+          <br>
+          <img class="img-responsive img-centered" src="img/portfolio/alimentacion.png" alt="">
+          <p>etiquetando sus pines.</p>
+          <br>
+          <img class="img-responsive img-centered" src="img/portfolio/pines.png" alt="">
+          <br>
+          <p>Continuer con el siguiente tutorial</p>
 
-      	<p>3º Descargue <a href="https://sourceforge.net/projects/win32diskimager/files/Archive/">Win32 Disk Imager </a>
-      	para poder copiar la imagen de "Rasbian" en modo "Arranque" en la tarjeta "SD" o "microSD" según el modelo de la raspberry.</p><br>
-      	<p><strong>Seleccione la imagen, la tarjeta y pulse el botón "write". Al terminar usted ya tiene la tarjeta lista para introducirla en la Raspberry Pi.</strong></p><br>
 
-        <p>4º Descargue <a href="http://www.putty.org/">Putty </a>lo utilizaremos para conectarnos a la "Raspberry" de desde un ordenador bién desde una red local o a través de una conexión de internet.</p><br>
-        <p><strong>Introducimos la "IP", dejamos el puerto 22, pongamos un nombre, lo guardo para próximas conexiones y la primera vez que se ejecuta muestra un panel de información, aceptamos y listo.</strong></p><br>
-
-
-      <h3>Opción 1 A traves de SSH</h3>
-      	<p>Utilizando "Putty". Para conectar con la "Raspberry" necesitamos saber la IP de nuestra "Raspberry". Para conocerla podemos escribir en un navegador <b>192.168.0.1</b> o <b>192.168.1.1</b> para acceder a nuestro móden y que nos muestre los equipos de la red local y nuestra ip pública, otra forma de conocer nuestra ip pública es a través de la página "cualesmiip.com"</p>
-
-
-      <h3>Opción 2 Utilice un teclado y una pantalla</h3>
-        <p>Unas de las posibilidades que nos ofrece "Raspbian" es poder utilizar la "Raspberry" como un ordenador "Linux" mas. Lo primero que nos va a pedir por consola es introducir un usuario "pi" (introdúzcalo sin comillas) + "Enter" y una contraseña "raspberry" + "Enter" no verá que el cursor se mueva no se preocupe usted está introducciéndo texto. Lo primero una vez ya en consola es escribir </p>
-            <pre><code>sudo raspi-config</code></pre><br>
-        <p>Mostrará el menú de configuración que nos permitirá:</p>
-
-      <ol>
-          <li> "Expand Filesystem" Amplia el espacio de nuestra tarjeta SD. OBLIGATORIO</li>
-          <li>"Change User Password" Cambiar la contraseña. RECOMENDABLE</li>
-          <li>"Boot Options" Opciones de Inicio (consola o escritorio
-      ) OPCIONAL</li>
-          <li>"Internationalisation": Cambia al lenguaje de tu país. RECOMENDABLE</li>
-          <li>"Advanced Options" > "Update" Te permite actualizar "Raspbian". OBLIGATORIO</li>
-      </ol>
-        <p>Ya podemos salir "Finish" (tecla tabulador y luego Enter)</p>
-            <pre><code>sudo apt-get update</code></pre>
-      		<pre><code>sudo apt-get dist-upgrade</code></pre>
 
       <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
                         </div>
