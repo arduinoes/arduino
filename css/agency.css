@@ -1,7 +1,7 @@
 body{
 
 	overflow-x:hidden;
-	font-family:"VeraMono","Helvetica Neue",Helvetica,Arial,sans-serif}
+	font-family:"Bitstream Vera Sans Mono","Helvetica Neue",Helvetica,Arial,sans-serif}
 
 .text-muted{
 	color:#777}
@@ -132,7 +132,7 @@ h4,h5 {
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
 .navbar-default .navbar-brand.active{
-	color:#fec503}
+	color:#62aeb2}
 
 .navbar-default .navbar-collapse{
 	border-color:rgba(255,255,255,.02)}
