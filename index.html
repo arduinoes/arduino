@@ -608,116 +608,50 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
 
-      <h2>II Copceptos Básicos</h2>
+      <h2>2 Copceptos Básicos</h2>
         <p class="item-intro text-muted">El mundo digital.</p>
         <img class="img-responsive img-centered" src="img/portfolio/raspberry-lamp.png" alt="">
       <article class="content">
 
         <h2>Conceptos básicos</h2>
         <br>
-        <p>Bytes.</p>
-        		<pre><code>sudo apt-get update</code></pre>
-        		<pre><code>sudo apt-get upgrade</code></pre>
+        <h3>BYTES</h3>
+        <br>
+        <p>El byte es la unidad de información digital formada usualmente por ocho bits (serie de ceros y unos).
+        Estos 8 bits permiten 256 combinaciones. El byte es la unidad que las computadoras utilizan para
+        representar un caracter como una letra, un número y otros símbolos. El byte es la unidad de datos más
+        pequeña con significado (la menor unidad de memoria).</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/byte.png" alt="">
+        <br>
+        <p>Es uno de los fundamentos de IDE de arduino (Integrated Development Environment o Entorno de Desarrollo Integrado)
+        trabajaremos con bytes para controlar los pines PWM (pulse width modulation o modulación por ancho de pulso) que
+        explicaremos más adelante. Otra relación con los bytes es que cada byte representa un carácter o
+        una tecla o grupo de teclas</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/caracter.png" alt="">
+        <br>
+        <h3>PWM (puse with modulation)</h3>
+        <br>
+        <p>Para emular una señal analógica se cambia el ciclo de trabajo (el tiempo que permanece encendido y apagado
+        de tal forma que el valor promedio de la señal sea el voltaje aproximado que se desea obtener, pudiendo entonces
+        enviar hasta 256 voltajes diferentes entre 0 y 5 voltios.</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/extension.png" alt="">
+        <br>
+        <h3>Pines de arduino</h3>
+        <br>
+        <p>En arduino encontramos 3 tipos de pines.</p>
+        <br>
+        <p>Digitales (entrada o salida). Son en los que tenemos dos posibilidades 0 ó 5 voltios en arduino lo veremos como "low" o "high",
+        como apagado o encendido</p>
+        <br>
+        <p>PWM (salida). Son los que podemos tener 256 voltajes diferentes entre 0 y 5 voltios.</p>
+        <br>
+        <p>Analógicos (entrada). Son convertidores de señales analogicas en señales digitales a diferencia de PWM que
+        utilizan 8 bits en analógico utilizamos 10 bits con lo que tenemos 1024 intervalos voltajes entre 0 y 5 voltios.</p>
+        <br>
 
-        <h3>LAMP (Linux, Apache, MySQL y PHP)</h3><br>
-
-        <h3>1º Instalar Apache</h3>
-        	<p>Apache es un popular servidor web que se puede instalar en Raspberry Pi para alojar páginas web.</p>
-        	<p>Introduzca el comando en el terminal:</p>
-        		<pre><code>sudo apt-get install apache2 -y</code></pre><br>
-
-        <h3>* ¡ATENCIÓN! Esto es una verificación, no necesita hacerlo salte al 2º paso instalar PHP</h3><br>
-        	<p>Ahora cambiamos al directorio que nos ha creado Apache. Este se localiza en: <b>/var/www/html/index.html</b>.</p>
-        	<p>Cambiamos a este directorio y mostramos lo que se encuentra dentro:</p>
-        		<pre><code>cd /var/www/html<br>ls -al</code></pre>
-        	<p>Veremos varias carpetas y un archivo llamado <b>index.html</b>, unas columnas que nos indican los permisos de las carpetas y los archivos, el nº de archivos que contiene cada carpeta, el usuario de los directorios y archivos, el grupo al que pertenecen, el tamaño, la fecha y hora de la última modificación o creación.
-        	<p>Para poder editar el archivo debe modificar los permisos de usuario.</p><p>Cambie estos permisos con:
-        		<pre><code>sudo chown pi: index.html</code></pre> </p>
-        	<p>Ahora puede editarlo con el comando:<p>
-        		<pre><code>nano index.html</code></pre> </p>
-        	<p>Para ver el archivo en el navegador utilice la ip de la Raspberry Pi, algo como esto 192.168.x.x (cambie las "x" por las de su IP)</p>
-
-        	<h3>2º Instalar PHP</h3>
-        		<p>PHP es un lenguaje de programación para el desarrollo web de contenido dinámico y wordPress lo usa.</p>
-        		<p>Instale PHP y su paquete con el comando:</p>
-        			<pre><code>sudo apt-get install php5 libapache2-mod-php5 -y</code></pre>
-
-        <h3>3º Instalar MySQL</h3>
-            <p>MySQL es un sistema de gestión de bases de datos y WordPress lo utiliza.</p>
-            <p>Instale MySQL y los paquetes PHP-MySQL con los siguientes comandos:</p>
-              <pre><code>sudo apt-get install mysql-server php5-mysql -y</code></pre>
-            <p>Cuando instale MySQL le pedirá que introduzca una contraseña con la que mas tarde accederá a MySQL para crear una base de datos.</p>
-
-        <h3>3º Instalar MySQL</h3>
-            <p>MySQL es un sistema de gestión de bases de datos y WordPress lo utiliza.</p>
-            <p>Instale MySQL y los paquetes PHP-MySQL con los siguientes comandos:</p>
-              <pre><code>sudo apt-get install mysql-server php5-mysql -y</code></pre>
-            <p>Cuando instale MySQL le pedirá que introduzca una contraseña con la que mas tarde accederá a MySQL para crear una base de datos.</p>
-
-        <h3>3º Instalar vsftpd</h3>
-            <p>Para poder subir archivos a través de ftp (Filezilla) debemos de instalar vsftdp.</p><br>
-            <p>Instale vsftdp con el siguiente comandos:</p><br>
-              <pre><code>sudo apt-get install vsftpd -y</code></pre><br>
-            <p>Edite el archivo de configuración:.</p><br>
-              <pre><code>sudo nano /etc/vsftpd.conf</code></pre><br>
-            <p>Y modifique y descomente lo siguiente</p><br>
-            <p><code>anonymous_enable=NO<br>
-            local_enable=YES<br>
-            write_enable=YES<br></code></p><br>
-            <p>Reiniciemos el servicio.</p><br>
-              <pre><code>sudo service vsftpd restart</code></pre><br>
-            <p>Y cambiemos el propietario a pi.</p><br>
-        		  <pre><code>sudo chown -R /var/www</code></pre>
-
-        	<h3>4º Instalar WordPress</h3>
-        		<p>Sitúese en la carpeta <b>/var/www/html/</b> cambie los privilegios de usuario "pi", borre todos los archivos y descargue el WordPress en ella.
-        			<pre><code>cd /var/www/html/
-              sudo chown pi: .
-              sudo rm *
-              wget http://wordpress.org/latest.tar.gz</code></pre><br>
-        		<p>Descomprímalo, mueva el contenido a la carpeta actual "html" y elimine la carpeta "wordpress":</p>
-        			<pre><code>tar xzf latest.tar.gz
-              mv wordpress/* .
-              rm -rf wordpress latest.tar.gz/</code></pre><br>
-            <p>Compruebe que ha descomprimido los archivos, realice un "ls":</p>
-              <pre><code>ls</code></pre><br>
-
-        	<h3>5º Crear una Base de Datos para WordPress</h3>
-        		<p>WordPress utiliza base de datos para su funcionamiento, créela con la contraseña utilizada en el 3º paso.
-        			<pre><code>mysql -uroot -p</code></pre><br>
-        		<p>Introduzca la contraseña y creé la base de datos:</p>
-        			<pre><code>mysql> create database wordpress;</code></pre><br>
-        		<p>Le mostrará: <b>"Query OK, 1 row affected (0.00 sec)" </b>para salir de "mysql>" teclee "Ctrl + D" y actualice el servidor</b> </p>
-        			<pre><code>sudo service apache2 restart</code></pre><br>
-
-        	<h3>6º Configurar WordPress</h3>
-            <p>Abra su navegador y introduzca http://suIPdirección (http://192.168.x.x).</p>
-            <p>Tendremos una página de Bienvenida a WordPress y nos invita a continuar pulsando el botón "Let's go!". Le aparecerá un formulario.</p>
-            <p>Rellene la siguientes campos:</p>
-              <pre><code>Database Name:      wordpress
-              User Name:          root
-              Password:           SU CONTRASEÑA (MySQL)
-              Database Host:      localhost
-              Table Prefix:       wp_</code></pre>
-            <p>Pulse el botón "Submit" Le mostrará un mensaje de error "Sorry, but I can't write the wp-config.php file", pero le da el código para hacerlo de forma manual</p>
-            <p><img src="./Worksheet - Build a LAMP Web Server with WordPress _ Raspberry Pi Learning Resources_files/wp-config.png" alt=""></p>
-            <p>Vuelva a la terminal para editar el archivo</p>
-              <code>nano wp-config.php</code>.
-            <p>Copie el texto, péguelo del archivo, guárdelo con "Ctrl + X", confirme con la tecla "Y" o "S" y finalmente teclee "Enter"</p>
-            <p>Ahora puede seguir con la instalación, pulse el botón "Run the install" y le aparecerá un formulario de Bienvenida en el que introducirá el nombre de su sitio, el usuario, una contraseña segura y su correo electrónico.</p>
-            <p>Dele al botón "Install WordPress" y ya puede comenzar su "WordPress"</p>
-            <img class="img-responsive img-centered" src="img/portfolio/raspberry-owncloud.png" alt="">
-            <p>Introduzca sus datos para acceder al interfaz de WordPress desde cualquier ordenador con "http://tuSitio.com/wp-admin.php"</p>
-            <h3>Permalinks amigables</h3>
-            <p>It's recommended that you change your permalink settings to make your URLs more friendly. To do this, log in to WordPress and go to the dashboard. Go to <code>Settings</code> then <code>Permalinks</code>. Select the <code>Post name</code> option and click <code>Save Changes</code>. After saving, you will be prompted to update your <code>.htaccess</code> file. You probably don't have one yet, so add one in <code>/var/www/html/</code> by typing <code>nano .htaccess</code>; note this is a hidden file, so it starts with a dot. Then paste in the contents provided:</p>
-              <pre><code>&lt;IfModule mod_rewrite.c&gt;
-              RewriteEngine On
-              RewriteBase /
-              RewriteRule ^index\.php$ - [L]
-              RewriteCond %{REQUEST_FILENAME} !-f
-              RewriteCond %{REQUEST_FILENAME} !-d
-              RewriteRule . /index.php [L]
-              &lt;/IfModule&gt;</code></pre>
 
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Salir </button>
                         </div>
