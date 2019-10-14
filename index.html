@@ -542,47 +542,46 @@
      	<li><a href="http://www.putty.org/">Putty </a></li>
      </ol> -->
 
-      <h3>Descripción</h3>
-      <br>
+        <h3>Descripción</h3>
+        <br>
 
-       	<p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
-          explicación de <strong>Open Source Hardware</strong>, consiste en compartir el desarrollo de
-          proyectos electrónicos de arquitectura abierta, permitiendo a otros usuarios
-          colaborar en su desarrollo, mejorando o añadiendo funcionalidades. </p>
-          <br>
-          <img class="img-responsive img-centered" src="img/portfolio/compartir.png" alt="">
-          <br>
-          <p>Un ejemplo son las impresoras 3D, los drones o robótica educativa donde lideran
-          sin duda el mercado. Estos proyectos evolucionan rápidamente gracias a la participación de
-          extensas comunidades.</p>
-          <br>
-          <img class="img-responsive img-centered" src="img/portfolio/robots.png" alt="">
-          <br>
-          <p>Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce.
-          Pero sin duda el <strong>Arduino Uno</strong> sigue siendo la mejor opción para comenzar
-          a crear los primeros proyectos, es económica, disponemos de extensa documenación,
-          y shield (extensiones) que añaden nuevas funcionalidades.</p>
-          <br>
-          <img class="img-responsive img-centered" src="img/portfolio/extension.png" alt="">
-          <br>
-          <p>Este es un Arduino Uno original con su protoboard.</p>
-          <br>
-          <img class="img-responsive img-centered" src="img/portfolio/arduino2.png" alt="">
-          <br>
-          <p><strong>¿Pero que és un Arduino Uno? </strong></p><p>Es una tarjeta electrónica
-          que funciona como un ordenador. La clave es su microchip el ATmega 328P,
-          un circuito integrado que dispone de memorias, un procesador
-          y pines de entradas y salidas.</p>
-          <br>
-          <img class="img-responsive img-centered" src="img/portfolio/atmega.png" alt="">
-          <br>
-          <p>El diseño de la tarjeta de Arduino Uno facilita acceder al microchip a
-          través de un puerto USB, alimentarlo con un conector de 5 a 12 voltios
-          y nos etiqueta sus pines.</p>
-          <br>
-          <img class="img-responsive img-centered" src="img/portfolio/pines.png" alt="">
-          <br>
-          <p>Continua con el siguiente tutorial</p>
+        <p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
+        explicación de <strong>Open Source Hardware</strong>, consiste en compartir el desarrollo de
+        proyectos electrónicos de arquitectura abierta, permitiendo a otros usuarios
+        colaborar en su desarrollo, mejorando o añadiendo funcionalidades. </p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/compartir.png" alt="">
+        <br>
+        <p>Un ejemplo son las impresoras 3D, los drones o robótica educativa donde lideran
+        sin duda el mercado. Estos proyectos evolucionan rápidamente gracias a la participación de
+        extensas comunidades.</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/robots.png" alt="">
+        <br>
+        <p>Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce.
+        Pero sin duda el <strong>Arduino Uno</strong> sigue siendo la mejor opción para comenzar
+        a crear los primeros proyectos, es económica, disponemos de extensa documenación,
+        y shield (extensiones) que añaden nuevas funcionalidades.</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/extension.png" alt="">          <br>
+        <p>Este es un Arduino Uno original con su protoboard.</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/arduino2.png" alt="">
+        <br>
+        <p><strong>¿Pero que és un Arduino Uno? </strong></p><p>Es una tarjeta electrónica
+        que funciona como un ordenador. La clave es su microchip el ATmega 328P,
+        un circuito integrado que dispone de memorias, un procesador
+        y pines de entradas y salidas.</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/atmega.png" alt="">
+        <br>
+        <p>El diseño de la tarjeta de Arduino Uno facilita acceder al microchip a
+        través de un puerto USB, alimentarlo con un conector de 5 a 12 voltios
+        y nos etiqueta sus pines.</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/pines.png" alt="">
+        <br>
+        <p>Continua con el siguiente tutorial</p>
 
 
 
@@ -679,105 +678,42 @@
                             <img class="img-responsive img-centered" src="img/portfolio/arduinoUNO.png" alt="">
                             <br>
 
-        <h2>Instale "ownCloud" en Raspberry Pi</h2><br>
-          <p>Nos dirigiremos a la página <a href="https://software.opensuse.org/download.html?project=isv:ownCloud:community&package=owncloud">opensuse.org</a> y elegimos Debian.</p><br>
-
-        <h2>Instalación automatizada de OwnCloud</h2>
-          <p>Obtengamos privilegios de super usuario:</p><br>
-            <pre><code>sudo su</code></pre><br>
-          <p>Añadimos la lista de los repositorios necesarios:</p>
-            <pre><code>echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_8.0/ /' >> /etc/apt/sources.list.d/owncloud.list</code></pre><br>
-          <p>Actualizemos los repositorios:</p><br>
-            <pre><code>apt-get update</code></pre><br>
-          <p>Instalemos OwnCloud:</p><br>
-            <pre><code>apt-get install owncloud</code></pre><br>
-        <h3>Conectar un disco duro externo para tener mas capacidad en OwnCloud</h3>
-        <p>Para tener mas capacidad de almacenamiento en la Rasberry yo utilizo un disco duro externo, ya que la Raspberry utiliza una tarjeta microSD para instalar el sistema operativo.</p><br>
-        <p>Para conectar un disco externo en la raspberry, yo tengo un HUB de usb con alimentación propia ya que directamente en la Raspberry suele dar problemas. En la línea de comandos comenzaremos a escribir:<p><br>
-          <pre><code>lsusb</code></pre><br>
-        <p>Nos muestra la lista de los dispositivos usb que tenemos conectados</p><br>
-        <p><code>Bus 001 Device 007: ID 1a40:0101 Terminus Technology Inc. 4-Port HUB
-				Bus 001 Device 006: ID 1058:0748 Western Digital Technologies, Inc. My Passport 1TB USB 3.0
-				Bus 001 Device 005: ID 1058:10b8 Western Digital Technologies, Inc
-				</code></p><br>
-        <p>Con este otro comando identificamos la unidad:</p><br>
-          <pre><code>sudo fdisk -l</code></pre><br>
-        <p>Nos muestra algo así:</p><br>
-        <p><code>Device         Boot  Start     End Sectors  Size Id Type
-				Units: sectors of 1 * 512 = 512 bytes
-				Sector size (logical/physical): 512 bytes / 512 bytes
-				Disk identifier: 0xc12da75b
-
-				Device     Boot Start     End Sectors  Size Id Type
-				/dev/sda1        2048 4030463 4028416  1.9G 83 Linux
-				The thumb drive is the device /dev/sda and the partition within it is /dev/sda1. We know this because fdisk reports the size as 2GB (“2063 MB”), and my thumb drive is the only 2GB drive connected to the system.</code><p><br>
-        <p>Ahora formatearemos el disco. El tipo de formato recomedado para las raspberry (Linux) es ext4.</p><br>
-          <pre><code>sudo mkfs -t ext4 /dev/sda1</code></pre><br>
-        <p>*Si te dice que está montado lo desmontaremos:</p><br>
-          <pre><code>sudo umount /dev/sda1</code></pre><br>
-        <p>Ya formateado creo un directorio:</p><br>
-          <pre><code>sudo mkdir /disk</code></pre><br>
-        <p>Ahora monto el disco externo al directorio:</p><br>
-          <pre><code>sudo mount /dev/sda1 /disk</code></pre><br>
-        <p>Lo verificamos.</p><br>
-          <pre><code>df</code></pre><br>
-        <p>Veremos algo así.</p>
-        <p><code>/dev/sda1 1949776 2952 1829732 1% /disk</code></p><br>
-        <p>Creemos ahora una carpeta para Owncloud.</p><br>
-          <pre><code>sudo mkdir /disk/owncloud</code></pre><br>
-        <p>Y le otrogamos privilegios de propietario:</p><br>
-          <pre><code>sudo chown -R www-data:www-data /disk/owncloud</code></pre><br>
-        <p>Podremos ahora con la "nuestraIP/owncloud" iniciar nuestra nube. Introducimos un nombre de usuario y una contraseña y modificamos el directorio data a "disk/owncloud" que hemos creado.</p>
-
-      <h3>Otra alternativa de inicio.</h3>
-        <p>Iniciamos la carpeta por defecto de owncloud, para ello debemos asignarle primero los privilegios de propietario:</p><br>
-          <pre><code>sudo chown -R www-data:www-data var/www/owncloud</code></pre><br>
-        <p>Una vez iniciado owncloud realizamos el cambio de directorio.<p><br>
-        <p>Cambiemos a la carpeta de "owncloud" donde se encuentra la carpeta "data":</p><br>
-          <pre><code>cd /var/www/html/owncloud</code></pre><br>
-        <p>Y luego copiamos "data" a la carpeta del del disco</p><br>
-          <pre><code>sudo cp -rp data /disk/owncloud/data</code></pre><br>
-        <p>Testeamos la copia de los datos.</p><br
-          <pre><code>sudo ls -l /disk/owncloud/data</code></pre><br>
-        <p>Mostrará algo como esto.</p><br>
-        <p><code>-rw-r--r-- 1 www-data www-data     0 Feb 16 11:23 index.html
-				drwxr-xr-x 4 www-data www-data  4096 Feb 16 11:27 fred
-				drwxr-xr-x 2 www-data www-data  4096 Feb 16 11:23 updater_backup</code><p><br>
-        <p>Ahora necesitamos reconfigurar owncloud editando "config.php"</p><br>
-          <pre><code>sudo nano /var/www/owncloud/config/config.php</code></pre><br>
-        <p>Y Cambiamos:</p><br>
-        <p><code>'datadirectory' => '/var/www/owncloud/data'
-            <br>por:<br>
-            'datadirectory' => '/disk/owncloud/data'</code><p><br>
-        <p>Y salvamos el archivo.</p><br>
-        <p>Tenemos que cambiar los privilegios del propietario del disco.</p><br>
-          <pre><code>sudo chown -R www-data:www-data /disk/owncloud/data</code></pre><br>
-        <p>Si deseamos acceder a la carpeta data debemos modificar sus privilegios</p><br>
-          <pre><code>sudo chmod 777 -R /disk/owncloud/data</code></pre>
-
-      <h3>Modificar los límites de subida y bajada</h3>
-        <p>Editar el archivo /etc/php5/apache2/php.ini</p><br>
-		      <pre><code>sudo nano /etc/php5/apache2/php.ini</code></pre><br>
-		    <p>Cambia estas dos líneas:</p><br>
-		    <p><code>	post_max_size = 8M
-				upload_max_filesize = 2M
-
-				por:
-
-				post_max_size = 2000M
-				upload_max_filesize = 2000M</code></p><br>
-
-		    <p>Cambiar el límite de owncloud</p><br>
-          <pre><code>sudo nano /var/www/owncloud/.htaccess</code></pre><br>
-		    <p><code>upload_max_filesize
-
-				por:
-
-			  limited 2000M</code></p><br>
+        <h2>Sensores y actuadores</h2><br>
+        <p>Sensores</p>
+        <br>
+        <p>Un sensor es un dispositivo capaz de detectar magnitudes físicas o químicas, por ejemplo
+        la temperatura, distancia, intensidad lumínica, aceleración, inclinación… </p>
+        <br>
+        <p>En arduino se configuran siempre como entrada, nos proporciona información que procesaremos
+        para dar una respuesta.</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/robots.png" alt="">
+        <br>
+        <p>En róbotica educativa se utilizan mucho los sensores de y de ultrasonidos (HC-SR04)
+        infrarrojos(TCRT5000) para evitar obstáculos y seguir líneas. Otros muy utilizados
+        en kits de iniciación son el de temperatura (TMP36), temperatura y humedad (DHT11),
+        fotoresistencia LDR.</p>
+        <br>
+        <p>Actuadores</p>
+        <br>
+        <p>Los actuadores son dispositivos electrónicos que pueden afectar el entorno
+        transformando un valor digital en un movimiento mecánico, la producción de sonido,
+        un cambio de temperatura, o de intensidad de la luz.</p>
+        <p>En arduino los combinaremos con los sensores para dar algún tipo de respuesta
+        con la información que nos proporcionan. Un ejemplo sería con los sensores de
+        ultrasonidos según la distancia que deseemos retroceda y gire nuestro robot.</p>
+        <br>
+        <img class="img-responsive img-centered" src="img/portfolio/robots.png" alt="">
+        <br>
+        <p>En robótica educativa los que más solemos utilizar son los motores, los servos,
+        buzzer y leds</p>
 
 
 
-        <p>Listo!</p>
+
+
+
+
                              <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Salir </button>
                         </div>
                     </div>
