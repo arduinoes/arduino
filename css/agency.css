@@ -125,9 +125,8 @@ h4,h5 {
 
 .navbar-default
 .navbar-brand{
-	color:#62aeb2;
-	font-family:"VeraMoBd","Helvetica Neue",Helvetica,Arial,cursive}
-
+color:#62aeb2;
+font-family: "PT Sans Narrow","Helvetica Neue",Helvetica,Arial,cursive}
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
