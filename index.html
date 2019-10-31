@@ -198,8 +198,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>Ejemplo 6</bl></h4>
-            <p class="text-muted"><or>Ejem</or></p>
+            <h4><bl>Analógico & PWM</bl></h4>
+            <p class="text-muted"><or>Entrada y Salida</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -913,41 +913,86 @@
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase"><bl>6</bl></h2>
+                <h2 class="text-uppercase"><bl>Analógico & PWM</bl></h2>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 666666666666666666666666666666666666666666666666666666666666666666666666666 -->
-                <h2><or>6</or></h2>
+                <h2><or>Potenciómetro y Led</or></h2>
                 <br>
                 <div  class="text-left">
-                  <h3><or>Sensores</or></h3>
+                  <h3><or>Potenciómetro</or></h3>
                   <br>
-                  <p>Un sensor es un dispositivo con alguna propiedad eléctrica
-                  capaz de detectar magnitudes físicas o químicas, por ejemplo,
-                  la temperatura, una distancia, intensidad lumínica, aceleración, inclinación… </p>
-                  <br>
-                  <p>En arduino se configuran siempre como entrada y nos proporciona información que procesaremos
-                  generalmente para dar una respuesta a un actuador/es.</p>
-                  <br>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
-                  <br>
-                  <p>En róbotica educativa se utilizan mucho los sensores de ultrasonidos (HC-SR04)
-                  para evitar obstáculos y los infrarrojos(TCRT5000) para seguir líneas. Otros muy utilizados
-                  en kits de iniciación son el de temperatura (TMP36), temperatura y humedad (DHT11) y
-                  fotoresistencia LDR.</p>
-                  <br>
-                  <h3><or>Actuadores</h3></p>
-                  <br>
-                  <p>Por otro lado los actuadores son la respuesta al procesamiento de la programación
-                  transformando un valor digital o seudoanalógico (PWM) en un movimiento mecánico (motores, servos ...),
-                  la producción de sonido (buzzers)...</p>
-                  <p>En arduino los programaremos junto con sensores para dar algún tipo de respuesta
-                  con la información que nos proporcionan, por ejemplo, con los sensores de
-                  ultrasonidos podríamos detectar un obstáculo y hacer que retroceda y gire robot para salvarlo.</p>
-                  <br>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
-                  <br>
-                  <p>En robótica educativa los que más solemos utilizar son los motores, los servos,
-                  buzzer y leds</p>
+                  <p>Leerémos el potenciómetro en los pines analógicos (desde A0 hasta A5)
+                  recordemos que estos pines son capaces de diferenciar voltajes 0,004 voltios, 5v /1024 (10 bits)
+                es decir, valores de 0 a 1023.</p>
+                <pre>
+                    <code>
+  const int LedPin = 3;  // led conectado al pin 3
+  const int PotPin = 0;  // el pot esta conectado al pin A0
+
+  int valor;  //variable del potenciometro de 0 a 1023
+
+  void setup ()  {
+    pinMode (LedPin, OUTPUT);  // declaramos el led como salida
+    // Los pines analógicos no hace falta declararlos
+
+    //Inicializamos la comunicación serial
+    Serial.begin(9600);
+
+    //Escribimos por el monitor serie mensaje de inicio
+    Serial.println("Inicio de sketch valores del potenciometro");
+  }
+
+  void loop (){
+
+    // leemos del pin A0 valor
+    valor = analogRead(PotPin);
+
+    //Imprimimos por el monitor serie
+    Serial.print("El valor es = ");
+    Serial.println(valor);
+    delay(1000);
+
+    // escribimos en la salida PWM
+    // dividiendo el valor analógico entre 4 (pasando de 10 a 8 bists)
+    analogWrite(LedPin, 4/valor);
+  }
+
+                  </code>
+                </pre>
+                <h3><or>Descodificando</or></h3>
+                <br>
+                <p><or>Variables </or> en arduino veremos varias formas de asignar el número de un pin a un sensor/actuador.</p>
+                <p>Vayamos a la página oficial de arduino y veamos lo que nos dice sobre <a href="https://www.arduino.cc/reference/en/language/structure/further-syntax/define/">#define</a></p>
+                <br>
+                <p><or>Sintaxis</or></p>
+                <p>#define nombreConstante valor</p>
+                <p><or>Codigo de ejemplo</or></p>
+                <p>#define LedPin 3</p>
+                <p>// asigna el pin 3 al Led</p>
+                <p>
+                  <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/">const</a>
+                </p>
+                <p>En este ejemplo encontramos esta variable (contradictorio por ser una constante) que suele ser la mas habitual:</p>
+                <p><or>Sintaxis</or></p>
+                <p>const int nombreConstante = valor;</p>
+                <p><or>Código de ejemplo</or></p>
+                <p>const int LedPin = 3;</p>
+                <br>
+                <p>Por último la otra forma de encontrarla es con una variable tipo:</p>
+                <br>
+                <p>
+                  <a href="https://www.arduino.cc/reference/en/language/variables/data-types/int/">int</a>
+                </p>
+                <p><or>Sintaxis</or></p>
+                <p>int nombreVariable = valor;</p>
+                <p><or>Código de ejemplo</or></p>
+                <p>int LedPin = 3;</p>
+                <br>
+                <p><bl>Funciones </bl>veamos ahora las funciones</p>
+                <p>
+                  <a href="https://www.arduino.cc/reference/en/language/structure/sketch/setup/">setup()</a>
+                </p>
+
                 </div>
                 <!-- 6666666666666666666666666666666666666666666666666666666666666666666666666666666 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
