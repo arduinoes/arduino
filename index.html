@@ -212,8 +212,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>7</bl></h4>
-            <p class="text-muted"><or>7</or></p>
+            <h4><bl>Ultrasonidos</bl></h4>
+            <p class="text-muted"><or>Sensor</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -226,8 +226,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>8</bl></h4>
-            <p class="text-muted"><or>8</or></p>
+            <h4><bl>Infrarrojos</bl></h4>
+            <p class="text-muted"><or>Sensor</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -240,8 +240,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>9</bl></h4>
-            <p class="text-muted"><or>8</or></p>
+            <h4><bl>Temperatura</bl></h4>
+            <p class="text-muted"><or>Sensor</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -254,8 +254,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>10</bl></h4>
-            <p class="text-muted"><or>10</or></p>
+            <h4><bl>Motor</bl></h4>
+            <p class="text-muted"><or>Actuador</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -268,8 +268,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>11</bl></h4>
-            <p class="text-muted"><or>11</or></p>
+            <h4><bl>Servo</bl></h4>
+            <p class="text-muted"><or>Actuador</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -282,8 +282,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>12</bl></h4>
-            <p class="text-muted"><or>12</or></p>
+            <h4><bl>Buzzer</bl></h4>
+            <p class="text-muted"><or>Actuador</or></p>
           </div>
         </div>
       </div>
@@ -949,7 +949,7 @@
   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(LedPin, valor/<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Escribimos en el potenciómetro salida PWM.</span>
   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esta es una forma sencilla de pasar de 10 bits a 8 bits dividir entre 4.</span>
 }</pre>
-                }
+                <br>
                 <h3><or>Descodificando</or></h3>
                 <br>
                 <p><or>Variables </or> en arduino veremos varias formas de asignar el número de un pin a un sensor/actuador.</p>
@@ -957,22 +957,26 @@
                 <br>
                 <p><a href="https://www.arduino.cc/reference/en/language/structure/further-syntax/define/" target="_blank">#define</a></p>
                 <br>
-                <div class="mx-auto" style="padding-left: 40px;">
+                <div style="padding-left: 40px;">
                 <p><or>Sintaxis</or></p>
-                <p>#define nombreConstante valor</p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">define</span> nombreConstante valor</span></pre>
                 <p><or>Codigo de ejemplo</or></p>
-                <p>#define LedPin 3</p>
-                <p>// asigna el pin 3 al Led</p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">define</span> LedPin <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span></span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna al Led el Pin 11</span></pre>
                 </div>
+                <br>
                 <p>
                   <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/" target="_blank">const</a>
                 </p>
                 <p>En este ejemplo encontramos esta variable (contradictorio por ser una constante) que suele ser la mas habitual:</p>
                 <div class="mx-auto" style="padding-left: 40px;">
                 <p><or>Sintaxis</or></p>
-                <p>const int nombreConstante = valor;</p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> NombreActuador/Sensor = PinNumero;
+</pre>
                 <p><or>Código de ejemplo</or></p>
-                <p>const int LedPin = 3;</p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna al Led el Pin 11</span>
+</pre>
                 </div>
                 <br>
                 <p>Por último la otra forma de encontrarla es con una variable tipo:</p>
@@ -982,9 +986,12 @@
                 </p>
                 <div class="mx-auto" style="padding-left: 40px;">
                 <p><or>Sintaxis</or></p>
-                <p>int nombreVariable = valor;</p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-type" style="color: rgb(136, 0, 0);">int</span> NombreActuador/Sensor = PinNumero;
+</pre>
                 <p><or>Código de ejemplo</or></p>
-                <p>int LedPin = 3;</p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-type" style="color: rgb(136, 0, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna al Led el Pin 11</span>
+</pre>
                 </div>
                 <br>
                 <p><bl>Funciones </bl>veamos ahora las funciones</p>
@@ -992,20 +999,34 @@
                   <a href="https://www.arduino.cc/reference/en/language/structure/sketch/setup/" target="_blank">setup()</a>
                 </p>
                 <br>
+                <div style="padding-left: 40px;">
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">setup</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// put your setup code here, to run once:</span>
+
+}</pre>
+                <br>
                 <p>
                   La función setup () se llama cuando comienza un sketch. Lo usamos para inicializar variables,
                   modos de pin, comenzar a usar bibliotecas, etc. La función setup () solo se ejecuta una vez,
                   después de cada encendido o reinicio de la placa Arduino.
                 </p>
+              </div>
                 <p>
                   <a href="https://www.arduino.cc/reference/en/language/structure/sketch/loop/" target="_blank">loop()</a>
                 </p>
                 <br>
+                <div style="padding-left: 40px;">
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">loop</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// put your main code here, to run repeatedly:</span>
+
+}</pre>
+                <br>
                 <p>
                 Después de crear una función setup (), que inicializa y establece los valores iniciales,
                 la función loop () hace exactamente lo que sugiere su nombre y realiza bucles consecutivos,
-                permitiendo que su programa que a los cambios (sensores) responda (actuadores).
+                permitiendo actualizar los cambios (sensores) y las respuestas (actuadores) a la programación introducida.
                 </p>
+              </div>
                 <br>
 
 
@@ -1035,41 +1056,53 @@
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase"><bl>7</bl></h2>
+                <h2 class="text-uppercase"><bl>Ultrasonidos</bl></h2>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 777777777777777777777777777777777777777777777777777777777777777777777777777 -->
-                <h2><or>Conceptos Básicos II</or></h2>
                 <br>
                 <div  class="text-left">
                   <h3><or>Sensores</or></h3>
                   <br>
-                  <p>Un sensor es un dispositivo con alguna propiedad eléctrica
-                  capaz de detectar magnitudes físicas o químicas, por ejemplo,
-                  la temperatura, una distancia, intensidad lumínica, aceleración, inclinación… </p>
+                  <p>Primero, creamos variables para el "disparador" y el pin de "escucha" llamados  TriggerPin y  EchoPin ,
+                    respectivamente. El pin de disparo lo conectamos al Pin digital 11 ,
+                    y los pin de escucha lo conectamos al Pin digital 12</p>
                   <br>
-                  <p>En arduino se configuran siempre como entrada y nos proporciona información que procesaremos
-                  generalmente para dar una respuesta a un actuador/es.</p>
+                  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> EchoPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>;      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el pin de escucha</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> TriggerPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el pin de disparo</span></pre>
                   <br>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
+                  <p>También creamos 2 variables de tipo long, duracion  y  distanciaCm. La variable de duración es el
+                    tiempo entre la emisión (disparo) y la recepción (escucha) de la señal. La  variable distanciaCm
+                    guardará la distancia en centímetros.</p>
                   <br>
-                  <p>En róbotica educativa se utilizan mucho los sensores de ultrasonidos (HC-SR04)
-                  para evitar obstáculos y los infrarrojos(TCRT5000) para seguir líneas. Otros muy utilizados
-                  en kits de iniciación son el de temperatura (TMP36), temperatura y humedad (DHT11) y
-                  fotoresistencia LDR.</p>
-                  <br>
-                  <h3><or>Actuadores</h3></p>
-                  <br>
-                  <p>Por otro lado los actuadores son la respuesta al procesamiento de la programación
-                  transformando un valor digital o seudoanalógico (PWM) en un movimiento mecánico (motores, servos ...),
-                  la producción de sonido (buzzers)...</p>
-                  <p>En arduino los programaremos junto con sensores para dar algún tipo de respuesta
-                  con la información que nos proporcionan, por ejemplo, con los sensores de
-                  ultrasonidos podríamos detectar un obstáculo y hacer que retroceda y gire robot para salvarlo.</p>
+                  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">long</span> duracion, distanciaCm;           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos variables en 0</span></pre>
                   <br>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
                   <br>
-                  <p>En robótica educativa los que más solemos utilizar son los motores, los servos,
-                  buzzer y leds</p>
+                  <p>En void setup(), inicializamos el puerto serie a una velocidad en baudios de 9600 y
+                    configuramos el TriggerPin como salida y el EchoPin como entrada.</p>
+                  <br>
+                  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos la comunicación serial</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// El disparo es de salida</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// La escucha es de entrada</span>
+}</pre>
+                  <p>En void loop(), disparamos el sensor enviando un pulso HIGH de 10 microsegundos. Pero, antes de eso,
+                    dele un pulso LOW corto para asegurarse de obtener un pulso ALTO limpio</p>
+                    <br>
+                    <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">int</span> ping(<span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin, <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin) { <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Función ping, parámetros disparo/escucha</span>
+
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso(LOW)</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>);            <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 4 microsegundos</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el pulso (HIGH)</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>);           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 10 microsegundos</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso</span></pre>
+                  <br>
+                  <p>Ahora ya podemos escuchar el disparo del sensor: un pulso HIGH cuya duración es
+                    en microsegundos el tiempo entre el disparo hasta la escucha el pulso.</p>
+                    <p>
+                      Finalmente, solo necesitamos convertir la duración en una distancia. Podemos calcular la
+                      distancia usando la siguiente fórmula (La velocidad del sonido es: 343 m/s):
+                    </p>
                 </div>
                 <!-- 7777777777777777777777777777777777777777777777777777777777777777777777777777777777777 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
