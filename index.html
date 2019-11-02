@@ -924,74 +924,90 @@
                   <p>Leerémos el potenciómetro en los pines analógicos (desde A0 hasta A5)
                   recordemos que estos pines son capaces de diferenciar voltajes 0,004 voltios, 5v /1024 (10 bits)
                 es decir, valores de 0 a 1023.</p>
-                <pre>
-                    <code>
-  const int LedPin = 3;  // led conectado al pin 3
-  const int PotPin = 0;  // el pot esta conectado al pin A0
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sketch para comprender la entrada analógica (10 bits) y la salida PWM (byte)</span>
 
-  int valor;  //variable del potenciometro de 0 a 1023
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el Led al pin ~11(PWM) byte de 0 a 255.</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> PotPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el potenciómetro al pin A0 (analoógico) de 0 a 1023.</span>
 
-  void setup ()  {
-    pinMode (LedPin, OUTPUT);  // declaramos el led como salida
-    // Los pines analógicos no hace falta declararlos
+<span class="hljs-keyword" style="font-weight: 700;">int</span> valor;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">//variable del potenciometro, guardará un valor entre 0 y 1023. </span>
 
-    //Inicializamos la comunicación serial
-    Serial.begin(9600);
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span> ()  {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span> (LedPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Declaramos el LedPin como salida (PWM).</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span> (PotPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Los pines analógicos no hace falta declararlos.</span>
 
-    //Escribimos por el monitor serie mensaje de inicio
-    Serial.println("Inicio de sketch valores del potenciometro");
-  }
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">//Inicia la comunicación serial simplemente.</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Valores del potenciometro"</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime en pantalla el texto.</span>
+}
 
-  void loop (){
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span> (){
 
-    // leemos del pin A0 valor
-    valor = analogRead(PotPin);
+  valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogRead</span>(PotPin);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Guardamos el valor del pin A0 en la variable.</span>
 
-    //Imprimimos por el monitor serie
-    Serial.print("El valor es = ");
-    Serial.println(valor);
-    delay(1000);
-
-    // escribimos en la salida PWM
-    // dividiendo el valor analógico entre 4 (pasando de 10 a 8 bists)
-    analogWrite(LedPin, 4/valor);
-  }
-
-                  </code>
-                </pre>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"El valor es = "</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime el texto.</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(valor);          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime el valor.</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>);                      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Tiempo de espera para actualizar el valor.</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(LedPin, valor/<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Escribimos en el potenciómetro salida PWM.</span>
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esta es una forma sencilla de pasar de 10 bits a 8 bits dividir entre 4.</span>
+}</pre>
+                }
                 <h3><or>Descodificando</or></h3>
                 <br>
                 <p><or>Variables </or> en arduino veremos varias formas de asignar el número de un pin a un sensor/actuador.</p>
-                <p>Vayamos a la página oficial de arduino y veamos lo que nos dice sobre <a href="https://www.arduino.cc/reference/en/language/structure/further-syntax/define/">#define</a></p>
+                <p>Vayamos a la página oficial de arduino y veamos lo que nos dice sobre:</p>
                 <br>
+                <p><a href="https://www.arduino.cc/reference/en/language/structure/further-syntax/define/" target="_blank">#define</a></p>
+                <br>
+                <div class="mx-auto" style="padding-left: 40px;">
                 <p><or>Sintaxis</or></p>
                 <p>#define nombreConstante valor</p>
                 <p><or>Codigo de ejemplo</or></p>
                 <p>#define LedPin 3</p>
                 <p>// asigna el pin 3 al Led</p>
+                </div>
                 <p>
-                  <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/">const</a>
+                  <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/" target="_blank">const</a>
                 </p>
                 <p>En este ejemplo encontramos esta variable (contradictorio por ser una constante) que suele ser la mas habitual:</p>
+                <div class="mx-auto" style="padding-left: 40px;">
                 <p><or>Sintaxis</or></p>
                 <p>const int nombreConstante = valor;</p>
                 <p><or>Código de ejemplo</or></p>
                 <p>const int LedPin = 3;</p>
+                </div>
                 <br>
                 <p>Por último la otra forma de encontrarla es con una variable tipo:</p>
                 <br>
                 <p>
-                  <a href="https://www.arduino.cc/reference/en/language/variables/data-types/int/">int</a>
+                  <a href="https://www.arduino.cc/reference/en/language/variables/data-types/int/" target="_blank">int</a>
                 </p>
+                <div class="mx-auto" style="padding-left: 40px;">
                 <p><or>Sintaxis</or></p>
                 <p>int nombreVariable = valor;</p>
                 <p><or>Código de ejemplo</or></p>
                 <p>int LedPin = 3;</p>
+                </div>
                 <br>
                 <p><bl>Funciones </bl>veamos ahora las funciones</p>
                 <p>
-                  <a href="https://www.arduino.cc/reference/en/language/structure/sketch/setup/">setup()</a>
+                  <a href="https://www.arduino.cc/reference/en/language/structure/sketch/setup/" target="_blank">setup()</a>
                 </p>
+                <br>
+                <p>
+                  La función setup () se llama cuando comienza un sketch. Lo usamos para inicializar variables,
+                  modos de pin, comenzar a usar bibliotecas, etc. La función setup () solo se ejecuta una vez,
+                  después de cada encendido o reinicio de la placa Arduino.
+                </p>
+                <p>
+                  <a href="https://www.arduino.cc/reference/en/language/structure/sketch/loop/" target="_blank">loop()</a>
+                </p>
+                <br>
+                <p>
+                Después de crear una función setup (), que inicializa y establece los valores iniciales,
+                la función loop () hace exactamente lo que sugiere su nombre y realiza bucles consecutivos,
+                permitiendo que su programa que a los cambios (sensores) responda (actuadores).
+                </p>
+                <br>
+
 
                 </div>
                 <!-- 6666666666666666666666666666666666666666666666666666666666666666666666666666666 -->
