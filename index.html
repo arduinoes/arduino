@@ -1063,22 +1063,21 @@
                 <div  class="text-left">
                   <h3><or>Sensores</or></h3>
                   <br>
-                  <p>Primero, creamos variables para el "disparador" y el pin de "escucha" llamados  TriggerPin y  EchoPin ,
-                    respectivamente. El pin de disparo lo conectamos al Pin digital 11 ,
-                    y los pin de escucha lo conectamos al Pin digital 12</p>
+                  <p>Primero, creamos 2 variables para el pin "disparador" y el pin de "escucha" llamados  TriggerPin y EchoPin ,
+                    respectivamente. El pin de disparo lo conectamos al Pin digital 12 ,
+                    y los pin de escucha lo conectamos al Pin digital 13.</p>
                   <br>
-                  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> EchoPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>;      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el pin de escucha</span>
-<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> TriggerPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el pin de disparo</span></pre>
+                  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> TriggerPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">12</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el pin de disparo</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> EchoPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>;      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el pin de escucha</span></pre>
                   <br>
                   <p>También creamos 2 variables de tipo long, duracion  y  distanciaCm. La variable de duración es el
-                    tiempo entre la emisión (disparo) y la recepción (escucha) de la señal. La  variable distanciaCm
+                    tiempo entre la emisión (disparo) y la recepción (escucha) del pulso. La  variable distanciaCm
                     guardará la distancia en centímetros.</p>
                   <br>
                   <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">long</span> duracion, distanciaCm;           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos variables en 0</span></pre>
+
                   <br>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
-                  <br>
-                  <p>En void setup(), inicializamos el puerto serie a una velocidad en baudios de 9600 y
+                  <p>En <or>void setup()</or>, inicializamos el puerto serie a una velocidad en baudios de 9600 y
                     configuramos el TriggerPin como salida y el EchoPin como entrada.</p>
                   <br>
                   <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
@@ -1086,8 +1085,9 @@
    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// El disparo es de salida</span>
    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// La escucha es de entrada</span>
 }</pre>
-                  <p>En void loop(), disparamos el sensor enviando un pulso HIGH de 10 microsegundos. Pero, antes de eso,
-                    dele un pulso LOW corto para asegurarse de obtener un pulso ALTO limpio</p>
+                  <br>
+                  <p>En <or>void loop()</or>, disparamos el sensor enviando un pulso HIGH de 10 microsegundos. Pero, antes de eso,
+                    le damos un pulso LOW corto para asegurarse de obtener un pulso ALTO limpio</p>
                     <br>
                     <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">int</span> ping(<span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin, <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin) { <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Función ping, parámetros disparo/escucha</span>
 
@@ -1099,11 +1099,67 @@
                   <br>
                   <p>Ahora ya podemos escuchar el disparo del sensor: un pulso HIGH cuya duración es
                     en microsegundos el tiempo entre el disparo hasta la escucha el pulso.</p>
+                  <br>
+                  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">duracion = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pulseIn</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">//medimos el tiempo entre el disparo y la escucha pulsos</span></pre>
+                  <br>
+                  <p><a href="https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/" target="_blank">pulseIn()</a></p>
+                  <br>
+                  <p>
+                  Lee un pulso (ya sea HIGH o LOW) en un pin. Por ejemplo, si el valor es HIGH, pulseIn()
+                  espera a que el pin pase de LOW a HIGH, comienza a cronometrar, luego espera a que el pin
+                  se vaya LOW y detiene el cronometraje. Devuelve la duración del pulso en microsegundos o
+                  se da por vencido y devuelve 0 si no se recibió un pulso completo dentro del tiempo de espera.
+                  El tiempo de esta función se ha determinado empíricamente y probablemente mostrará errores en
+                  pulsos más largos. Funciona en pulsos de 10 microsegundos a 3 minutos de duración.
+                  </p>
                     <p>
                       Finalmente, solo necesitamos convertir la duración en una distancia. Podemos calcular la
-                      distancia usando la siguiente fórmula (La velocidad del sonido es: 343 m/s):
+                      distancia usando la siguiente fórmula (La velocidad del sonido es: 343 m/s).</p>
+                  <br>
+                  <img class="img-fluid d-block mx-auto" src="img/Ultrasonidos/formulaSonido.png" alt="">
+                  <br>
                     </p>
+                    <br>
+                    <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">distanciaCm = duracion * <span class="hljs-number" style="color: rgb(136, 0, 0);">10</span> <span class="hljs-regexp" style="color: rgb(188, 96, 96);">/ 292/</span> <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">//convertimos a distancia, en cm</span>
+   <span class="hljs-keyword" style="font-weight: 700;">return</span> distanciaCm;
+}</pre>
+                <br>
+                <h3>Código completo</h3>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">12</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el pin de disparo</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>;      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el pin de escucha</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">long</span> duracion, distanciaCm;           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos variables en 0</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos la comunicación serial</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// El disparo es de salida</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// La escucha es de entrada</span>
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+   <span class="hljs-keyword" style="font-weight: 700;">int</span> cm = ping(TriggerPin, EchoPin);
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Distancia: "</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime el texto</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(cm);          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// </span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);                 <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Espera 1 segundo para una nueva lectura</span>
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">int</span> ping(<span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin, <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin) { <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Función ping, parámetros disparo/escucha</span>
+
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso(LOW)</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>);            <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 4 microsegundos</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el pulso (HIGH)</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>);           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 10 microsegundos</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso</span>
+
+   duracion = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pulseIn</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">//medimos el tiempo entre el disparo y la escucha pulsos</span>
+
+   distanciaCm = duracion * <span class="hljs-number" style="color: rgb(136, 0, 0);">10</span> / <span class="hljs-number" style="color: rgb(136, 0, 0);">292</span>/ <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">//convertimos a distancia, en cm</span>
+   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">return</span> distanciaCm;
+}</pre>
+
                 </div>
+                <br>
                 <!-- 7777777777777777777777777777777777777777777777777777777777777777777777777777777777777 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
