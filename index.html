@@ -171,7 +171,7 @@
           </a>
           <div class="portfolio-caption">
             <h4><bl>Arduino IDE</bl></h4>
-            <p class="text-muted"><or>Entorno de Desarrollo</or></p>
+            <p class="text-muted"><or>Mi Primer Sketch</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -184,8 +184,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>Blink-Hola Mundo</bl></h4>
-            <p class="text-muted"><or>Primer Sketch</or></p>
+            <h4><bl>Digitales</bl></h4>
+            <p class="text-muted"><or>Entradas & Salidas</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -198,8 +198,8 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>Analógico & PWM</bl></h4>
-            <p class="text-muted"><or>Entrada y Salida</or></p>
+            <h4><bl>Analógicas & PWM</bl></h4>
+            <p class="text-muted"><or>Entradas & Salidas</or></p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -209,7 +209,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Sensores/Ultrasonidos.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Ultrasonidos</bl></h4>
@@ -223,7 +223,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Sensores/Infrarrojos.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Infrarrojos</bl></h4>
@@ -237,7 +237,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Sensores/Temperatura.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Temperatura</bl></h4>
@@ -800,43 +800,126 @@
                 <h2 class="text-uppercase"><bl>Arduino IDE</bl></h2>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 333333333333333333333333333333333333333333333333333333333333333333333333333333 -->
-                <h2><or>Entorno Gráfico de Desarrollo</or></h2>
+                <h2><or>Blink Mi Primer Sketch</or></h2>
                 <br>
                 <div  class="text-left">
                   <h3><or>Instalación</or></h3>
                   <br>
                   <p><a href="https://www.arduino.cc/en/main/software">Arduino IDE Software </a> descargaremos
                     la aplicación (lo tenemos en varias plataformas) para realizar nuestros "sketch" que es como
-                    llama arduino a los proyectos. Una vez instalado en nuestro sistema lo abrimos y como observamos
-                  en la foto abrimos el sketch de ejemplo de blink (el parpadeo de un led)</p>
-
+                    arduino llama a los proyectos. Una vez instalado en nuestro sistema lo abrimos y como observamos
+                  en la foto vamos a comenzar por seleccionar el sketch de ejemplo de blink (el parpadeo de un led)</p>
                   <br>
                   <img class="img-fluid d-block mx-auto" src="img/IDE/blink.png" alt="">
                   <br>
-                  <p>Lo primero que tenemos que hacer para comprobar que nuestra computadora reconoce nuestro
-                  arduino uno es comprobar en el despegable de <or>Tools </or> si nuestra tarjeta esta seleccionada
-                  y lo segundo será verificar que tiene un puerto COM activado</p>
+                  <p>Lo primero que tenemos que hacer para comprobar que nuestra computadora reconoce nuestra tarjeta
+                  arduino uno es comprobar en el despegable de <or>Tools (Herramientas)</or> si nuestra tarjeta esta seleccionada
+                  y lo segundo será verificar que tiene un <or>Port (puerto) </or> COM activado</p>
                   <br>
                   <img class="img-fluid d-block mx-auto" src="img/IDE/tarjeta.png" alt="">
                   <br>
                   <img class="img-fluid d-block mx-auto" src="img/IDE/Puerto.png" alt="">
                   <br>
-                  <h3><or>Descodificando</h3></p>
+                  <h3><a href="https://www.arduino.cc/en/Tutorial/Blink"><or>Blink Sketch</or></h3></a>
                   <br>
-                  <p>En un "skech" diferenciamos tres partes:</p>
+                    <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">/*
+  Blink (Parpadeo)
+
+  Enciende un LED por un segundo, luego lo apaga por otro segundo, repetidamente.
+
+  La mayoría de los Arduinos tienen un LED incorporado que puede controlar. En el ARDUINO UNO,
+  MEGA y CERO está conectado al pin digital 13, en MKR1000 en el pin 6. LED_BUILTIN está
+  configurado en el pin LED correcto independientemente de qué placa se use.Si desea saber a
+  qué pin está conectado el LED incorporado en su modelo de Arduino consulte las
+  especificaciones técnicas de su placa en:
+  https://www.arduino.cc/en/Main/Products
+
+  modified 8 May 2014
+  by Scott Fitzgerald
+  modified 2 Sep 2016
+  by Arturo Guadalupi
+  modified 8 Sep 2016
+  by Colby Newman
+
+  Este código de ejemplo es de dominio público.
+
+  http://www.arduino.cc/en/Tutorial/Blink
+*/</span>
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// la función setup se ejecuta una vez cunado presionamos reset o cuando se enciende la tarjeta</span>
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// inicializamos el pin digital LED_BUILTIN como salida</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(<span class="hljs-literal" style="color: rgb(120, 169, 96);">LED_BUILTIN</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+}
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// la función loop se ejecuta una y otra vez continuamente</span>
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-literal" style="color: rgb(120, 169, 96);">LED_BUILTIN</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// enciende el LED (HIGH está recibiendo voltaje)</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);                       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// espera un segundo</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-literal" style="color: rgb(120, 169, 96);">LED_BUILTIN</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// apaga el LED (LOW no tiene voltaje)</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);                       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// espera un segundo</span>
+}                  </pre>
                   <br>
-                  <p>El <or>inicio </or>en este ejemplo solo vemos unos comentarios.</p>
-                  <p>El <or>void setup() </or>en este caso lo que esta indicando es que el pin
+                  <p>Este sin duda es el <or>sketch</or> mas utilizado para comenzar a ver el IDE de arduino
+                  y comprobar si nuestra tarjeta se comunica a través del puerto COM. Es muy útil para detectar
+                malas conexiones o verificar si una tarjeta funciona correctamente.</p>
+                <br>
+                <h3><or>Descodificando</h3></p>
+                <br>
+                <p>En un "skech" diferenciamos tres partes:</p>
+                <br>
+                <p>El <or>inicio </or>en este ejemplo solo vemos unos comentarios. Es aconsejable leerlo porque
+                   en el nos dice lo que es el <a href="https://www.arduino.cc/reference/en/language/variables/constants/constants/" target="_blank">LED_BUILTIN</a> (un led que arduino trae de fábrica y que se encuentra
+                   conectado al pin 13 en el caso de Arduino UNO)</p>
+                 <br>
+                <p><bl>Funciones </bl>veamos ahora las funciones</p>
+                <p>
+                    <a href="https://www.arduino.cc/reference/en/language/structure/sketch/setup/" target="_blank">setup()</a>
+                </p>
+                <div style="padding-left: 40px;">
+                <p>
+                  La función setup () se llama cuando comienza un sketch. Lo usamos para inicializar variables,
+                  modos de pin, comenzar a usar bibliotecas, etc. La función setup () solo se ejecuta una vez,
+                  después de cada encendido o reinicio de la placa Arduino.
+                </p>
+                <p>El <or>void setup() </or>en este caso lo que esta indicando es que el pin
                   LED_BUILTIN (el pin 13) es un pin de salida (actuador).</p>
-                  <br>
-                  <p>El <or>void loop() </or>este será el sitio donde pondremos las instrucciones
+                <br>
+              </div>
+                <p>
+                    <a href="https://www.arduino.cc/reference/en/language/structure/sketch/loop/" target="_blank">loop()</a>
+                </p>
+                <br>
+                <div style="padding-left: 40px;">
+                <p>
+                Después de crear una función setup (), que inicializa y establece los valores iniciales,
+                la función loop () hace exactamente lo que sugiere su nombre y realiza bucles consecutivos,
+                permitiendo actualizar los cambios (sensores) y las respuestas (actuadores) a la programación introducida.
+                </p>
+                <br>
+                <p>El <or>void loop() </or>este será el sitio donde pondremos las instrucciones
                   en este caso será que se encienda, que espere 1000 milisegundos (1 segundo), que se apague,
                 que espere otros 1000 milisegundos y como esta en un loop vuelve a empezar con la
               rutina, infinitamente.</p>
-              <br>
-                  <p>Esto visto así por primera vez es difícil de comprender pero viendo ejemplos
+            </div>
+                <br>
+                <p>Esto visto así por primera vez es difícil de comprender pero viendo ejemplos
                   cogerá rápidamente sentido.</p>
+
+                <br>
+                <p>Pueba a modificar el tiempo</p>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-literal" style="color: rgb(120, 169, 96);">LED_BUILTIN</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// enciende el LED (HIGH está recibiendo voltaje)</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2000</span>);                       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// espera un segundo</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-literal" style="color: rgb(120, 169, 96);">LED_BUILTIN</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// apaga el LED (LOW no tiene voltaje)</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">500</span>);                       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// espera un segundo</span>
+}</pre>
+                <br>
+                <p>y cárgalo en la tarjeta pulsando la flecha <or>Upload</or>.</p>
+                <br>
                 </div>
+                <img class="img-fluid d-block mx-auto" src="img/IDE/BlinkUpload.png" alt="">
                 <!-- 333333333333333333333333333333333333333333333333333333333333333333333333333333 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
@@ -863,29 +946,82 @@
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase"><bl>Blink</bl></h2>
+                <h2 class="text-uppercase"><bl>Digitales</bl></h2>
                 <!-- <p class="item-intro text-muted">El Primer Sketch.</p> -->
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 555555555555555555555555555555555555555555555555555555555555555555555555555555 -->
-                <h3><or>Blink Sketch</or></h3>
+                <h3><or>Entradas & Salidas</or></h3>
                 <br>
-                <p>Este sin duda es el <or>sketch</or> mas utilizado para comenzar a ver el IDE de arduino
-                y comprobar si nuestra tarjeta se comunica a través del puerto COM. Es muy útil para detectar
-              malas conexiones o verificar si una tarjeta funciona correctamente.</p>
+                <div  class="text-left">
+                <h3>Sketch</h3>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Entradas y Salidas digitales BOTÓN Y LED</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>; <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el LED como salida digital</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> BotonPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el BOTÓN como entrada digital</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">int</span> valor;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Variable para guardar el estado encendido/apagado</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>(){
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Salida Digital</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(BotonPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Entrada Digital</span>
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>(){
+  valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead</span>(BotonPin); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Leemos el estado del boton HIHG/LOW</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span>  (valor == <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>){                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Condición si valor es igual a HIGH</span>
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);}       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el LED</span>
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> { <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);} <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sino, apagamos el LED</span>
+}</pre>
+                <p>En el <or>inicio</or> del Sketch asignamos en una variable de tipo <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/" target="_blank">const</a></p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>;    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el LED como salida digital</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> BotonPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el BOTÓN como entrada digital</span>
+
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> valor;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Variable para guardar el estado encendido/apagado</span>
+</pre>
               <br>
-              <img class="img-fluid d-block mx-auto" src="img/IDE/BlinkCode.png" alt="">
-              <br>
-              <p>El funcionamiento es muy simple activa el pin (salida digital) <or>HIGH</or> (5 voltios) o
-                desactiva <or>LOW</or> (0 voltios) y espera el tiempo que pongamos por defecto 1000 milisegundos.
+              <p>
+                En el setup() configuramos los pines como entrada y salida.
               </p>
-              <p>Pueba a modificar el tiempo</p>
+              <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>(){
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Salida Digital</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(BotonPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Entrada Digital</span>
+}</pre>
               <br>
-              <img class="img-fluid d-block mx-auto" src="img/IDE/BlinkCodeModificado.png" alt="">
+              <p>
+                El en loop() en este caso tenemos lo que llamamos una estructura de control <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/if/" target="_blank">if</a>
+              </p>
               <br>
-              <p>y cárgalo en la tarjeta pulsando la flecha.</p>
-              <br>
-              <img class="img-fluid d-block mx-auto" src="img/IDE/BlinkUpload.png" alt="">
-              <br>
+              <div style="padding-left: 40px;">
+                <p>
+                  <or>Descripción</or>
+                </p>
+                <p>
+                  La estructura de control if verifica si se cumple una condición y ejecuta una declaración o el conjunto de declaraciónes.
+                </p>
+                <div style="padding-left: 40px;">
+                <p>
+                  <or>Sintaxis</or>
+                </p>
+                <p>
+                  if (condición) {//declaración(s)}
+                </p>
+                <p>
+                  <or>Parámetros</or>
+                </p>
+                <p>
+                (condición): una expresión booleana (es decir, puede ser verdadero o falso).
+                </p>
+              </div>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>(){
+  valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead</span>(BotonPin); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Leemos el estado del boton HIHG/LOW</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span>  (valor == <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>){                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Condición si valor es igual a HIGH</span>
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);}       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el LED</span>
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> { <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);} <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sino, apagamos el LED</span>
+}</pre>
+              </div>
+            </div>
 
                 <!-- 555555555555555555555555555555555555555555555555555555555555555555555555555555 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -916,15 +1052,12 @@
                 <h2 class="text-uppercase"><bl>Analógico & PWM</bl></h2>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 666666666666666666666666666666666666666666666666666666666666666666666666666 -->
-                <h2><or>Potenciómetro y Led</or></h2>
+                <h2><or>Entradas & Salidas</or></h2>
                 <br>
                 <div  class="text-left">
-                  <h3><or>Potenciómetro</or></h3>
+                  <h3>Sketch</h3>
                   <br>
-                  <p>Leerémos el potenciómetro en los pines analógicos (desde A0 hasta A5)
-                  recordemos que estos pines son capaces de diferenciar voltajes 0,004 voltios, 5v /1024 (10 bits)
-                es decir, valores de 0 a 1023.</p>
-                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sketch para comprender la entrada analógica (10 bits) y la salida PWM (byte)</span>
+                  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sketch para comprender la entrada analógica (10 bits) y la salida PWM (byte)</span>
 
 <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el Led al pin ~11(PWM) byte de 0 a 255.</span>
 <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> PotPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el potenciómetro al pin A0 (analoógico) de 0 a 1023.</span>
@@ -949,12 +1082,22 @@
   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(LedPin, valor/<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Escribimos en el potenciómetro salida PWM.</span>
   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esta es una forma sencilla de pasar de 10 bits a 8 bits dividir entre 4.</span>
 }</pre>
+
                 <br>
                 <h3><or>Descodificando</or></h3>
                 <br>
                 <p><or>Variables </or> en arduino veremos varias formas de asignar el número de un pin a un sensor/actuador.</p>
+                <p>
+                    Leerémos el POTENCIÓMETRO (INPUT) en el pin analógico A0 (recordemos desde A0 hasta A5)
+                </p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> PotPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el potenciómetro al pin A0 (analoógico) de 0 a 1023.</span></pre>
+                <p>
+                    Activaremos el LED (OUTPUT) en el pin PWM 11 (recordemos PWM 3, 5, 6, 9, 10 y 11)
+                </p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el Led al pin ~11(PWM) byte de 0 a 255.</span></pre>
                 <p>Vayamos a la página oficial de arduino y veamos lo que nos dice sobre:</p>
                 <br>
+                <div style="padding-left: 40px;">
                 <p><a href="https://www.arduino.cc/reference/en/language/structure/further-syntax/define/" target="_blank">#define</a></p>
                 <br>
                 <div style="padding-left: 40px;">
@@ -993,44 +1136,37 @@
 <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna al Led el Pin 11</span>
 </pre>
                 </div>
+                </div>
+                <br>
                 <br>
                 <p><bl>Funciones </bl>veamos ahora las funciones</p>
                 <p>
-                  <a href="https://www.arduino.cc/reference/en/language/structure/sketch/setup/" target="_blank">setup()</a>
+                  <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/" target="_blank">analogRead()</a>
                 </p>
                 <br>
                 <div style="padding-left: 40px;">
-                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">setup</span><span class="hljs-params">()</span> </span>{
-  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// put your setup code here, to run once:</span>
-
-}</pre>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-attr">valor</span> = analogRead(PotPin);  // Guardamos el valor del pin A0 en la variable.</pre>
                 <br>
                 <p>
-                  La función setup () se llama cuando comienza un sketch. Lo usamos para inicializar variables,
-                  modos de pin, comenzar a usar bibliotecas, etc. La función setup () solo se ejecuta una vez,
-                  después de cada encendido o reinicio de la placa Arduino.
+                  Lee el valor del pin analógico especificado. Las placas Arduino contienen un convertidor analógico a digital multicanal de 10 bits. Esto significa que asignará los voltajes de entrada entre 0 y el voltaje especificado (5V o 3.3V) en valores enteros entre 0 y 1023. En un Arduino UNO, por ejemplo, esto produce una resolución entre lecturas de: 5 voltios / 1024 unidades o , 0.0049 voltios (4.9 mV) por unidad.
                 </p>
               </div>
                 <p>
-                  <a href="https://www.arduino.cc/reference/en/language/structure/sketch/loop/" target="_blank">loop()</a>
+                  <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/" target="_blank">analogWrite</a>
                 </p>
                 <br>
                 <div style="padding-left: 40px;">
-                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">loop</span><span class="hljs-params">()</span> </span>{
-  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// put your main code here, to run repeatedly:</span>
-
-}</pre>
+                <p>
+                  Escribe un valor analógico-PWM de 0 a 255 (byte) en un pin. Se puede usar para encender un LED con diferente intensidad o girar un motor a diferentes velocidades. Después de una llamada a analogWrite(), el pin generará una onda rectangular estable del ciclo de trabajo especificado hasta la próxima llamada a analogWrite().
+                </p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">analogWrite(<span class="hljs-name" style="font-weight: 700;">LedPin</span>, valor/4)<span class="hljs-comment" style="color: rgb(136, 136, 136);">;      // Escribimos en el potenciómetro salida PWM.</span></pre>
                 <br>
                 <p>
-                Después de crear una función setup (), que inicializa y establece los valores iniciales,
-                la función loop () hace exactamente lo que sugiere su nombre y realiza bucles consecutivos,
-                permitiendo actualizar los cambios (sensores) y las respuestas (actuadores) a la programación introducida.
+                  Podemos probar con motores, buzzers y otros actuadores que admitan valores analógicos.
                 </p>
               </div>
                 <br>
-
-
-                </div>
+              </div>
                 <!-- 6666666666666666666666666666666666666666666666666666666666666666666666666666666 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
@@ -1097,6 +1233,12 @@
    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>);           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 10 microsegundos</span>
    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso</span></pre>
                   <br>
+                  <p><a href="https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/" target="_blank">digitalWrite()</a></p>
+                  <br>
+                  <p>
+                    Escribe un valor encedido "HIGH" (5 voltios) o apagado "LOW" (0 voltios) un pin digital.
+                  </p>
+
                   <p>Ahora ya podemos escuchar el disparo del sensor: un pulso HIGH cuya duración es
                     en microsegundos el tiempo entre el disparo hasta la escucha el pulso.</p>
                   <br>
