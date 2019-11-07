@@ -167,7 +167,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Circuitos/Blink.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Arduino IDE</bl></h4>
@@ -181,7 +181,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Circuitos/DigitalEntradasSalidas.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Digitales</bl></h4>
@@ -195,7 +195,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Circuitos/AnalogicoEntradasSalidas.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Analógicas & PWM</bl></h4>
@@ -798,9 +798,11 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase"><bl>Arduino IDE</bl></h2>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
+                <a href="https://www.tinkercad.com/things/c4t3SGl9BWd-surprising-esboo-allis/editel" target="_blank">
+                <img class="img-fluid d-block mx-auto" src="img/Circuitos/Blink.png" alt="">
+                </a>
                 <!-- 333333333333333333333333333333333333333333333333333333333333333333333333333333 -->
-                <h2><or>Blink Mi Primer Sketch</or></h2>
+                <h2><or>Blink Sketch</or></h2>
                 <br>
                 <div  class="text-left">
                   <h3><or>Instalación</or></h3>
@@ -948,7 +950,9 @@
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase"><bl>Digitales</bl></h2>
                 <!-- <p class="item-intro text-muted">El Primer Sketch.</p> -->
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
+                <a href="https://www.tinkercad.com/things/3xoQ9O04khX-copy-of-practica-2-laboratorio-mecabot/editel?tenant=circuits" target="_blank">
+                <img class="img-fluid d-block mx-auto" src="img/Circuitos/DigitalEntradasSalidas.png" alt="">
+                </a>
                 <!-- 555555555555555555555555555555555555555555555555555555555555555555555555555555 -->
                 <h3><or>Entradas & Salidas</or></h3>
                 <br>
@@ -981,7 +985,7 @@
 </pre>
               <br>
               <p>
-                En el setup() configuramos los pines como entrada y salida.
+                En el <or>setup()</or> configuramos los pines como entrada y salida.
               </p>
               <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>(){
   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Salida Digital</span>
@@ -989,37 +993,128 @@
 }</pre>
               <br>
               <p>
-                El en loop() en este caso tenemos lo que llamamos una estructura de control <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/if/" target="_blank">if</a>
+                En el <or>loop()</or> vemos las funciones:
+              </p>
+              <br>
+              <p>
+                <a href="https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/" target="_blank">digitalRead()</a>
+              </p>
+              <div style="padding-left: 40px;">
+              <br>
+              <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">valor = digitalRead<span class="hljs-comment" style="color: rgb(136, 136, 136);">(BotonPin)</span>; <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Leemos el estado del boton HIHG/LOW</span></pre>
+              <br>
+              <p>
+                Lee el valor/estado del pin digital. Su valor será HIGH o LOW.
+              </p>
+              <p>
+                <or>Sintaxis</or>
+              </p>
+              <p>
+                digitalRead(pin)
+              </p>
+              <br>
+              <p>
+                <or>Parámetros</or>
+              </p>
+              <p>
+              <or>pin</or> el número pin de Arduino que quieres leer.
+              </p>
+            </div>
+
+              <p>
+                <a href="https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/" target="_blank">digitalWrite()</a>
               </p>
               <br>
               <div style="padding-left: 40px;">
-                <p>
-                  <or>Descripción</or>
-                </p>
-                <p>
-                  La estructura de control if verifica si se cumple una condición y ejecuta una declaración o el conjunto de declaraciónes.
-                </p>
-                <div style="padding-left: 40px;">
-                <p>
-                  <or>Sintaxis</or>
-                </p>
-                <p>
-                  if (condición) {//declaración(s)}
-                </p>
-                <p>
-                  <or>Parámetros</or>
-                </p>
-                <p>
-                (condición): una expresión booleana (es decir, puede ser verdadero o falso).
-                </p>
+              <p>
+                Escribe un valor HIGH o un LOW en un pin digital.
+              </p>
+              <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);}       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el LED</span></pre>
+              <br>
+              <p>
+                <or>Sintaxis</or>
+              </p>
+              <p>
+                digitalWrite(pin, value)
+              </p>
+              <p>
+                <or>Parámetros</or>
+              </p>
+              <p>
+              <or>pin</or> el número pin de Arduino.
+              </p>
+              <p>
+              <or>value</or> HIGH o LOW.
+              </p>
               </div>
-                <br>
-                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>(){
-  valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead</span>(BotonPin); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Leemos el estado del boton HIHG/LOW</span>
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span>  (valor == <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>){                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Condición si valor es igual a HIGH</span>
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);}       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el LED</span>
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> { <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);} <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sino, apagamos el LED</span>
+              <br>
+              <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>(){
+valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead</span>(BotonPin); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Leemos el estado del boton HIHG/LOW</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span>  (valor == <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>){                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Condición si valor es igual a HIGH</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);}       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el LED</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> { <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);} <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sino, apagamos el LED</span>
 }</pre>
+              <br>
+              <p>
+                El en loop() encontramos la primera una estructura de control
+              </p>
+                <p>
+                 <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/if/" target="_blank">if</a>
+              </p>
+              <div style="padding-left: 40px;">
+                <p>
+                <or>Descripción</or>
+              </p>
+              <p>
+                La estructura de control if verifica si se cumple una condición y ejecuta una declaración o el conjunto de declaraciónes.
+              </p>
+              <p>
+                <or>Sintaxis</or>
+              </p>
+              <p>
+                if (condición) {//declaración(s)}
+              </p>
+              <p>
+                <or>Parámetros</or>
+              </p>
+              <p>
+              (condición): una expresión booleana (es decir, puede ser verdadero o falso).
+              </p>
+              <p>
+              </div>
+              <p>
+                Otra estructura de control:
+              </p>
+              <p>
+                <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/else/" target="_blank">else</a>
+              </p>
+              <div style="padding-left: 40px;">
+              <p>
+                <or>Descripción</or>
+              </p>
+              <p>
+                Con la estructura de control else se puede proceder con otra prueba <or>if</or> de modo que se puedan ejecutar múltiples pruebas, si ninguna prueba resulta ser verdadera, else ejecuta un bloque predeterminado.
+              </p>
+              <p>
+              <or>else</or>
+              </p>
+              <p>
+                <or>Sintaxis</or>
+              </p>
+              <p>
+                else if (condición 2) {//declaración(s)}
+              </p>
+              <p>
+                <or>Parámetros</or>
+              </p>
+              <p>
+                Igual que <or>if</or>.
+              </p>
+              </div>
+              <p>
+                Podemos probar con motores, buzzers y otros actuadores que admitan valores analógicos.
+              </p>
+                <br>
               </div>
             </div>
 
@@ -1050,7 +1145,9 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase"><bl>Analógico & PWM</bl></h2>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
+                <a href="https://www.tinkercad.com/things/49dxoVQSn64-copy-of-digitalentradasalida/editel?tenant=circuits" target="_blank">
+                <img class="img-fluid d-block mx-auto" src="img/Circuitos/AnalogicoEntradasSalidas.png" alt="">
+                </a>
                 <!-- 666666666666666666666666666666666666666666666666666666666666666666666666666 -->
                 <h2><or>Entradas & Salidas</or></h2>
                 <br>
@@ -1086,16 +1183,18 @@
                 <br>
                 <h3><or>Descodificando</or></h3>
                 <br>
-                <p><or>Variables </or> en arduino veremos varias formas de asignar el número de un pin a un sensor/actuador.</p>
                 <p>
-                    Leerémos el POTENCIÓMETRO (INPUT) en el pin analógico A0 (recordemos desde A0 hasta A5)
+                    Asignamos el <bl>potenciómetro</bl> (INPUT) en el pin analógico A0 (recordemos desde A0 hasta A5)
                 </p>
                 <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> PotPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el potenciómetro al pin A0 (analoógico) de 0 a 1023.</span></pre>
                 <p>
-                    Activaremos el LED (OUTPUT) en el pin PWM 11 (recordemos PWM 3, 5, 6, 9, 10 y 11)
+                    Y el <bl>led</bl> (OUTPUT) en el pin PWM 11 (recordemos PWM 3, 5, 6, 9, 10 y 11)
                 </p>
                 <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el Led al pin ~11(PWM) byte de 0 a 255.</span></pre>
+                <br>
                 <p>Vayamos a la página oficial de arduino y veamos lo que nos dice sobre:</p>
+                <br>
+                <h3><or>Variables</or></h3>
                 <br>
                 <div style="padding-left: 40px;">
                 <p><a href="https://www.arduino.cc/reference/en/language/structure/further-syntax/define/" target="_blank">#define</a></p>
@@ -1152,7 +1251,7 @@
                 </p>
               </div>
                 <p>
-                  <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/" target="_blank">analogWrite</a>
+                  <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/" target="_blank">analogWrite()</a>
                 </p>
                 <br>
                 <div style="padding-left: 40px;">
