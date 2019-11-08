@@ -798,7 +798,7 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase"><bl>Arduino IDE</bl></h2>
-                <a href="https://www.tinkercad.com/things/c4t3SGl9BWd-surprising-esboo-allis/editel" target="_blank">
+                <a href="https://www.tinkercad.com/things/c4t3SGl9BWd-surprising-esboo-allis" target="_blank">
                 <img class="img-fluid d-block mx-auto" src="img/Circuitos/Blink.png" alt="">
                 </a>
                 <!-- 333333333333333333333333333333333333333333333333333333333333333333333333333333 -->
@@ -1145,7 +1145,8 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase"><bl>Analógico & PWM</bl></h2>
-                <a href="https://www.tinkercad.com/things/49dxoVQSn64-copy-of-digitalentradasalida/editel?tenant=circuits" target="_blank">
+                <!-- <a href="https://www.tinkercad.com/things/49dxoVQSn64-copy-of-digitalentradasalida/editel?tenant=circuits" target="_blank"> -->
+                <a href="https://www.tinkercad.com/things/0PpJwKtHLQ4-02-analogicasentradasalida" target="_blank">
                 <img class="img-fluid d-block mx-auto" src="img/Circuitos/AnalogicoEntradasSalidas.png" alt="">
                 </a>
                 <!-- 666666666666666666666666666666666666666666666666666666666666666666666666666 -->
@@ -1292,7 +1293,9 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase"><bl>Ultrasonidos</bl></h2>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
+                <a href="https://www.tinkercad.com/things/6IFGkMwEibt-03-ultrasonidossensor" target="_blank">
+                <img class="img-fluid d-block mx-auto" src="img/Circuitos/UltrasonidosSensor.png" alt="">
+                </a>
                 <!-- 777777777777777777777777777777777777777777777777777777777777777777777777777 -->
                 <br>
                 <div  class="text-left">
@@ -1426,12 +1429,39 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase"><bl>8</bl></h2>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
-                <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
-                <h2><or>8</or></h2>
+                <h2 class="text-uppercase"><bl>Infrarrojos</bl></h2>
+                <a href="https://www.tinkercad.com/things/cZS3Qfw6PTM-04-infrarrojossensor/editel" target="_blank">
+                <img class="img-fluid d-block mx-auto" src="img/Circuitos/Infrarrojos.png" alt="">
+                <!-- 888888888888888888888888888888888888888888888888888888888888888888888888888 -->
+                <h2><or>Sensor</or></h2>
                 <br>
                 <div  class="text-left">
+
+                <h3>Infrarrojos Sketch</h3>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> InfrarrojoPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">9</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Estableceremos un pin de entrada digital</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);               <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciar puerto serie</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(InfrarrojoPin , <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Definir pin como entrada</span>
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>(){
+
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> valor;
+
+  valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead</span>(InfrarrojoPin );  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// lectura del estado digital</span>
+
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (valor == <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>) {
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Detectado obstaculo"</span>);} <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime en el serial monitor el estado</span>
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> {
+        <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Obtaculo no detectado"</span>);}
+
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);
+}</pre>
+
+                <br>
+
 
                 <p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
                 explicación de <strong><or>Open Source Hardware</or></strong>, se trata de compartir el desarrollo de
