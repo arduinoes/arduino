@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Durso Arduino">
+  <meta name="description" content="Curso Arduino">
   <meta name="author" content="Studio Miranda">
 
   <title>Curso Arduino</title>
@@ -254,7 +254,7 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>Motor</bl></h4>
+            <h4><bl>Motor L9110</bl></h4>
             <p class="text-muted"><or>Actuador</or></p>
           </div>
         </div>
@@ -268,7 +268,7 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>Servo</bl></h4>
+            <h4><bl>Motor L298N</bl></h4>
             <p class="text-muted"><or>Actuador</or></p>
           </div>
         </div>
@@ -282,7 +282,7 @@
             <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4><bl>Buzzer</bl></h4>
+            <h4><bl>Motor TB6612FNG</bl></h4>
             <p class="text-muted"><or>Actuador</or></p>
           </div>
         </div>
@@ -957,7 +957,7 @@
                 <h3><or>Entradas & Salidas</or></h3>
                 <br>
                 <div  class="text-left">
-                <h3>Sketch</h3>
+                <h3>Digital Sketch</h3>
                 <br>
                 <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Entradas y Salidas digitales BOTÓN Y LED</span>
 
@@ -977,7 +977,7 @@
     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);}       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el LED</span>
     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> { <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);} <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sino, apagamos el LED</span>
 }</pre>
-                <p>En el <or>inicio</or> del Sketch asignamos en una variable de tipo <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/" target="_blank">const</a></p>
+                <p>1 - En el <or>inicio</or> del Sketch asignamos 2 variables de tipo <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/" target="_blank">const</a></p>
                 <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>;    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el LED como salida digital</span>
 <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> BotonPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el BOTÓN como entrada digital</span>
 
@@ -985,7 +985,7 @@
 </pre>
               <br>
               <p>
-                En el <or>setup()</or> configuramos los pines como entrada y salida.
+                2 - En el <or>setup()</or> configuramos los pines como entrada y salida.
               </p>
               <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>(){
   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(LedPin,<span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Salida Digital</span>
@@ -997,7 +997,7 @@
               </p>
               <br>
               <p>
-                <a href="https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/" target="_blank">digitalRead()</a>
+                3 - <a href="https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/" target="_blank">digitalRead()</a>
               </p>
               <div style="padding-left: 40px;">
               <br>
@@ -1022,7 +1022,7 @@
             </div>
 
               <p>
-                <a href="https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/" target="_blank">digitalWrite()</a>
+                4 - <a href="https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/" target="_blank">digitalWrite()</a>
               </p>
               <br>
               <div style="padding-left: 40px;">
@@ -1059,7 +1059,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                 El en loop() encontramos la primera una estructura de control
               </p>
                 <p>
-                 <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/if/" target="_blank">if</a>
+                 5 - <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/if/" target="_blank">if</a>
               </p>
               <div style="padding-left: 40px;">
                 <p>
@@ -1086,7 +1086,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                 Otra estructura de control:
               </p>
               <p>
-                <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/else/" target="_blank">else</a>
+                6 - <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/else/" target="_blank">else</a>
               </p>
               <div style="padding-left: 40px;">
               <p>
@@ -1153,7 +1153,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                 <h2><or>Entradas & Salidas</or></h2>
                 <br>
                 <div  class="text-left">
-                  <h3>Sketch</h3>
+                  <h3>Analógico Sketch</h3>
                   <br>
                   <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sketch para comprender la entrada analógica (10 bits) y la salida PWM (byte)</span>
 
@@ -1182,15 +1182,23 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
 }</pre>
 
                 <br>
-                <h3><or>Descodificando</or></h3>
-                <br>
                 <p>
-                    Asignamos el <bl>potenciómetro</bl> (INPUT) en el pin analógico A0 (recordemos desde A0 hasta A5)
+                    1 - Asignamos el <bl>potenciómetro</bl> (INPUT) en el pin analógico A0 (recordemos entradas analógicas desde A0 hasta A5)
                 </p>
                 <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> PotPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el potenciómetro al pin A0 (analoógico) de 0 a 1023.</span></pre>
                 <p>
-                    Y el <bl>led</bl> (OUTPUT) en el pin PWM 11 (recordemos PWM 3, 5, 6, 9, 10 y 11)
+                    2- El <bl>led</bl> como salida (OUTPUT) en el pin PWM 11 (recordemos pins PWM 3, 5, 6, 9, 10 y 11)
                 </p>
+                <p>
+                  3 -  Declaramos la <or>variable</or> "valor" donde guardaremos el valor del potenciómetro.
+                </p>
+                <p>
+                  4 - Especificamos que el pin del potenciómetro es de <or>entrada</or> y el led es de <or>salida</or>.
+                </p>
+                <p>
+                  5 - Iniciamos la comunicación <or>serial</or> para ver los valores del potenciómetro.
+                </p>
+                <br>
                 <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el Led al pin ~11(PWM) byte de 0 a 255.</span></pre>
                 <br>
                 <p>Vayamos a la página oficial de arduino y veamos lo que nos dice sobre:</p>
@@ -1241,7 +1249,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                 <br>
                 <p><bl>Funciones </bl>veamos ahora las funciones</p>
                 <p>
-                  <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/" target="_blank">analogRead()</a>
+                  6 - <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/" target="_blank">analogRead()</a>
                 </p>
                 <br>
                 <div style="padding-left: 40px;">
@@ -1252,7 +1260,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                 </p>
               </div>
                 <p>
-                  <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/" target="_blank">analogWrite()</a>
+                  7 - <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/" target="_blank">analogWrite()</a>
                 </p>
                 <br>
                 <div style="padding-left: 40px;">
@@ -1301,21 +1309,57 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                 <div  class="text-left">
                   <h3><or>Sensores</or></h3>
                   <br>
-                  <p>Primero, creamos 2 variables para el pin "disparador" y el pin de "escucha" llamados  TriggerPin y EchoPin ,
+                  <h3>Ultrasonidos Sketch</h3>
+                  <br>
+                  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">12</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el pin de disparo</span>
+  <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>;      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el pin de escucha</span>
+
+  <span class="hljs-keyword" style="font-weight: 700;">long</span> duracion, distanciaCm;           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos variables en 0</span>
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos la comunicación serial</span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// El disparo es de salida</span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// La escucha es de entrada</span>
+  }
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+     <span class="hljs-keyword" style="font-weight: 700;">int</span> cm = ping(TriggerPin, EchoPin);
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Distancia: "</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime el texto</span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(cm);          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// </span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);                 <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Espera 1 segundo para una nueva lectura</span>
+  }
+
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> ping(<span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin, <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin) { <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Función ping, parámetros disparo/escucha</span>
+
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso(LOW)</span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>);            <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 4 microsegundos</span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el pulso (HIGH)</span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>);           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 10 microsegundos</span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso</span>
+
+     duracion = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pulseIn</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">//medimos el tiempo entre el disparo y la escucha pulsos</span>
+
+     distanciaCm = duracion * <span class="hljs-number" style="color: rgb(136, 0, 0);">10</span> / <span class="hljs-number" style="color: rgb(136, 0, 0);">292</span>/ <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">//convertimos a distancia, en cm</span>
+     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">return</span> distanciaCm;
+  }</pre>
+                  <br>
+                  <p>1 - Creamos 2 variables uno para el pin "disparador" y otro para pin de "escucha" llamados TriggerPin y EchoPin ,
                     respectivamente. El pin de disparo lo conectamos al Pin digital 12 ,
                     y los pin de escucha lo conectamos al Pin digital 13.</p>
                   <br>
                   <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> TriggerPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">12</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el pin de disparo</span>
 <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> EchoPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>;      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el pin de escucha</span></pre>
                   <br>
-                  <p>También creamos 2 variables de tipo long, duracion  y  distanciaCm. La variable de duración es el
+                  <p>
+                    2 - También creamos 2 <or>variables</or> de tipo <or>long</or>, "duracion" y "distanciaCm". La variable de duración es el
                     tiempo entre la emisión (disparo) y la recepción (escucha) del pulso. La  variable distanciaCm
                     guardará la distancia en centímetros.</p>
                   <br>
                   <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">long</span> duracion, distanciaCm;           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos variables en 0</span></pre>
 
                   <br>
-                  <p>En <or>void setup()</or>, inicializamos el puerto serie a una velocidad en baudios de 9600 y
+                  <p>
+                    3 - En <or>void setup()</or>, inicializamos el puerto serie a una velocidad en baudios de 9600 y
                     configuramos el TriggerPin como salida y el EchoPin como entrada.</p>
                   <br>
                   <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
@@ -1324,7 +1368,8 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// La escucha es de entrada</span>
 }</pre>
                   <br>
-                  <p>En <or>void loop()</or>, disparamos el sensor enviando un pulso HIGH de 10 microsegundos. Pero, antes de eso,
+                  <p>
+                    4 - En <or>void loop()</or>, disparamos el sensor enviando un pulso HIGH de 10 microsegundos. Pero, antes de eso,
                     le damos un pulso LOW corto para asegurarse de obtener un pulso ALTO limpio</p>
                     <br>
                     <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">int</span> ping(<span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin, <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin) { <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Función ping, parámetros disparo/escucha</span>
@@ -1338,7 +1383,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                   <p><a href="https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/" target="_blank">digitalWrite()</a></p>
                   <br>
                   <p>
-                    Escribe un valor encedido "HIGH" (5 voltios) o apagado "LOW" (0 voltios) un pin digital.
+                    5 - Escribe un valor encedido "HIGH" (5 voltios) o apagado "LOW" (0 voltios) un pin digital.
                   </p>
 
                   <p>Ahora ya podemos escuchar el disparo del sensor: un pulso HIGH cuya duración es
@@ -1349,7 +1394,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                   <p><a href="https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/" target="_blank">pulseIn()</a></p>
                   <br>
                   <p>
-                  Lee un pulso (ya sea HIGH o LOW) en un pin. Por ejemplo, si el valor es HIGH, pulseIn()
+                  6 - Lee un pulso (ya sea HIGH o LOW) en un pin. Por ejemplo, si el valor es HIGH, pulseIn()
                   espera a que el pin pase de LOW a HIGH, comienza a cronometrar, luego espera a que el pin
                   se vaya LOW y detiene el cronometraje. Devuelve la duración del pulso en microsegundos o
                   se da por vencido y devuelve 0 si no se recibió un pulso completo dentro del tiempo de espera.
@@ -1357,7 +1402,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                   pulsos más largos. Funciona en pulsos de 10 microsegundos a 3 minutos de duración.
                   </p>
                     <p>
-                      Finalmente, solo necesitamos convertir la duración en una distancia. Podemos calcular la
+                      7 - Finalmente, solo necesitamos convertir la duración en una distancia. Podemos calcular la
                       distancia usando la siguiente fórmula (La velocidad del sonido es: 343 m/s).</p>
                   <br>
                   <img class="img-fluid d-block mx-auto" src="img/Ultrasonidos/formulaSonido.png" alt="">
@@ -1368,39 +1413,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
    <span class="hljs-keyword" style="font-weight: 700;">return</span> distanciaCm;
 }</pre>
                 <br>
-                <h3>Código completo</h3>
-                <br>
-                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">12</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el pin de disparo</span>
-<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>;      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el pin de escucha</span>
 
-<span class="hljs-keyword" style="font-weight: 700;">long</span> duracion, distanciaCm;           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos variables en 0</span>
-
-<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Iniciamos la comunicación serial</span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// El disparo es de salida</span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// La escucha es de entrada</span>
-}
-
-<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
-   <span class="hljs-keyword" style="font-weight: 700;">int</span> cm = ping(TriggerPin, EchoPin);
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Distancia: "</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime el texto</span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(cm);          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// </span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);                 <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Espera 1 segundo para una nueva lectura</span>
-}
-
-<span class="hljs-keyword" style="font-weight: 700;">int</span> ping(<span class="hljs-keyword" style="font-weight: 700;">int</span> TriggerPin, <span class="hljs-keyword" style="font-weight: 700;">int</span> EchoPin) { <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Función ping, parámetros disparo/escucha</span>
-
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso(LOW)</span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>);            <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 4 microsegundos</span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Encendemos el pulso (HIGH)</span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delayMicroseconds</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>);           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperamos 10 microsegundos</span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(TriggerPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Apagamos el pulso</span>
-
-   duracion = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pulseIn</span>(EchoPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">//medimos el tiempo entre el disparo y la escucha pulsos</span>
-
-   distanciaCm = duracion * <span class="hljs-number" style="color: rgb(136, 0, 0);">10</span> / <span class="hljs-number" style="color: rgb(136, 0, 0);">292</span>/ <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">//convertimos a distancia, en cm</span>
-   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">return</span> distanciaCm;
-}</pre>
 
                 </div>
                 <br>
@@ -1430,7 +1443,7 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase"><bl>Infrarrojos</bl></h2>
-                <a href="https://www.tinkercad.com/things/cZS3Qfw6PTM-04-infrarrojossensor/editel" target="_blank">
+                <a href="https://www.tinkercad.com/things/cZS3Qfw6PTM-04-infrarrojossensor/editel" target="_blank"></a>
                 <img class="img-fluid d-block mx-auto" src="img/Circuitos/Infrarrojos.png" alt="">
                 <!-- 888888888888888888888888888888888888888888888888888888888888888888888888888 -->
                 <h2><or>Sensor</or></h2>
@@ -1461,48 +1474,28 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
 }</pre>
 
                 <br>
+                <p>
+                  1 - Asignamos a el ultrasonido un <or>pin</or> digital (booleano) ya que solo nos tiene que mostrar si detecta o la luz infrarroja.
+                </p>
+                <p>
+                  2 - Iniciamos la comunicación <or>serial</or> para que muestre si lo detecta o no.
+                </p>
+                <p>
+                  3 - Le indicamos que es un pin de <or>entrada</or>.
+                </p>
+                <p>
+                  4 - Creamos la <or>variable</or> "valor" para guardar el resultado de la lectura.
+                </p>
+                <p>
+                  5 - Leemos el <or>sensor</or> y guardando el resultado en la variable "valor".
+                </p>
+                <p>
+                  6 - Iniciamos la estructura de control <or>if</or> si el valor es HIGH detecta la luz infrarroja sino no la detecta.
+                </p>
+                <p>
+                  7 - Esperamos 1 segundo para realizar la próxima lectura.
+                </p>
 
-
-                <p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
-                explicación de <strong><or>Open Source Hardware</or></strong>, se trata de compartir el desarrollo de
-                los proyectos electrónicos con arquitectura abierta, permitiendo a otros usuarios el libre uso de él,
-                colaborando en su desarrollo, mejorandolo o añadiendo nuevas funcionalidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/compartir.png" alt="">
-                <br>
-                <p>Un ejemplo son las impresoras 3D (<a href="https://reprap.org/wiki/RepRap">reprap.org</a>),
-                los drones (<a href="http://ardupilot.org/">ardupilot.org</a>) o robótica educativa
-                (<a href="https://tecnoloxia.org/mclon/">mClon</a>) donde lideran
-                sin duda el mercado. Estos proyectos evolucionan rápidamente gracias a la participación de
-                extensas comunidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
-                <br>
-                <p>Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce, pero
-                sin duda el <strong>Arduino Uno</strong> sigue siendo la mejor opción para comenzar
-                a crear los primeros proyectos, es económica, disponemos de una extensa documenación
-                y shields (extensiones) que añaden nuevas funcionalidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/extension.png" alt="">          <br>
-                <p>Este es un Arduino Uno original con su protoboard.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/arduino2.png" alt="">
-                <br>
-                <p><strong><or>¿Pero que és un Arduino Uno?</or></strong></p>
-                <p>Es una tarjeta electrónica
-                que funciona al igual que un ordenador. La clave es su microchip el ATmega 328P,
-                que es un circuito integrado con memorias, procesador
-                y pines de entradas y salidas.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/atmega.png" alt="">
-                <br>
-                <p>El diseño de la tarjeta de Arduino Uno nos facilita el acceder a su microchip a
-                través de un puerto USB, alimentarlo con un conector de 5 a 12 voltios
-                y nos etiqueta sus pines de conexión.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/pines.png" alt="">
-                <br>
-                <p>Continua con el siguiente tutorial</p>
                 </div>
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -1529,53 +1522,53 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase"><bl>9</bl></h2>
+                <h2 class="text-uppercase"><bl>Temperatura</bl></h2>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
-                <h2><or>9</or></h2>
+                <h2><or>Sensor</or></h2>
                 <br>
-                <div  class="text-left">
+                  <div  class="text-left">
+                <h3>
+                  LM35 & TMP36 Sketch
+                </h3>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> SensorTenperaturaPin= A0;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asignamos el pin de entrada (INPUT)</span>
 
-                <p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
-                explicación de <strong><or>Open Source Hardware</or></strong>, se trata de compartir el desarrollo de
-                los proyectos electrónicos con arquitectura abierta, permitiendo a otros usuarios el libre uso de él,
-                colaborando en su desarrollo, mejorandolo o añadiendo nuevas funcionalidades.</p>
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>()
+{
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span> (SensorTenperaturaPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Indicamos que el pin es de entrada</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);                    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Inicializamos el Serial</span>
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>()
+{
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogRead</span>(SensorTenperaturaPin);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Guardamos la lectura en valor</span>
+  <span class="hljs-keyword" style="font-weight: 700;">float</span> milivoltios = (valor / <span class="hljs-number" style="color: rgb(136, 0, 0);">1023.0</span>) * <span class="hljs-number" style="color: rgb(136, 0, 0);">5000</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Fórmula milivoltios</span>
+  <span class="hljs-keyword" style="font-weight: 700;">float</span> centigrados = milivoltios / <span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>;          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Fórmula grados Cº </span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(centigrados);                     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime resultado</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">" C"</span>);                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Imprime Cº</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);
+}</pre>
                 <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/compartir.png" alt="">
-                <br>
-                <p>Un ejemplo son las impresoras 3D (<a href="https://reprap.org/wiki/RepRap">reprap.org</a>),
-                los drones (<a href="http://ardupilot.org/">ardupilot.org</a>) o robótica educativa
-                (<a href="https://tecnoloxia.org/mclon/">mClon</a>) donde lideran
-                sin duda el mercado. Estos proyectos evolucionan rápidamente gracias a la participación de
-                extensas comunidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
-                <br>
-                <p>Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce, pero
-                sin duda el <strong>Arduino Uno</strong> sigue siendo la mejor opción para comenzar
-                a crear los primeros proyectos, es económica, disponemos de una extensa documenación
-                y shields (extensiones) que añaden nuevas funcionalidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/extension.png" alt="">          <br>
-                <p>Este es un Arduino Uno original con su protoboard.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/arduino2.png" alt="">
-                <br>
-                <p><strong><or>¿Pero que és un Arduino Uno?</or></strong></p>
-                <p>Es una tarjeta electrónica
-                que funciona al igual que un ordenador. La clave es su microchip el ATmega 328P,
-                que es un circuito integrado con memorias, procesador
-                y pines de entradas y salidas.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/atmega.png" alt="">
-                <br>
-                <p>El diseño de la tarjeta de Arduino Uno nos facilita el acceder a su microchip a
-                través de un puerto USB, alimentarlo con un conector de 5 a 12 voltios
-                y nos etiqueta sus pines de conexión.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/pines.png" alt="">
-                <br>
-                <p>Continua con el siguiente tutorial</p>
+                <p>
+                  1 - Asignamos el sensor de temperatura a un <or>pin</or> analógico.
+                </p>
+                <p>
+                  2 - El pin del sensor es de <or>entrada</or>, no haría falta declararlo. También iniciamos la comunicación <or>serial</or>.
+                </p>
+                <p>
+                  3 - Vamos a ver otra forma de declarar una variable a la que directamente le asignamos la función <or>analogRead</or>.
+                </p>
+                <p>
+                  4 - Creamos otra variable en la que guardamos el resultado de la fórmula.
+                </p>
+                <p>
+                  5 - Con la siguiente varible transformanos los milivoltios en grados centígrados.
+                </p>
+                <p>
+                  6 - Finalmente lo imprimimos en el monitor serial esperando 1 segundo.
+                </p>
+
                 </div>
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -1602,53 +1595,89 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase"><bl>10</bl></h2>
+                <h2 class="text-uppercase"><bl>Motores</bl></h2>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
-                <h2><or>10</or></h2>
+                <h2><or>L9110 Sketch</or></h2>
                 <br>
                 <div  class="text-left">
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Driver  9110 moviendo motores</span>
 
-                <p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
-                explicación de <strong><or>Open Source Hardware</or></strong>, se trata de compartir el desarrollo de
-                los proyectos electrónicos con arquitectura abierta, permitiendo a otros usuarios el libre uso de él,
-                colaborando en su desarrollo, mejorandolo o añadiendo nuevas funcionalidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/compartir.png" alt="">
-                <br>
-                <p>Un ejemplo son las impresoras 3D (<a href="https://reprap.org/wiki/RepRap">reprap.org</a>),
-                los drones (<a href="http://ardupilot.org/">ardupilot.org</a>) o robótica educativa
-                (<a href="https://tecnoloxia.org/mclon/">mClon</a>) donde lideran
-                sin duda el mercado. Estos proyectos evolucionan rápidamente gracias a la participación de
-                extensas comunidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
-                <br>
-                <p>Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce, pero
-                sin duda el <strong>Arduino Uno</strong> sigue siendo la mejor opción para comenzar
-                a crear los primeros proyectos, es económica, disponemos de una extensa documenación
-                y shields (extensiones) que añaden nuevas funcionalidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/extension.png" alt="">          <br>
-                <p>Este es un Arduino Uno original con su protoboard.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/arduino2.png" alt="">
-                <br>
-                <p><strong><or>¿Pero que és un Arduino Uno?</or></strong></p>
-                <p>Es una tarjeta electrónica
-                que funciona al igual que un ordenador. La clave es su microchip el ATmega 328P,
-                que es un circuito integrado con memorias, procesador
-                y pines de entradas y salidas.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/atmega.png" alt="">
-                <br>
-                <p>El diseño de la tarjeta de Arduino Uno nos facilita el acceder a su microchip a
-                través de un puerto USB, alimentarlo con un conector de 5 a 12 voltios
-                y nos etiqueta sus pines de conexión.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/pines.png" alt="">
-                <br>
-                <p>Continua con el siguiente tutorial</p>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> AIA = <span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// (pwm) pin 6 conectado a pin A-IA </span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> AIB = <span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// (pwm) pin 5 conectado a pin A-IB </span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> BIA = <span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>; <span class="hljs-comment" style="color: rgb(136, 136, 136);">// (pwm) pin 10 conectado a pin B-IA  </span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> BIB = <span class="hljs-number" style="color: rgb(136, 0, 0);">9</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// (pwm) pin 9 conectado a pin B-IB </span>
+
+<span class="hljs-keyword" style="font-weight: 700;">byte</span> velocidad = <span class="hljs-number" style="color: rgb(136, 0, 0);">160</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Modifica la velocidad de los motores</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(AIA, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Los pines son de salida</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(AIB, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(BIA, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(BIB, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+  izquierda();  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Gira a la izquierda (motores invertidos)</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2000</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante 2 segundos</span>
+  derecha();    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Gira a la derecha </span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2000</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante 2 segundos</span>
+  avanzar();    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Avanza (motores emparejados)</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">500</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante medio segundo</span>
+  retroceder(); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Retrocede </span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante 1 segundo</span>
+  avanzar();    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Avanza medio segundo</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">500</span>);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> avanzar()
+{
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(AIA, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);        <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Motor1 0 voltaje</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(AIB, velocidad);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Motor1 PWM voltaje</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(BIA, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);        <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Motor2 0 voltaje</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(BIB, velocidad);  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Motor2 PWM voltaje</span>
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> retroceder()
+{
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(AIA, velocidad);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(AIB, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(BIA, velocidad);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(BIB, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> izquierda()
+{
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(AIA, velocidad);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(AIB, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(BIA, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(BIB, velocidad);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> derecha()
+{
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(AIA, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(AIB, velocidad);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(BIA, velocidad);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(BIB, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+}</pre>
+                  <br>
+                <p>
+                  Para utilizar un motor usaremos un driver (un dispositivo que nos permite invertir la polaridad y así poder girar en dos sentidos "avanzar" y "retroceder".
+                </p>
+                <p>
+                  Estos driver se conocen como puentes H y podemos encontrar diferentes fabricantes L9110, L98N, TB6612FNG...
+                </p>
+                <p>
+                  1 - Todos los pines son <or>PWM</or> así podremos modificar la velocidad.
+                </p>
+                <p>
+                  2 - Todos los pines son de <or>salida</or>, ya que es un actuador.
+                </p>
+                <p>
+                  3 - Veamos ahora como crear una función <or>avanzar</or>, escribimos para eso <or>LOW</or> en uno de los pines y en el otro la variable <or>velocidad</or> que sera un valor <or>PWM</or>, y lo mismo para los pines del otro motor.
+                </p>
+
                 </div>
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -1754,47 +1783,30 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
                 <h2><or>12</or></h2>
                 <br>
                 <div  class="text-left">
+                <p>
+                  Cómo funciona el conductor del motor
+El TB6612FNG puede manejar un voltaje de suministro de motor de hasta 15V, y funciona con un voltaje lógico de 2.7–5.5V. Puede controlar una corriente de salida de 1.2A. Tiene dos circuitos de motor, cada uno con dos entradas lógicas y dos salidas de motor. Cada controlador de motor tiene una entrada PWM, ya que se espera que se utilicen para el control de velocidad del motor mediante el ancho de pulso que modula este pin. También hay un pin de espera que debe conectar al voltaje a través de una resistencia pull-up de 10 kilohm para activar los circuitos del controlador del motor.
 
-                <p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
-                explicación de <strong><or>Open Source Hardware</or></strong>, se trata de compartir el desarrollo de
-                los proyectos electrónicos con arquitectura abierta, permitiendo a otros usuarios el libre uso de él,
-                colaborando en su desarrollo, mejorandolo o añadiendo nuevas funcionalidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/compartir.png" alt="">
-                <br>
-                <p>Un ejemplo son las impresoras 3D (<a href="https://reprap.org/wiki/RepRap">reprap.org</a>),
-                los drones (<a href="http://ardupilot.org/">ardupilot.org</a>) o robótica educativa
-                (<a href="https://tecnoloxia.org/mclon/">mClon</a>) donde lideran
-                sin duda el mercado. Estos proyectos evolucionan rápidamente gracias a la participación de
-                extensas comunidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
-                <br>
-                <p>Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce, pero
-                sin duda el <strong>Arduino Uno</strong> sigue siendo la mejor opción para comenzar
-                a crear los primeros proyectos, es económica, disponemos de una extensa documenación
-                y shields (extensiones) que añaden nuevas funcionalidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/extension.png" alt="">          <br>
-                <p>Este es un Arduino Uno original con su protoboard.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/arduino2.png" alt="">
-                <br>
-                <p><strong><or>¿Pero que és un Arduino Uno?</or></strong></p>
-                <p>Es una tarjeta electrónica
-                que funciona al igual que un ordenador. La clave es su microchip el ATmega 328P,
-                que es un circuito integrado con memorias, procesador
-                y pines de entradas y salidas.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/atmega.png" alt="">
-                <br>
-                <p>El diseño de la tarjeta de Arduino Uno nos facilita el acceder a su microchip a
-                través de un puerto USB, alimentarlo con un conector de 5 a 12 voltios
-                y nos etiqueta sus pines de conexión.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/pines.png" alt="">
-                <br>
-                <p>Continua con el siguiente tutorial</p>
+El controlador del motor tiene los siguientes pines. Los números de pin que se muestran aquí son para el tablero de conexiones Sparkfun. El orden de los pines será diferente para los tableros Adafruit y Pololu. Los pines se numeran aquí en forma DIP, en forma de U de arriba a la izquierda a la izquierda, luego de abajo a la derecha a la derecha.
+
+VM - entrada de suministro de voltaje del motor, hasta 15V.
+Vcc - entrada de suministro de voltaje lógico, 2.7-5.5V
+Gnd - tierra
+AO1 - Una salida de canal 1. Este es el primer terminal del motor para el primer controlador del motor
+AO2 - Una salida de canal 2. Este es el segundo terminal del motor para el primer controlador del motor
+BO2 - Salida del canal B 2. Este es el segundo terminal del motor para el segundo controlador del motor
+BO1 - Salida del canal B 1. Este es el primer terminal del motor para el segundo controlador del motor
+Gnd - tierra
+Gnd - tierra
+PWMB - Habilitar PWM de canal B. Este pin controla la velocidad del canal B, independientemente de la dirección del canal.
+BI2 - Entrada del canal B 2. Esto controla la salida del canal B 2. Para controlar ese pin, tome este pin HIGH o LOW.
+BI1 - Entrada del canal B 1. Esto controla la salida del canal B 1. Para controlar ese pin, tome este pin HIGH o LOW.
+Stdby: habilita ambos controladores cuando lo llevas ALTO y los desactiva cuando lo llevas BAJO
+AI1 - Una entrada del canal 1. Esto controla la salida del canal A 1. Para controlar ese pin, tome este pin HIGH o LOW.
+AI2 - Una entrada del canal 2. Esto controla la salida del canal A 2. Para controlar ese pin, tome este pin HIGH o LOW.
+PWMA: un canal PWM habilitado. Este pin controla la velocidad del canal A, independientemente de la dirección del canal.
+La Figura 15 muestra el tablero Sparkfun, y las Figuras 16 y 17 muestran el tablero Pololu al frente y atrás. La placa Pololu está etiquetada en la parte posterior. Puede ver que ambos tableros tienen los mismos pines, aunque los diseños son diferentes.
+                </p>
                 </div>
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
