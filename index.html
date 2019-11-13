@@ -251,7 +251,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Actuadores/Driver1.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Motor L9110</bl></h4>
@@ -265,7 +265,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Actuadores/Driver2.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Motor L298N</bl></h4>
@@ -279,7 +279,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/Arduino1.png" alt="">
+            <img class="img-fluid" src="img/Actuadores/Driver3.png" alt="">
           </a>
           <div class="portfolio-caption">
             <h4><bl>Motor TB6612FNG</bl></h4>
@@ -1704,53 +1704,113 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase"><bl>11</bl></h2>
+                <h2 class="text-uppercase"><bl>Motores II</bl></h2>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
-                <h2><or>11</or></h2>
+                <h2><or>Actuador</or></h2>
                 <br>
                 <div  class="text-left">
+                  <h3>
+                    L298N Sketch
+                  </h3>
+                  <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Driver L298N puente H motor</span>
 
-                <p>Hola y bienvenidos a este tutorial de Arduino, comenzemos por una breve
-                explicación de <strong><or>Open Source Hardware</or></strong>, se trata de compartir el desarrollo de
-                los proyectos electrónicos con arquitectura abierta, permitiendo a otros usuarios el libre uso de él,
-                colaborando en su desarrollo, mejorandolo o añadiendo nuevas funcionalidades.</p>
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> motorDerechoAvanza = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>;       <span class="hljs-comment" style="color: rgb(136, 136, 136);">//El pin 2 a IN1 del L298N</span>
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> motorDerechoRetrocede = <span class="hljs-number" style="color: rgb(136, 0, 0);">3</span>;    <span class="hljs-comment" style="color: rgb(136, 136, 136);">//El pin 3 a IN2 del L298N</span>
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> motorIzquierdoAvanza = <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>;     <span class="hljs-comment" style="color: rgb(136, 136, 136);">//El pin 7 a IN3 del L298N</span>
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> motorIzquierdoRetrocede = <span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">//El pin 4 a IN4 del L298N</span>
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> velocidadDerecho = <span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>;         <span class="hljs-comment" style="color: rgb(136, 136, 136);">//El pin 5 a ENA del L298N</span>
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> velocidadIzquierdo = <span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>;       <span class="hljs-comment" style="color: rgb(136, 136, 136);">//El pin 6 a ENB del L298N</span>
+
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> velocidad = <span class="hljs-number" style="color: rgb(136, 0, 0);">200</span>;
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>()
+  {
+    <span class="hljs-comment" style="color: rgb(136, 136, 136);">//Configuramos todos los pines como salida</span>
+
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(motorDerechoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(motorDerechoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(motorIzquierdoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(motorIzquierdoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(velocidadDerecho, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(velocidadIzquierdo, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+
+  }
+
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Funciones que mueven los motores</span>
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> avanzar(){
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Motor 1 gira hacia adelante</span>
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadDerecho,velocidad);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadIzquierdo,velocidad);
+
+  }
+
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Función que mueve los motores hacia atrás</span>
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> retroceder(){
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Motor 1 gira hacia atrás</span>
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadDerecho,velocidad);<span class="hljs-comment" style="color: rgb(136, 136, 136);">//Velocidad motor</span>
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadIzquierdo,velocidad);
+  }
+
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Función gira a la derecha un motor avanza y el otro retrocede</span>
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> girarDerecha(){
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadDerecho,velocidad);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadIzquierdo,velocidad);
+  }
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> girarIzquierda(){
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadDerecho,velocidad);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadIzquierdo,velocidad);
+  }
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> parar(){
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede,<span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadDerecho,velocidad);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(velocidadIzquierdo,velocidad);
+  }
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+         avanzar();
+         <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3000</span>);
+         retroceder();
+         <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3000</span>);
+         girarDerecha();
+         <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3000</span>);
+         girarIzquierda();
+         <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3000</span>);
+         parar();
+         <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3000</span>);
+    }</pre>
+                <p>
+                  1 - Asignamos los pines del driver, hacen referecia al sentido de giro (digitales) y a la velocidad (PWM). También iniciamos la variable velocidad que será un valor de 0 a 255.
+                </p>
+                <p>
+                  2 - En el <or>setup()</or> definimos todos los pines como salidas. Y en este caso también tenemos las funciones que harán que avance, retroceda, gire a la derecha o a la izquierda y pare.
+                </p>
+                <p>
+                  3 - Finalmente haremos las llamada a la función y le asignamremos el tiempo que debe permanecer realizando la función.
+                </p>
                 <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/compartir.png" alt="">
-                <br>
-                <p>Un ejemplo son las impresoras 3D (<a href="https://reprap.org/wiki/RepRap">reprap.org</a>),
-                los drones (<a href="http://ardupilot.org/">ardupilot.org</a>) o robótica educativa
-                (<a href="https://tecnoloxia.org/mclon/">mClon</a>) donde lideran
-                sin duda el mercado. Estos proyectos evolucionan rápidamente gracias a la participación de
-                extensas comunidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/robots.png" alt="">
-                <br>
-                <p>Disponemos de una extensa variedad de tarjetas electónicas de prototipado Open Souce, pero
-                sin duda el <strong>Arduino Uno</strong> sigue siendo la mejor opción para comenzar
-                a crear los primeros proyectos, es económica, disponemos de una extensa documenación
-                y shields (extensiones) que añaden nuevas funcionalidades.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/extension.png" alt="">          <br>
-                <p>Este es un Arduino Uno original con su protoboard.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/arduino2.png" alt="">
-                <br>
-                <p><strong><or>¿Pero que és un Arduino Uno?</or></strong></p>
-                <p>Es una tarjeta electrónica
-                que funciona al igual que un ordenador. La clave es su microchip el ATmega 328P,
-                que es un circuito integrado con memorias, procesador
-                y pines de entradas y salidas.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/atmega.png" alt="">
-                <br>
-                <p>El diseño de la tarjeta de Arduino Uno nos facilita el acceder a su microchip a
-                través de un puerto USB, alimentarlo con un conector de 5 a 12 voltios
-                y nos etiqueta sus pines de conexión.</p>
-                <br>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/pines.png" alt="">
-                <br>
-                <p>Continua con el siguiente tutorial</p>
                 </div>
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -1777,36 +1837,117 @@ valor = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead<
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase"><bl>12</bl></h2>
+                <h2 class="text-uppercase"><bl>Motor III</bl></h2>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/Arduino1.png" alt="">
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
-                <h2><or>12</or></h2>
+                <h2><or>Actuador</or></h2>
                 <br>
                 <div  class="text-left">
+                <h3>
+                  TB6612FNG Sketch
+                </h3>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Motor A lado derecho</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">const</span> uint8_t PWM_Derecho = <span class="hljs-number" style="color: rgb(136, 0, 0);">3</span>;          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// ENB - Velocidad PWM</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> uint8_t motorDerechoAvanza = <span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// IN3 - Motor sentido avanza</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> uint8_t motorDerechoRetrocede = <span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>;<span class="hljs-comment" style="color: rgb(136, 136, 136);">// IN4 - Motor sentido retrocede</span>
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Motor B lado izquierdo</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">const</span> uint8_t PWM_Izquierda = <span class="hljs-number" style="color: rgb(136, 0, 0);">9</span>;
+<span class="hljs-keyword" style="font-weight: 700;">const</span> uint8_t motorIzquierdoAvanza = <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>;
+<span class="hljs-keyword" style="font-weight: 700;">const</span> uint8_t motorIzquierdoRetrocede = <span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>;
+
+<span class="hljs-keyword" style="font-weight: 700;">byte</span> velocidad = <span class="hljs-number" style="color: rgb(136, 0, 0);">200</span>;
+
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Funciones</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> avanzar() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// El sentido del motor avanza</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// El sentido del motor retrocede</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Izquierda, velocidad);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Velocidad PWM</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Derecho, velocidad);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> retroceder() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Izquierda, velocidad);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Derecho, velocidad);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> girarDerecha() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Izquierda, velocidad);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Derecho, velocidad);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> girarIzquierda() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Izquierda, velocidad);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Derecho, velocidad);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> parar() {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorIzquierdoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(motorDerechoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Izquierda, <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(PWM_Derecho, <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Configuramos todos los pines del driver (TB6612FNG) del motor como salida</span>
+
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(PWM_Izquierda, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(motorIzquierdoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(motorIzquierdoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(PWM_Derecho, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(motorDerechoAvanza, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(motorDerechoRetrocede, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Llamamos a las funciones de movimiento</span>
+  parar();          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Para</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">1000</span>);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante 1 segundo</span>
+  avanzar();        <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Avanza</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2000</span>);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante 2 segundos</span>
+  retroceder();     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Retocede</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2000</span>);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante 2 segundos</span>
+  girarIzquierda(); <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Gira a la izquierda</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2000</span>);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante 2 segundos</span>
+  girarDerecha();   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Gira a la derecha</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2000</span>);      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Durante 2 segundos</span>
+}</pre>
+                <br>
                 <p>
-                  Cómo funciona el conductor del motor
-El TB6612FNG puede manejar un voltaje de suministro de motor de hasta 15V, y funciona con un voltaje lógico de 2.7–5.5V. Puede controlar una corriente de salida de 1.2A. Tiene dos circuitos de motor, cada uno con dos entradas lógicas y dos salidas de motor. Cada controlador de motor tiene una entrada PWM, ya que se espera que se utilicen para el control de velocidad del motor mediante el ancho de pulso que modula este pin. También hay un pin de espera que debe conectar al voltaje a través de una resistencia pull-up de 10 kilohm para activar los circuitos del controlador del motor.
-
-El controlador del motor tiene los siguientes pines. Los números de pin que se muestran aquí son para el tablero de conexiones Sparkfun. El orden de los pines será diferente para los tableros Adafruit y Pololu. Los pines se numeran aquí en forma DIP, en forma de U de arriba a la izquierda a la izquierda, luego de abajo a la derecha a la derecha.
-
-VM - entrada de suministro de voltaje del motor, hasta 15V.
-Vcc - entrada de suministro de voltaje lógico, 2.7-5.5V
-Gnd - tierra
-AO1 - Una salida de canal 1. Este es el primer terminal del motor para el primer controlador del motor
-AO2 - Una salida de canal 2. Este es el segundo terminal del motor para el primer controlador del motor
-BO2 - Salida del canal B 2. Este es el segundo terminal del motor para el segundo controlador del motor
-BO1 - Salida del canal B 1. Este es el primer terminal del motor para el segundo controlador del motor
-Gnd - tierra
-Gnd - tierra
-PWMB - Habilitar PWM de canal B. Este pin controla la velocidad del canal B, independientemente de la dirección del canal.
-BI2 - Entrada del canal B 2. Esto controla la salida del canal B 2. Para controlar ese pin, tome este pin HIGH o LOW.
-BI1 - Entrada del canal B 1. Esto controla la salida del canal B 1. Para controlar ese pin, tome este pin HIGH o LOW.
-Stdby: habilita ambos controladores cuando lo llevas ALTO y los desactiva cuando lo llevas BAJO
-AI1 - Una entrada del canal 1. Esto controla la salida del canal A 1. Para controlar ese pin, tome este pin HIGH o LOW.
-AI2 - Una entrada del canal 2. Esto controla la salida del canal A 2. Para controlar ese pin, tome este pin HIGH o LOW.
-PWMA: un canal PWM habilitado. Este pin controla la velocidad del canal A, independientemente de la dirección del canal.
-La Figura 15 muestra el tablero Sparkfun, y las Figuras 16 y 17 muestran el tablero Pololu al frente y atrás. La placa Pololu está etiquetada en la parte posterior. Puede ver que ambos tableros tienen los mismos pines, aunque los diseños son diferentes.
+                  1 - Asignamos los pines. El driver tiene 2 digitales que nos indican el sentido de giro y uno analógico PWM que es la velocidad de 0 a 255.
                 </p>
+                <p>
+                  2 - En este caso declaramos las <or>funciones</or> antes del setup(), indicando el sentido de giro del motor con LOW y HIGH, y la velocidad con un variable.
+                </p>
+                <p>
+                  3 - Configuramos los pines como salida.
+                </p>
+                <p>
+                  4 - En el <or>loop()</or> llamamos a las funciones.
+                </p>
+                <br>
                 </div>
                 <!-- 111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
