@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>ESP8266 ARDUINO CON WIFI</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/tutoriales/Arduino1.png" alt="">
+            <br>
+            <h2 class="text-center"><or>CARACTERÍSTICAS DEL ESP8266</or></h2>
+            <br>
+            <div  class="text-left">
+              <!-- ESP8266 -->
+              <h3>
+                Leds
+              </h3>
+              <br>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">/*
+Conditionals - while statement
+
+This example demonstrates the use of  while() statements.
+
+While the pushbutton is pressed, the sketch runs the calibration routine.
+The sensor readings during the while loop define the minimum and maximum of
+expected values from the photoresistor.
+
+This is a variation on the calibrate example.
+
+The circuit:
+- photoresistor connected from +5V to analog in pin 0
+- 10 kilohm resistor connected from ground to analog in pin 0
+- LED connected from digital pin 9 to ground through 220 ohm resistor
+- pushbutton attached from pin 2 to +5V
+- 10 kilohm resistor attached from pin 2 to ground
+
+created 17 Jan 2009
+modified 30 Aug 2011
+by Tom Igoe
+modified 20 Jan 2017
+by Arturo Guadalupi
+
+This example code is in the public domain.
+
+http://www.arduino.cc/en/Tutorial/WhileLoop
+*/</span>
+
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// These constants won't change:</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> sensorPin = A0;       <span class="hljs-comment" style="color: rgb(136, 136, 136);">// pin that the sensor is attached to</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> ledPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">9</span>;           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// pin that the LED is attached to</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> indicatorLedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">13</span>; <span class="hljs-comment" style="color: rgb(136, 136, 136);">// pin that the built-in LED is attached to</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> buttonPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>;        <span class="hljs-comment" style="color: rgb(136, 136, 136);">// pin that the button is attached to</span>
+
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// These variables will change:</span>
+<span class="hljs-keyword" style="font-weight: 700;">int</span> sensorMin = <span class="hljs-number" style="color: rgb(136, 0, 0);">1023</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// minimum sensor value</span>
+<span class="hljs-keyword" style="font-weight: 700;">int</span> sensorMax = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;     <span class="hljs-comment" style="color: rgb(136, 136, 136);">// maximum sensor value</span>
+<span class="hljs-keyword" style="font-weight: 700;">int</span> sensorValue = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;         <span class="hljs-comment" style="color: rgb(136, 136, 136);">// the sensor value</span>
+
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// set the LED pins as outputs and the switch pin as input:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(indicatorLedPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(ledPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(buttonPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">INPUT</span>);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// while the button is pressed, take calibration readings:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">while</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalRead</span>(buttonPin) == <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>) {
+calibrate();
+}
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// signal the end of the calibration period</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(indicatorLedPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// read the sensor:</span>
+sensorValue = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogRead</span>(sensorPin);
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// apply the calibration to the sensor reading</span>
+sensorValue = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">map</span>(sensorValue, sensorMin, sensorMax, <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>, <span class="hljs-number" style="color: rgb(136, 0, 0);">255</span>);
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// in case the sensor value is outside the range seen during calibration</span>
+sensorValue = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">constrain</span>(sensorValue, <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>, <span class="hljs-number" style="color: rgb(136, 0, 0);">255</span>);
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// fade the LED using the calibrated value:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(ledPin, sensorValue);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> calibrate() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn on the indicator LED to indicate that calibration is happening:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(indicatorLedPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// read the sensor:</span>
+sensorValue = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogRead</span>(sensorPin);
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// record the maximum sensor value</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (sensorValue &gt; sensorMax) {
+sensorMax = sensorValue;
+}
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// record the minimum sensor value</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (sensorValue &lt; sensorMin) {
+sensorMin = sensorValue;
+}
+}</pre>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

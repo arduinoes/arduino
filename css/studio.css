@@ -3,11 +3,10 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-agency/blob/master/LICENSE)
  */
- 
-body {  
+
+body {
   overflow-x: hidden;
   font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  font-size: 5em;
 }
 
 or {
@@ -327,16 +326,6 @@ header.masthead .intro-text .intro-heading {
   /* font-family: 'Roboto', sans-serif; */
   font-size: 1.3em;
   font-family: 'Open Sans', sans-serif;
-
-}
-.miranda{
- font-size: 4em;
-
-}
-.modal-body {
-  padding-top: 1000px;
-  margin-bottom: 30px;
-  text-align: left;
 
 }
 .modal-body p {

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>ESP8266</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/esp/PinesESP8266.png" alt="">
+            <br>
+            <h2 class="text-center"><or>ARDUINO</or></h2>
+            <br>
+            <div  class="text-left">
+              
+              <!-- ESP8266 -->
+
+              <h4>
+                ¿Qué es el ESP8266?
+              </h4>
+              <br>
+                <p>
+                El ESP8266 es un microprocesador de bajo coste con Wifi integrado es un procesador completo, 
+                con mucha más potencia que la mayoría de modelos de Arduino. 
+                Existen distintos módulos que integran el SoC ESP8266. 
+                Las características principales de estos módulos son similares y, básicamente, 
+                se distinguen en la memoria Flash disponible y en su forma física, que a su vez 
+                condiciona el número de pins GPIO que tienen accesibles.
+              </p>
+              <p>
+                El ESP8266 es un SoC (sytem on chip) fabricado por la compañía china Espressif. 
+                Es un chip que integra en un encapsulado un procesador de propósito general 
+                con conectividad WiFI completa.
+              </p>
+              <p>
+                El procesador integrado es un Tensilica L106 de 32-bits con arquitectura RISC 
+                que funciona a una velocidad de 80Mhz, con una velocidad máxima de 160Mhz. 
+                El ESP8266 no incorpora memoria Flash dentro del SoC, por lo que tiene que ser 
+                proporcionada por el módulo en el que se monta. La conexión entre la memoria se realiza por 
+                QSPI. La memoria disponible varía entre módulos. Lo normal es encontrar modelos que montan 
+                de 1MiB a 8MiB, con un máximo de 16MiB.
+              </p>
+              <h4>
+                Características del ESP8266
+              </h4>
+              <br>
+              <p>
+                Estas son algunas de las características más relevantes:
+              </p>
+              <ul>
+                  <li>
+                    Procesador de 32 bit de bajo consumo
+                  </li>
+                  <li>
+                    Velocidad de 80MHz (máximo de 160MHz)
+                  </li>
+                  <li>
+                    32 KiB RAM instrucciones, 32 KiB RAM cache
+                  </li>
+                  <li>
+                    80 KiB RAM para datos de usuario
+                  </li>
+                  <li>
+                    Memoria flash externa hasta 16MiB
+                  </li>
+                  <li>
+                    Pila de TCP/IP integrada
+                  <li>
+                    Wifi 802.11 b/g/n 2.4GHz (soporta WPA/WPA2)
+                  </li>
+                  <li>
+                    Certificado por FCC, CE, TELEC, WiFi Alliance y SRRC
+                  </li>
+                  <li>
+                    16 pins GPIO
+                  </li>
+                  <li>
+                    PWM en todos los pines (10 bits)
+                  </li>
+                  <li>
+                    Conversor analógico digital de 10 bits
+                  </li>
+                  <li>
+                    UART (2x TX y 1x RX)
+                  </li>
+                  <li>
+                    SPI, I2C, I2
+                  </li>
+                  <li>
+                    Voltaje de operación 3.0 a 3.6V
+                  </li>
+                  <li>
+                    Consumo medio 80mA
+                  </li>
+                  <li>
+                    Modo consumo stand-by (1mW) y deep sleep (1uA).
+                  </li>
+              </ul>   
+              <p>
+                El firmware permite programar el ESP8266 con LUA, un lenguaje semicompilado 
+                basado en C y Perl. El trabajo de la comunidad continúo generando de documentación, 
+                tutoriales y herramientas. La liberación por parte de la comunidad de SDK alternativos 
+                Open Source para el ESP8266 basados en la toolchain GCC.
+              </p>
+              <p>
+                Esto permitió la programación con el entorno de Arduino con el ESP8266 Arduino Core. 
+                Esto supuso la catapulta definitiva para el ESP8266 en el sector maker, y le permitió 
+                beneficiarse del apoyo de la enorme comunidad de amantes de Arduino.
+              </p>
+              <p>
+                Espressif reaccionó (o vio el potencial, o le dio por apoyar a la comunidad) y generó 
+                nuevos SDK con una licencia similar a la MIT. Desde entonces, una gran cantidad de 
+                fabricantes han generado placas de desarrollo que integran el ESP8266. Las más conocidas 
+                son la NodeMCU y la WeMos.
+              </p>
+                Tenemos distintos SDK y firmwares disponibles, que permiten programar los módulos 
+                con ESP8266 en diferentes lenguajes, MicroPython (lenguaje Python) ESPruino (Javascript), 
+                ESP-OPEN-ROT (basado en FreeRTOS) o Mongoose OS, entre otras opciones. En septiembre de 
+                2016 se lanzó el ESP32, un modelo muy superior que solucionaba algunas carencias del 
+                ESP8266.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

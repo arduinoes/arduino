@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>ESP8266 ARDUINO</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/esp/esp12.png" alt="">
+            <br>
+            <h2 class="text-center"><or>Biblioteca ESP8266WiFi</or></h2>
+            <br>
+            <div  class="text-left">
+              <!-- ESP8266 -->
+              <h4>Biblioteca ESP8266WiFi</h4>
+              <br>
+              <p>
+                ESP8266 se basa en Wi-Fi. Si desea conectar su nuevo módulo ESP8266 a una red 
+                Wi-Fi para comenzar a enviar y recibir datos, este es el lugar para comenzar. 
+                Si busca mas detalladamente cómo programar una funcionalidad de red 
+                Wi-Fi específica, también está en el lugar correcto.
+              </p>
+              <h4>Introducción</h4>
+              <br>
+              <p>La biblioteca de Wi-Fi para ESP8266 ha sido desarrollada en base al SDK de ESP8266, 
+                utilizando las convenciones de nomenclatura y la filosofía de funcionalidad general de la
+                biblioteca WiFi de Arduino. Con el tiempo, la gran cantidad de funciones de Wi-Fi portadas 
+                desde ESP9266 SDK a esp8266 Arduino superó la biblioteca WiFi de Arduino y se hizo 
+                evidente que necesitaríamos proporcionar documentación separada.
+              </p>
+              <p>Esta documentación lo guiará a través de varias clases, métodos y propiedades de la 
+                biblioteca ESP8266WiFi. Si eres nuevo en C ++ y Arduino, no te preocupes. 
+                Comenzaremos con conceptos generales y luego pasaremos a la descripción detallada de 
+                los miembros de cada clase en particular, incluidos ejemplos de uso.
+              </p>
+              <p>El alcance de la funcionalidad que ofrece la biblioteca ESP8266WiFi es bastante extenso y, 
+                por lo tanto, esta descripción se ha dividido en documentos separados por enlaces.
+            </p>
+            <h4>Inicio rápido</h4>
+            <br>
+            <p>Si ya sabe cómo cargar el sketch Blink.ino en un módulo ESP8266 y hacer que el LED parpadee. 
+                Sino, utilice este tutorial de Adafruit u otro gran tutorial desarrollado por Sparkfun.
+            </p>
+            <p>Para conectar el módulo ESP a Wi-Fi (como conectar un teléfono móvil a un punto de acceso), 
+                solo necesita un par de líneas de código:
+            </p>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240) none repeat scroll 0% 0%; color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;ESP8266WiFi.h&gt;</span></span>
+
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>()
+  {
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">115200</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>();
+  
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"nombre-red"</span>, <span class="hljs-string" style="color: rgb(136, 0, 0);">"contraseña"</span>);
+  
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Conectando"</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">while</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.status() != WL_CONNECTED)
+    {
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">500</span>);
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"."</span>);
+    }
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>();
+  
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Conectado, dirección IP: "</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">IP local</span>());
+  }
+  
+  <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {}</pre>
+<p>En la línea</p> 
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240) none repeat scroll 0% 0%; color: rgb(68, 68, 68);">WiFi<span class="hljs-selector-class" style="color: rgb(136, 0, 0);">.begin</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"nombre-red"</span>, <span class="hljs-string" style="color: rgb(136, 0, 0);">"contraseña"</span>);</pre> 
+<p>
+    reemplace "nombre-red" y "contraseña" para conectarse y suba este sketch al módulo ESP y abra el 
+    monitor en serie. Deberías ver algo como:
+</p>
+<br> 
+<img class="img-fluid d-block mx-auto" src="img/esp/wifi01.png" alt="">
+<br>
+    <p>¿Como funciona? En la primera línea del boceto,</p> 
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240) none repeat scroll 0% 0%; color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;ESP8266WiFi.h&gt;</span></span></pre>  
+<p>estamos incluyendo la biblioteca ESP8266WiFi. Esta biblioteca proporciona rutinas específicas de Wi-Fi 
+    ESP8266 a las que llamamos para conectarnos a la red.
+</p>
+<p>La conexión real a Wi-Fi se inicializa llamando:</p>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240) none repeat scroll 0% 0%; color: rgb(68, 68, 68);">WiFi<span class="hljs-selector-class" style="color: rgb(136, 0, 0);">.begin</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"nombre-red"</span>, <span class="hljs-string" style="color: rgb(136, 0, 0);">"contraseña"</span>);</pre>
+<p>El proceso de conexión puede tomar un par de segundos y estamos verificando si esto se ha completado en el siguiente ciclo:
+</p>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240) none repeat scroll 0% 0%; color: rgb(68, 68, 68);"><span class="hljs-built_in" style="color: rgb(57, 115, 0);">while</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.status() != WL_CONNECTED)
+    {
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">500</span>);
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"."</span>);
+    }</pre>
+<p>El bucle <bl>while ()</bl> seguirá en bucle mientras <bl>WiFi.status ()</bl> sea distinto de 
+    <bl>WL_CONNECTED</bl>. El bucle saldrá solo si el estado cambia a <bl>WL_CONNECTED</bl>.
+</p>
+<p>La última línea imprimirá la dirección IP asignada al módulo ESP por DHCP:
+</p>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240) none repeat scroll 0% 0%; color: rgb(68, 68, 68);"><span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">localIP</span>());</pre>
+        <p
+        >Si no ve la última línea, solo más y más puntos ........., entonces es probable que el nombre 
+            o la contraseña de la red Wi-Fi se introdujese incorrectamente en el sketch. Verifique el 
+            nombre y la contraseña conectándose de nuevo a la red Wi-Fi con un PC o un teléfono móvil.
+        </p >
+        <p>
+        Nota: si se establece la conexión y luego se pierde por alguna razón, ESP se volverá a conectar 
+        automáticamente al último punto de acceso utilizado una vez que vuelva a estar en línea. 
+        Esto se hará automáticamente por la biblioteca de Wi-Fi, sin intervención del usuario.
+        </p>
+        <p>Eso es todo lo que necesitas para conectar ESP8266 a Wi-Fi. En los siguientes capítulos 
+            explicaremos qué cosas interesantes puede hacer el ESP una vez que está conectado.
+        </p>
+        <h4>
+            Quién es quién
+        </h4>
+        <br>
+        <p>
+            Los dispositivos que se conectan a redes Wi-Fi se denominan estaciones (STA). La conexión a
+             Wi-Fi es proporcionada por un punto de acceso (AP), que actúa como un centro para una o más 
+             estaciones. El punto de acceso en el otro extremo está conectado a una red cableada. 
+             Un punto de acceso generalmente se integra con un enrutador para proporcionar acceso 
+             desde una red Wi-Fi a Internet. Cada punto de acceso es reconocido por un SSID (Service 
+             Set IDentifier), que es esencialmente el nombre de la red que selecciona al conectar un 
+             dispositivo (estación) al Wi-Fi.
+        </p>
+        <p>
+            Los módulos ESP8266 pueden funcionar como una estación, por lo que podemos conectarlo a la 
+            red Wi-Fi. También puede funcionar como un punto de acceso (soft-AP), para establecer 
+            su propia red Wi-Fi. Cuando el módulo ESP8266 funciona como un punto de acceso, 
+            podemos conectar otras estaciones al módulo ESP. ESP8266 también puede funcionar como una 
+            estación y en modo de soft-AP. Esto proporciona la posibilidad de construir redes de malla.
+            ESP8266 operando en el modo Station + Soft Access Point
+        </p>
+        <img class="img-fluid d-block mx-auto" src="img/esp/wifi02.png" alt="">
+        <p>
+            La biblioteca ESP8266WiFi proporciona una amplia colección de métodos (funciones) y propiedades 
+            de C ++ para configurar y operar un módulo ESP8266 en estación y / o en punto de acceso. 
+            Se describen en los siguientes capítulos.
+        </p>
+        <h4
+        >Descripción de clase
+        </h4>
+        <br>
+        <p>La biblioteca ESP8266WiFi se divide en varias clases. En la mayoría de los casos, al escribir el código, 
+            el usuario no se preocupa por esta clasificación. Lo estamos utilizando para dividir la descripción 
+            de esta biblioteca en piezas más manejables.
+        </p>
+        <img class="img-fluid d-block mx-auto" src="img/esp/wifi03.png" alt="">
+        <br>
+        <p>Los capítulos siguientes describen todas las llamadas a funciones (métodos y propiedades en términos 
+            de C ++) enumeradas en clases particulares de ESP8266WiFi. La descripción se ilustra con ejemplos de 
+            aplicación y fragmentos de código para mostrar cómo usar las funciones en la práctica. 
+            Esta información se divide en los siguientes documentos.
+        </p>
+        <h4>
+            Estación
+        </h4>
+        <p>El modo de estación (STA) se usa para conectar el módulo ESP a una red Wi-Fi establecida por 
+            un punto de acceso.
+        </p>
+        <img class="img-fluid d-block mx-auto" src="img/esp/wifi04.png" alt="">
+        <br>
+        <p>La clase de estación tiene varias características para facilitar la administración de una conexión 
+            Wi-Fi. En caso de que se pierda la conexión, el ESP8266 se volverá a conectar automáticamente al 
+            último punto de acceso utilizado, una vez que esté disponible nuevamente. Lo mismo sucede en el 
+            reinicio del módulo. Esto es posible ya que ESP guarda las credenciales en el último punto de acceso 
+            utilizado en la memoria flash (no volátil). El uso de los datos guardados ESP también se volverá a 
+            conectar si se ha cambiado el boceto pero el código no altera el modo Wi-Fi o las credenciales.
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/station-class.html"><or>Documentación de clase de estación</or></h3></a>
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/station-examples.html"><or>Ejemplos de clase de estación</or></h3></a>
+        </p>
+        <h4>
+            Punto de acceso por software
+        </h4>
+        <br>
+        <p>Un punto de acceso (AP) es un dispositivo que proporciona acceso a una red Wi-Fi a otros 
+            dispositivos (estaciones) y los conecta a una red cableada. El ESP8266 puede proporcionar 
+            una funcionalidad similar, excepto que no tiene interfaz para una red cableada. Este modo se 
+            llama punto de acceso por software (soft-AP). El número máximo de estaciones que se pueden 
+            conectar simultáneamente al soft-AP se puede configurar de 0 a 8, pero el valor predeterminado 
+            es 4.
+        </p>
+        <img class="img-fluid d-block mx-auto" src="img/esp/wifi05.png" alt="">
+        <br>
+        <p>El modo soft-AP se usa con frecuencia y es un paso intermedio antes de conectar ESP a un Wi-Fi 
+            en un modo de estación. Esto es cuando el SSID y la contraseña de dicha red no se conocen por 
+            adelantado. ESP se inicia primero en modo soft-AP, por lo que podemos conectarnos a él usando 
+            una computadora portátil o un teléfono móvil. Entonces podemos proporcionar credenciales a la 
+            red de destino. Luego, el ESP cambia al modo de estación y puede conectarse al Wi-Fi objetivo.
+        </p>
+        <p>Otra aplicación práctica del modo soft-AP es configurar redes de malla. El ESP puede funcionar 
+            tanto en modo soft-AP como en modo Station para que pueda actuar como un nodo de una red de malla.
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/soft-access-point-class.html"><or>Documentación de clase de punto de acceso suave</or></h3></a>
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/soft-access-point-examples.html"><or>Ejemplos de la clase de punto de acceso suave</or></h3></a>
+        </p>
+        <h4>
+            Escanear
+        </h4>
+        <br>
+        <p>Para conectar un teléfono móvil a una zona activa, normalmente abre la aplicación de configuración 
+            de Wi-Fi, enumera las redes disponibles y elige la zona activa que necesita. Luego ingrese una 
+            contraseña (o no) y estará listo. Puede hacer lo mismo con el ESP. La clase de escaneo implementa 
+            la funcionalidad de escaneo y el listado de redes disponibles en el rango.
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/scan-class.html"><or>Documentación de clase escanear</or></h3></a>
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/scan-examples.html"><or>Ejemplos de la clase escanear</or></h3></a>
+        </p>
+        <h4>
+            Cliente
+        </h4>
+        <br>
+        <p>La clase Cliente crea clientes que pueden acceder a los servicios proporcionados por los servidores 
+            para enviar, recibir y procesar datos.
+        </p>
+        <img class="img-fluid d-block mx-auto" src="img/esp/wifi06.png" alt="">
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-class.html"><or>Documentación de clase clientes</or></h3></a>
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html"><or>Ejemplos de la clase clientes</or></h3></a>
+        </p>
+        <h4>
+            AxTLS Client Secure - OBSOLETO
+        </h4>
+        <p>La siguiente sección detalla axTLS, la biblioteca TLS más antigua utilizada por el proyecto. Todavía 
+            es compatible, pero generalmente no se realizarán correcciones y documentación adicionales. Consulte 
+            la siguiente sección para el objeto de cliente TLS actualizado.
+        </p>
+        <p>AxTLS Client Secure es una extensión de la clase de cliente donde la conexión y el intercambio de 
+            datos con los servidores se realiza mediante un protocolo seguro. Es compatible con TLS 1.1. 
+            El TLS 1.2 no es compatible.
+        </p>
+        <p>Las aplicaciones seguras tienen una carga adicional de memoria (y procesamiento) debido a la necesidad 
+            de ejecutar algoritmos de criptografía. Cuanto más fuerte es la clave del certificado, más gastos 
+            generales se necesitan. 
+        </p>
+        <br>
+        <h4>BearSSL Client Secure y Server Secure</h4>
+        <br>
+        <p>BearSSL :: WiFiClientSecure y BearSSL :: WiFiServerSecure son extensiones de las clases estándar 
+            de Cliente y Servidor donde la conexión y el intercambio de datos con servidores y clientes 
+            utilizan un protocolo seguro. Es compatible con TLS 1.2 utilizando una amplia variedad de cifrados 
+            modernos, hashes y tipos de clave.
+        </p>
+        <img class="img-fluid d-block mx-auto" src="img/esp/wifi07.png" alt=""> 
+        <br> 
+        <p>Los clientes y servidores seguros requieren cantidades significativas de memoria y procesamiento 
+            adicionales para habilitar sus algoritmos criptográficos. En general, solo se puede procesar una 
+            única conexión segura de cliente o servidor a la vez dada la poca RAM presente en el ESP8266, 
+            pero hay métodos para reducir este requisito de RAM detallados en las secciones relevantes.
+        </p>
+        <p>BearSSL :: WiFiClientSecure contiene más información sobre el uso y la configuración de las 
+            conexiones TLS.
+        </p>
+        <p>BearSSL :: WiFiServerSecure analiza el modo de servidor TLS disponible. Lea y comprenda primero 
+            BearSSL :: WiFiClientSecure, ya que el servidor utiliza la mayoría de los mismos conceptos.
+        </p>
+        <br>
+        <h4>Servidor</h4>
+        <br>
+        <p>La clase de servidor crea servidores que proporcionan funcionalidad a otros programas o 
+            dispositivos, llamados clientes.
+        </p>
+        <img class="img-fluid d-block mx-auto" src="img/esp/wifi08.png" alt=""> 
+        <br> 
+        <p>Los clientes se conectan a sever para enviar y recibir datos y acceder a la funcionalidad 
+            proporcionada.
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/server-class.html"><or>Documentación de clase servidores</or></h3></a>
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/server-examples.html"><or>Ejemplos de la clase servidores</or></h3></a>
+        </p>
+        <h4>UDP</h4>
+        <br>
+        <p>La clase UDP permite enviar y recibir los mensajes del Protocolo de datagramas de usuario (UDP). 
+            El UDP utiliza un modelo de transmisión simple "dispare y olvide" sin garantía de entrega, pedido 
+            o protección duplicada. UDP proporciona sumas de comprobación para la integridad de los datos y 
+            números de puerto para abordar diferentes funciones en el origen y el destino del datagrama.
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/udp-class.html"><or>Documentación de clase UDP</or></h3></a>
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/udp-examples.html"><or>Ejemplos de la clase servidores</or></h3></a>
+        </p>
+        <h4>Genérico</h4>
+        <br>
+        <p>Hay varias funciones que ofrece el SDK de ESP8266 y no están presentes en la biblioteca WiFi de 
+            Arduino. Si dicha función no se ajusta a una de las clases discutidas anteriormente, probablemente 
+            será en Clase genérica. Entre ellos se encuentra el controlador para administrar eventos de Wi-Fi 
+            como conexión, desconexión u obtención de una IP, cambios de modo de Wi-Fi, funciones para administrar 
+            el modo de suspensión del módulo, nombre de host a una resolución de dirección IP, etc.
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/generic-class.html"><or>Documentación de clase servidores</or></h3></a>
+        </p>
+        <p><a href="https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/generic-examples.html"><or>Ejemplos de la clase servidores</or></h3></a>
+        </p>
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

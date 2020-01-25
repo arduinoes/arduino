@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>ESP8266 ARDUINO CON WIFI</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/tutoriales/Arduino1.png" alt="">
+            <br>
+            <h2 class="text-center"><or>ARDUINO Y ESP8266</or></h2>
+            <br>
+            <div  class="text-left">
+              <!-- ESP8266 -->
+              <h4>
+                Yielding
+              </h4>
+              <br>
+              <p>
+                Esta es una de las diferencias más importantes respecto a un Arduino. El ESP8266 ejecuta 
+                muchas funciones relacionadas con mantener y gestionar la conexión WiFI y la pila TC/IP. 
+                Si no ejecuta estas acciones tendremos problemas de comunicación, bloqueos y reinicios.
+                Por este motivo se recomienda evitar bloqueos superiores a 100-200ms en nuestro código. 
+                De hecho, si pasan 3 segundos sin llamar a estas funciones el WatchDog reiniciará el 
+                ESP8266. Y aún con el WatchDog desactivado, con una espera mayor de 8 segundos el ESP8266 
+                se reiniciará él solito. Las funciones del ESP8266 se ejecutan al final de cada loop, 
+                al llamar a la función <bl>delay()</bl>, o con la función desarrollada para el ESP8266 en Arduino 
+                <bl>yield()</bl>, que podríamos considerar equivalente a <bl>delay(0)</bl>. En resumen, si tenéis un proceso 
+                que requiere más de 100-200ms, deberéis modificarlo para que incluya un <bl>delay()</bl> o un 
+                yield(). Por otro lado la función <bl>delaymicroseconds()</bl> no hace una llamada a <bl>yield()</bl>, 
+                por lo que deberemos evitar usarla para esperas mayores de unos 20ms.
+              </p>
+                <h4>
+                  Funciones de tiempo
+                </h4>
+                <br>
+              <p>
+                Las funciones de tiempo <bl>millis()</bl> y <bl>micros()</bl> funcionan igual que en Arduino. 
+                También funcionan <bl>delay()</bl> y <bl>delayMicroseconds()</bl>, con las consideraciones anteriores 
+                que hemos comentado sobre Yielding.
+              </p>
+                <h4>
+                  Salidas y entradas digitales
+                </h4>
+                <br>
+              <p>
+                Las entradas y salidas digitales (GPIO) se programan prácticamente igual que en 
+                cualquier Arduino. Así, podemos cambiar el modo de un GPIO entre entrada o salida 
+                con la función <bl>pinMode()</bl>. Donde el modo puede ser OUTPUT, INPUT o INPUT_PULLUP. 
+                El pin 16 tiene un modo adicional INPUT_PULLDOWN_16, pero no es frecuente que vayamos 
+                a usarlo. Como en Arduino, por defecto todos los pines se inicializan como INPUT. 
+                Por otro lado, cuando el GPIO están en modo OUTPUT podemos emplearlo como salida 
+                asignando un valor (<bl>LOW</bl> o <bl>HIGH</bl>) igual que en Arduino con <bl>digitalWrite(pin, output)</bl> 
+                Por último, cuando el GPIO está en modo entrada podemos leer su valor igual que en 
+                Arduino con <bl>digitalRead(pin)</bl>
+              </p>
+                <h4>
+                  Salidas PWM
+                </h4>
+                <br>
+                <p>
+                  La programación de salidas PWM (salidas "analógicas") es muy parecida a Arduino. 
+                  Sin embargo el ES8266 no dispone de PWM por hardware por lo que, en su 
+                  lugar, lo realiza por software esto ermite que podamos usar PWM en cualquier GPIO. 
+                  Para ello, igual que en Arduino, para usar una salida PWM empleamos la función:
+                  <bl>analogWrite(pin, value)</bl>. 
+                  
+                  Por defecto el rango es de 10bits, por lo que value toma valores de 0-1023 
+                  (la mayoría de modelos de Arduino toman valores de 0-255). No obstante, podemos cambiar 
+                  el rango hasta 14bits de salida con: <bl>analogWriteRange(range)</bl>. 
+                  La frecuencia por defecto es de 1kHz, pero puede ser cambiado con la función 
+                  (el mínimo es 100Hz y el máximo es 40kHz) <bl>analogWriteFreq(frequency)</bl>.
+                  Otra diferencia con un Arduino es que si en el mismo programa queremos usar una 
+                  salida PWM como digital posteriormente, deberemos desactivar el PWM de forma explícita. 
+                  Para ello simplemente hacemos: <bl>analogWrite(pin, 0)</bl>.
+                </p>
+                  <h4>
+                    Entradas analógicas
+                  </h4>
+                  <br>
+                <p>
+                  El ESP8266 tiene una única entrada analógica (ADC), que en el entorno Arduino se 
+                  designa con A0. Para leerlo se emplea la misma función que Arduino, es decir, 
+                  simplemente usamos la función: <bl>analogRead(A0)</bl>. La respuesta es un valor 
+                  de 10bits en el rango de 0-1023 (igual que en la mayoría de Arduinos), cuyo voltaje 
+                  es proporcional a la tensión en la entrada. Recordar que el ESP8266 tiene una entrada 
+                  analógica máxima de 1V, aunque muchas placas tienen un conversor para ampliarlo hasta 
+                  5V. Verificar la tensión máxima admisible del ADC de vuestra placa. Aplicar una tensión 
+                  superior a la permitida dañará el pin ADC. Por otro lado, el ESP8266 tiene un modo 
+                  adicional que permite medir su voltaje de alimentación. Esto es útil, por ejemplo, 
+                  al funcionar con baterías. Para activarlo, añadimos esta línea en nuestro skecth 
+                  ADC_MODE(ADC_VCC). Mientras estemos usando este modo el pin ADC real deberá estar 
+                  desconectado y, lógicamente, no podremos usarlo como entrada analógica.
+                </p>
+                  <h4>
+                    Interrupciones
+                  </h4>
+                  <br>
+                <p>
+                  El ESP8266 tiene interrupciones en todos los pines GPIO, excepto en el GPIO16 (D2). 
+                  El uso es similar a las interrupciones por hardware en Arduino 
+                  <bl>attachInterrupt(digitalPinToInterrupt(interruptPin), handler, FALLING)</bl>. 
+                  Las opciones son RISING, FALLING, CHANGE, ONLOW, ONHIGH, ONLOW_WE, ONHIGH_WE
+                </p>
+                <h4>
+                  PROGMEM
+                </h4>
+                <br>
+                <p>                  
+                  La macro PROGMEM, que guarda variables en la memoria flash en lugar de en la memoria 
+                  dinámica, también funciona en el ESP8266 con una pequeña pero importante diferencia. 
+                  En lugar de Arduino, que realiza un análisis previo para evitar tener la misma variable 
+                  múltiples veces, el equivalente en ESP8266 no realiza este preprocesamiento. 
+                  Así, por ejemplo: <bl>string text1 = F("hello")</bl> <bl>string text2 = F("hello")</bl> 
+                  Guardará dos veces el literal "hello" en la memoria. Podemos evitar esto con la 
+                  función FPSTR así <bl>const char hello[] PROGMEM = "hello"</bl> <bl>string texto1 = FSPTR(hello); string texto2 = FSPTR(hello)</bl>.
+                </p>
+                <h2>Comunicación</h2>
+                <br>
+                <h4> Puerto serie</h4>
+                <br>
+                <p>
+                  El uso del puerto serie en el ESP8266 es muy similar a su uso en Arduino y emplea todas 
+                  las funciones a las que estamos acostumbrado para enviar y recibir datos (read, write, 
+                  print, println…) Las únicas peculiaridades son relativas a funciones adicionales 
+                  disponibles en el ESP8266, ya que el ESP8266 tiene 2 puertos serie. 
+                  El primer puerto (UART0) está conectado a 2 parejas de pins. Por defecto se emplea 
+                  TX0 GPIO1 y RX0 GPIO3, pero puede cambiarse para que sea TX0 GPIO15 y RX0 GPIO13. 
+                  Si queremos cambiar entre ambas posibilidades usamos la función <bl>Serial.swap()</bl> 
+                  El segundo puerto (UART1) está asociado a los pines TX1 GPIO2 y RX2 GPIO8. Pero el 
+                  GPIO8 es usado para la conexión con la memoria externa. Por tanto, el UART1 solo puede 
+                  usarse para enviar datos. Las funciones son mismas que las habituales, pero usando 
+                  Serial1 en lugar de Serial. Por ejemplo, el UART1 se inicializaría así: <bl>Serial.swap()</bl> 
+                  <bl>Serial1.begin(baud)</bl>
+                </p>
+                <h4>I2C</h4>
+                <br>
+                <p>
+                  El uso del I2C en el ESP8266 es similar a Arduino y emplea las mismas funciones. 
+                  La diferencia es que ESP8266 no dispone de hardware para comunicación I2C por lo que 
+                  lo simula por software. Esto supone una carga de proceso adicional para el ESP8266 
+                  que Arduino no tiene. Pero, como ventaja, podemos usar dos pines cualesquiera para 
+                  la comunicación. Por defecto, los pines empleados son SDA GPIO4 (D2) y SCL GPIO5 (D14). 
+                  Pero podemos cambiarlo con la función:<bl>Wire.begin(SDA, SCL)</bl>. La velocidad 
+                  máxima es de unos 450kHZ. Por lo demás, la programación es idéntica a Arduino.
+                </p>
+                <h4>SPI</h4>
+                <br>
+                <p>
+                  El ESP8266 tiene un SPI por hardware accesible para el usuario (designado a veces HSPI). 
+                  Nuevamente, su uso es similar y emplea las mismas funciones que en un Arduino 
+                  convencional. Los pines por defecto son MISO GPIO12 (D12), MOSI GPIO13 (D7), y CLK GPIO14 
+                  (D13), SS GPIO15 (D10). Adicionalmente, en el ESP8266 podemos cambiar la frecuencia 
+                  del SPI de forma sencilla hasta 1Mhz con la función:SPI.setFrequency(frequency)
+                </p>
+                <h4>WiFI</h4>
+                <br>
+                <p>
+                  Para acceder a las funcionalidades WiFi del ESP8266 usaremos la librería ESP8266WiFI, 
+                  cuyo funcionamiento es parecido a la librería de Arduino WiFi. ESP8266WiFi Class. 
+                  Para incluirlo en nuestro proyecto empleamos: #include <ESP8266WiFi.h> 
+                  La funcionalidad WiFi es uno de los principales puntos de interés del ESP8266. 
+                </p>
+                <h4>Librerías de Arduino</h4>
+                <br>
+                <p>
+                  Una de las preguntas que con más frecuencia se hacen al hablar de programación del 
+                  ESP8266 en Arduino ¿funcionarán las librerías de Arduino en el ESP8266? Y la respuesta 
+                  es, siento deciros, que en general no van a ser compatibles. 
+                  Pero no tampoco es, no siempre. Simente usa código de C++ (ejemplo, una librería de 
+                  cálculo), o usa funciones del entorno para realizar el manejo del hardware, esta 
+                  librería sí que va a funcionar. Sin embargo, si accede a elementos internos de la 
+                  arquitectura como timers, registros, o si usa códigos de ensamblador para acelerar 
+                  ciertas tareas, por ejemplo, la librería no va a funcionar a no ser que haya sido 
+                  adaptada específicamente para el ESP8266. Afortunadamente, la popularidad de del 
+                  ESP8266 ha hecho que la comunidad desarrolle o adapte la mayoría de librerías 
+                  disponibles en Arduino. Aunque, de entre las muchas disponibles, tendremos que 
+                  buscar específicamente las compatibles con ESP8266.
+                </p>
+                <p>
+                  Como vemos, pese a algunas diferencias, en general es muy similar a programar un Arduino. 
+                  Esto es debido al genial trabajo de la comunidad al desarrollar la compatibilidad entre 
+                  dispositivos, y hace que sea muy sencillo usar el ESP8266 con el entorno de Arduino.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

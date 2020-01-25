@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>ESP8266 ARDUINO CON WIFI</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/tutoriales/Arduino1.png" alt="">
+            <br>
+            <h2 class="text-center"><or>CARACTERÍSTICAS DEL ESP8266</or></h2>
+            <br>
+            <div  class="text-left">
+              <!-- ESP8266 -->
+              <h3>Sketch</h3>
+                <br>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">int</span> timer = <span class="hljs-number" style="color: rgb(136, 0, 0);">200</span>;           <span class="hljs-comment" style="color: rgb(136, 136, 136);">// The higher the number, the slower the timing.</span>
+<span class="hljs-keyword" style="font-weight: 700;">int</span> ledPins[]= {<span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>,<span class="hljs-number" style="color: rgb(136, 0, 0);">3</span>,<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>,<span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>,<span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>,<span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>};
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// use a for loop to initialize each pin as an output:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>; thisPin++) {
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(ledPins[thisPin], <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+}
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// loop from the lowest pin to the highest:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>; thisPin++) {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn the pin on:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(ledPins[thisPin], <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(timer);
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn the pin off:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(ledPins[thisPin], <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+}
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// loop from the highest pin to the lowest:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>; thisPin &gt; <span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>; thisPin--) {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn the pin on:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(ledPins[thisPin], <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(timer);
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn the pin off:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(ledPins[thisPin], <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+}
+}</pre>
+                <br>
+                <p>
+                  <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/for/" target="_blank">for</a>
+                </p>
+                <p>
+                  Descripción
+                </p>
+                <p>
+                  La declaración <or>for</or> se usa para repetir un bloque de declaraciones encerradas entre llaves. 
+                  Utilizamos un incremento para terminar el ciclo. 
+                  Es útil para operaciones repetitivas, 
+                  a menudo se usa en combinación con arrays 
+                  para operar en colecciones de datos/pines.
+                </p>
+                <p>
+                  Sintaxis
+                </p>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">for</span> (<span class="hljs-keyword" style="font-weight: 700;">initialization</span>; condition; increment) {
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// statement(s);</span>
+}</pre>
+                <br>
+                <p>
+                  Parámetros
+                </p>
+                <p>
+                  Contador: es el inicio de la primera iteración (repetición hasta alcancar la meta) 
+                  el punto de partida.
+                  <br>
+                  condición: en cada iteración verificamos si la condicion se cumple, si es verdadera 
+                  el bloque de instrucción y el incremento se ejecuta, 
+                  entonces la condición se prueba nuevamente. 
+                  Cuando la condición se vuelve falsa, el ciclo termina.
+                  incremento: se ejecuta si se cumple la condición.
+                </p>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

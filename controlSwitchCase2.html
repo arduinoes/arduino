@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>ESP8266 ARDUINO CON WIFI</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/tutoriales/Arduino1.png" alt="">
+            <br>
+            <h2 class="text-center"><or>CARACTERÍSTICAS DEL ESP8266</or></h2>
+            <br>
+            <div  class="text-left">
+              <!-- ESP8266 -->
+              <h3>
+                Sketch
+              </h3>
+              <br>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">/*
+Switch statement with serial input
+
+Demonstrates the use of a switch statement. The switch statement allows you
+to choose from among a set of discrete values of a variable. It's like a
+series of if statements.
+
+To see this sketch in action, open the Serial monitor and send any character.
+The characters a, b, c, d, and e, will turn on LEDs. Any other character will
+turn the LEDs off.
+
+The circuit:
+- five LEDs attached to digital pins 2 through 6 through 220 ohm resistors
+
+created 1 Jul 2009
+by Tom Igoe
+
+This example code is in the public domain.
+
+http://www.arduino.cc/en/Tutorial/SwitchCase2
+*/</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize serial communication:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize the LED pins:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>; thisPin++) {
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(thisPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+}
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// read the sensor:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">available</span>() &gt; <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
+<span class="hljs-keyword" style="font-weight: 700;">int</span> inByte = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">read</span>();
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// do something different depending on the character received.</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// The switch statement expects single number values for each case; in this</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// example, though, you're using single quotes to tell the controller to get</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// the ASCII value for the character. For example 'a' = 97, 'b' = 98,</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// and so forth:</span>
+
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">switch</span> (inByte) {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'a'</span>:
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'b'</span>:
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'c'</span>:
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'d'</span>:
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'e'</span>:
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">default</span>:
+    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn all the LEDs off:</span>
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>; thisPin++) {
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(thisPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+    }
+}
+}
+}</pre>
+
+<br>
+  <p>map()
+[Matemáticas]
+Descripción
+Vuelve a mapear un número de un rango a otro. Es decir, un valor de fromLow se asignaría a toLow , un valor de fromHigh a toHigh , valores intermedios a valores intermedios, etc.
+
+No restringe los valores dentro del rango, porque los valores fuera de rango a veces son intencionales y útiles. La constrain()función puede usarse antes o después de esta función, si se desean límites a los rangos.
+
+Tenga en cuenta que los "límites inferiores" de cualquiera de los rangos pueden ser mayores o menores que los "límites superiores", por lo que la map()función se puede utilizar para invertir un rango de números, por ejemplo
+
+y = map(x, 1, 50, 50, 1);
+
+La función también maneja bien los números negativos, por lo que este ejemplo
+
+y = map(x, 1, 50, 50, -100);
+
+También es válido y funciona bien.
+
+La map()función usa matemática entera, por lo que no generará fracciones, cuando la matemática podría indicar que debería hacerlo. Los restos fraccionarios se truncan y no se redondean ni promedian.
+
+Sintaxis
+map(value, fromLow, fromHigh, toLow, toHigh)
+
+Parámetros
+value: el número a mapear.
+fromLow: el límite inferior del rango actual del valor.
+fromHigh: el límite superior del rango actual del valor.
+toLow: el límite inferior del rango objetivo del valor.
+toHigh: el límite superior del rango objetivo del valor.
+
+Devoluciones
+El valor mapeado.
+<h3>
+                  Sketch
+                </h3>
+                <br>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">/*
+Switch statement with serial input
+
+Demonstrates the use of a switch statement. The switch statement allows you
+to choose from among a set of discrete values of a variable. It's like a
+series of if statements.
+
+To see this sketch in action, open the Serial monitor and send any character.
+The characters a, b, c, d, and e, will turn on LEDs. Any other character will
+turn the LEDs off.
+
+The circuit:
+- five LEDs attached to digital pins 2 through 6 through 220 ohm resistors
+
+created 1 Jul 2009
+by Tom Igoe
+
+This example code is in the public domain.
+
+http://www.arduino.cc/en/Tutorial/SwitchCase2
+*/</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize serial communication:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize the LED pins:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>; thisPin++) {
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(thisPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+}
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// read the sensor:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">available</span>() &gt; <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
+  <span class="hljs-keyword" style="font-weight: 700;">int</span> inByte = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">read</span>();
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// do something different depending on the character received.</span>
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// The switch statement expects single number values for each case; in this</span>
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// example, though, you're using single quotes to tell the controller to get</span>
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// the ASCII value for the character. For example 'a' = 97, 'b' = 98,</span>
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// and so forth:</span>
+
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">switch</span> (inByte) {
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'a'</span>:
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'b'</span>:
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'c'</span>:
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'d'</span>:
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'e'</span>:
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">default</span>:
+      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn all the LEDs off:</span>
+      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>; thisPin++) {
+        <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(thisPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+      }
+  }
+}
+}</pre>
+
+                <br>
+                map()
+[Matemáticas]
+Descripción
+Vuelve a mapear un número de un rango a otro. Es decir, un valor de fromLow se asignaría a toLow , un valor de fromHigh a toHigh , valores intermedios a valores intermedios, etc.
+
+No restringe los valores dentro del rango, porque los valores fuera de rango a veces son intencionales y útiles. La constrain()función puede usarse antes o después de esta función, si se desean límites a los rangos.
+
+Tenga en cuenta que los "límites inferiores" de cualquiera de los rangos pueden ser mayores o menores que los "límites superiores", por lo que la map()función se puede utilizar para invertir un rango de números, por ejemplo
+
+y = map(x, 1, 50, 50, 1);
+
+La función también maneja bien los números negativos, por lo que este ejemplo
+
+y = map(x, 1, 50, 50, -100);
+
+También es válido y funciona bien.
+
+La map()función usa matemática entera, por lo que no generará fracciones, cuando la matemática podría indicar que debería hacerlo. Los restos fraccionarios se truncan y no se redondean ni promedian.
+
+Sintaxis
+map(value, fromLow, fromHigh, toLow, toHigh)
+
+Parámetros
+value: el número a mapear.
+fromLow: el límite inferior del rango actual del valor.
+fromHigh: el límite superior del rango actual del valor.
+toLow: el límite inferior del rango objetivo del valor.
+toHigh: el límite superior del rango objetivo del valor.
+
+Devoluciones
+El valor mapeado.
+  </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

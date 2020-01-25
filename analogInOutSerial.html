@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>ESP8266 ARDUINO CON WIFI</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/tutoriales/Arduino1.png" alt="">
+            <br>
+            <h2 class="text-center"><or>CARACTERÍSTICAS DEL ESP8266</or></h2>
+            <br>
+            <div  class="text-left">
+              <!-- ESP8266 -->
+              <h3>Sketch</h3>
+                  <br>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">/*
+  Analog input, analog output, serial output
+
+  Reads an analog input pin, maps the result to a range from 0 to 255 and uses
+  the result to set the pulse width modulation (PWM) of an output pin.
+  Also prints the results to the Serial Monitor.
+
+  The circuit:
+  - potentiometer connected to analog pin 0.
+    Center pin of the potentiometer goes to the analog pin.
+    side pins of the potentiometer go to +5V and ground
+  - LED connected from digital pin 9 to ground
+
+  created 29 Dec. 2008
+  modified 9 Apr 2012
+  by Tom Igoe
+
+  This example code is in the public domain.
+
+  http://www.arduino.cc/en/Tutorial/AnalogInOutSerial
+*/</span>
+
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// These constants won't change. They're used to give names to the pins used:</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> analogInPin = A0;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Analog input pin that the potentiometer is attached to</span>
+<span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> analogOutPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">9</span>; <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Analog output pin that the LED is attached to</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">int</span> sensorValue = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;        <span class="hljs-comment" style="color: rgb(136, 136, 136);">// value read from the pot</span>
+<span class="hljs-keyword" style="font-weight: 700;">int</span> outputValue = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;        <span class="hljs-comment" style="color: rgb(136, 136, 136);">// value output to the PWM (analog out)</span>
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize serial communications at 9600 bps:</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);
+}
+
+<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// read the analog in value:</span>
+  sensorValue = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogRead</span>(analogInPin);
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// map it to the range of the analog out:</span>
+  outputValue = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">map</span>(sensorValue, <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>, <span class="hljs-number" style="color: rgb(136, 0, 0);">1023</span>, <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>, <span class="hljs-number" style="color: rgb(136, 0, 0);">255</span>);
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// change the analog out value:</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">analogWrite</span>(analogOutPin, outputValue);
+
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// print the results to the Serial Monitor:</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"sensor = "</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(sensorValue);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"\t output = "</span>);
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(outputValue);
+
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// wait 2 milliseconds before the next loop for the analog-to-digital</span>
+  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// converter to settle after the last reading:</span>
+  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>);
+}</pre>
+                <br>
+                <p>
+                    1 - Asignamos el <bl>potenciómetro</bl> (INPUT) en el pin analógico A0 (recordemos entradas analógicas desde A0 hasta A5)
+                </p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> PotPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el potenciómetro al pin A0 (analoógico) de 0 a 1023.</span></pre>
+                <p>
+                    2- El <bl>led</bl> como salida (OUTPUT) en el pin PWM 11 (recordemos pins PWM 3, 5, 6, 9, 10 y 11)
+                </p>
+                <p>
+                  3 -  Declaramos la <or>variable</or> "valor" donde guardaremos el valor del potenciómetro.
+                </p>
+                <p>
+                  4 - Especificamos que el pin del potenciómetro es de <or>entrada</or> y el led es de <or>salida</or>.
+                </p>
+                <p>
+                  5 - Iniciamos la comunicación <or>serial</or> para ver los valores del potenciómetro.
+                </p>
+                <br>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna el Led al pin ~11(PWM) byte de 0 a 255.</span></pre>
+                <br>
+                <p>Vayamos a la página oficial de arduino y veamos lo que nos dice sobre:</p>
+                <br>
+                <h3><or>Variables</or></h3>
+                <br>
+                <div style="padding-left: 40px;">
+                <p><a href="https://www.arduino.cc/reference/en/language/structure/further-syntax/define/" target="_blank">#define</a></p>
+                <br>
+                <div style="padding-left: 40px;">
+                <p><or>Sintaxis</or></p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">define</span> nombreConstante valor</span></pre>
+                <p><or>Codigo de ejemplo</or></p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">define</span> LedPin <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span></span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna al Led el Pin 11</span></pre>
+                </div>
+                <br>
+                <p>
+                  <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/" target="_blank">const</a>
+                </p>
+                <p>En este ejemplo encontramos const que modifica la variable como solo lectura que suele ser la mas habitual:</p>
+                <div class="mx-auto" style="padding-left: 40px;">
+                <p><or>Sintaxis</or></p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> NombreActuador/Sensor = PinNumero;
+</pre>
+                <p><or>Código de ejemplo</or></p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna al Led el Pin 11</span>
+</pre>
+                </div>
+                <br>
+                <p>Por último la otra forma de encontrarla es con una variable numérica:</p>
+                <br>
+                <p>
+                  <a href="https://www.arduino.cc/reference/en/language/variables/data-types/int/" target="_blank">int</a>
+                </p>
+                <div class="mx-auto" style="padding-left: 40px;">
+                <p><or>Sintaxis</or></p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-type" style="color: rgb(136, 0, 0);">int</span> NombreActuador/Sensor = PinNumero;
+</pre>
+                <p><or>Código de ejemplo</or></p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-type" style="color: rgb(136, 0, 0);">int</span> LedPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">11</span>;
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Asigna al Led el Pin 11</span>
+</pre>
+                </div>
+                </div>
+                <br>
+                <br>
+                <p><bl>Funciones </bl>veamos ahora las funciones</p>
+                <p>
+                  6 - <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/" target="_blank">analogRead()</a>
+                </p>
+                <br>
+                <div style="padding-left: 40px;">
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-attr">valor</span> = analogRead(PotPin);  // Guardamos el valor del pin A0 en la variable.</pre>
+                <br>
+                <p>
+                  Lee el valor del pin analógico especificado. Las placas Arduino contienen un convertidor analógico a digital multicanal de 10 bits. Esto significa que asignará los voltajes de entrada entre 0 y el voltaje especificado (5V o 3.3V) en valores enteros entre 0 y 1023. En un Arduino UNO, por ejemplo, esto produce una resolución entre lecturas de: 5 voltios / 1024 unidades o , 0.0049 voltios (4.9 mV) por unidad.
+                </p>
+              </div>
+                <p>
+                  7 - <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/" target="_blank">analogWrite()</a>
+                </p>
+                <br>
+                <div style="padding-left: 40px;">
+                <p>
+                  Escribe un valor analógico-PWM de 0 a 255 (byte) en un pin. Se puede usar para encender un LED con diferente intensidad o girar un motor a diferentes velocidades. Después de una llamada a analogWrite(), el pin generará una onda rectangular estable del ciclo de trabajo especificado hasta la próxima llamada a analogWrite().
+                </p>
+                <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">analogWrite(<span class="hljs-name" style="font-weight: 700;">LedPin</span>, valor/4)<span class="hljs-comment" style="color: rgb(136, 136, 136);">;      // Escribimos en el potenciómetro salida PWM.</span></pre>
+                <br>
+                <p>
+                  Podemos probar con motores, buzzers y otros actuadores que admitan valores analógicos.
+                </p>
+              </div>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
