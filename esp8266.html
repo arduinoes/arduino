@@ -45,209 +45,161 @@
               <h3>
                 Sketch
               </h3>
-              <br>
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">/*
-Switch statement with serial input
-
-Demonstrates the use of a switch statement. The switch statement allows you
-to choose from among a set of discrete values of a variable. It's like a
-series of if statements.
-
-To see this sketch in action, open the Serial monitor and send any character.
-The characters a, b, c, d, and e, will turn on LEDs. Any other character will
-turn the LEDs off.
-
-The circuit:
-- five LEDs attached to digital pins 2 through 6 through 220 ohm resistors
-
-created 1 Jul 2009
-by Tom Igoe
-
-This example code is in the public domain.
-
-http://www.arduino.cc/en/Tutorial/SwitchCase2
-*/</span>
-
-<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize serial communication:</span>
-<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize the LED pins:</span>
-<span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>; thisPin++) {
-<span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(thisPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
-}
-}
-
-<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// read the sensor:</span>
-<span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">available</span>() &gt; <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
-<span class="hljs-keyword" style="font-weight: 700;">int</span> inByte = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">read</span>();
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// do something different depending on the character received.</span>
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// The switch statement expects single number values for each case; in this</span>
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// example, though, you're using single quotes to tell the controller to get</span>
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// the ASCII value for the character. For example 'a' = 97, 'b' = 98,</span>
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// and so forth:</span>
-
-<span class="hljs-built_in" style="color: rgb(57, 115, 0);">switch</span> (inByte) {
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'a'</span>:
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'b'</span>:
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'c'</span>:
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'d'</span>:
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'e'</span>:
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">default</span>:
-    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn all the LEDs off:</span>
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>; thisPin++) {
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(thisPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
-    }
-}
-}
-}</pre>
-
-<br>
-  <p>map()
-[Matemáticas]
-Descripción
-Vuelve a mapear un número de un rango a otro. Es decir, un valor de fromLow se asignaría a toLow , un valor de fromHigh a toHigh , valores intermedios a valores intermedios, etc.
-
-No restringe los valores dentro del rango, porque los valores fuera de rango a veces son intencionales y útiles. La constrain()función puede usarse antes o después de esta función, si se desean límites a los rangos.
-
-Tenga en cuenta que los "límites inferiores" de cualquiera de los rangos pueden ser mayores o menores que los "límites superiores", por lo que la map()función se puede utilizar para invertir un rango de números, por ejemplo
-
-y = map(x, 1, 50, 50, 1);
-
-La función también maneja bien los números negativos, por lo que este ejemplo
-
-y = map(x, 1, 50, 50, -100);
-
-También es válido y funciona bien.
-
-La map()función usa matemática entera, por lo que no generará fracciones, cuando la matemática podría indicar que debería hacerlo. Los restos fraccionarios se truncan y no se redondean ni promedian.
-
-Sintaxis
-map(value, fromLow, fromHigh, toLow, toHigh)
-
-Parámetros
-value: el número a mapear.
-fromLow: el límite inferior del rango actual del valor.
-fromHigh: el límite superior del rango actual del valor.
-toLow: el límite inferior del rango objetivo del valor.
-toHigh: el límite superior del rango objetivo del valor.
-
-Devoluciones
-El valor mapeado.
-<h3>
-                  Sketch
-                </h3>
-                <br>
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">/*
-Switch statement with serial input
-
-Demonstrates the use of a switch statement. The switch statement allows you
-to choose from among a set of discrete values of a variable. It's like a
-series of if statements.
-
-To see this sketch in action, open the Serial monitor and send any character.
-The characters a, b, c, d, and e, will turn on LEDs. Any other character will
-turn the LEDs off.
-
-The circuit:
-- five LEDs attached to digital pins 2 through 6 through 220 ohm resistors
-
-created 1 Jul 2009
-by Tom Igoe
-
-This example code is in the public domain.
-
-http://www.arduino.cc/en/Tutorial/SwitchCase2
-*/</span>
-
-<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize serial communication:</span>
-<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">9600</span>);
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// initialize the LED pins:</span>
-<span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>; thisPin++) {
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(thisPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
-}
-}
-
-<span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {
-<span class="hljs-comment" style="color: rgb(136, 136, 136);">// read the sensor:</span>
-<span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">available</span>() &gt; <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
-  <span class="hljs-keyword" style="font-weight: 700;">int</span> inByte = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">read</span>();
-  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// do something different depending on the character received.</span>
-  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// The switch statement expects single number values for each case; in this</span>
-  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// example, though, you're using single quotes to tell the controller to get</span>
-  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// the ASCII value for the character. For example 'a' = 97, 'b' = 98,</span>
-  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// and so forth:</span>
-
-  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">switch</span> (inByte) {
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'a'</span>:
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'b'</span>:
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">3</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'c'</span>:
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'d'</span>:
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">case</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">'e'</span>:
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">6</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">default</span>:
-      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// turn all the LEDs off:</span>
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">for</span> (<span class="hljs-keyword" style="font-weight: 700;">int</span> thisPin = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>; thisPin &lt; <span class="hljs-number" style="color: rgb(136, 0, 0);">7</span>; thisPin++) {
-        <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(thisPin, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
-      }
-  }
-}
-}</pre>
-
-                <br>
-                map()
-[Matemáticas]
-Descripción
-Vuelve a mapear un número de un rango a otro. Es decir, un valor de fromLow se asignaría a toLow , un valor de fromHigh a toHigh , valores intermedios a valores intermedios, etc.
-
-No restringe los valores dentro del rango, porque los valores fuera de rango a veces son intencionales y útiles. La constrain()función puede usarse antes o después de esta función, si se desean límites a los rangos.
-
-Tenga en cuenta que los "límites inferiores" de cualquiera de los rangos pueden ser mayores o menores que los "límites superiores", por lo que la map()función se puede utilizar para invertir un rango de números, por ejemplo
-
-y = map(x, 1, 50, 50, 1);
-
-La función también maneja bien los números negativos, por lo que este ejemplo
-
-y = map(x, 1, 50, 50, -100);
-
-También es válido y funciona bien.
-
-La map()función usa matemática entera, por lo que no generará fracciones, cuando la matemática podría indicar que debería hacerlo. Los restos fraccionarios se truncan y no se redondean ni promedian.
-
-Sintaxis
-map(value, fromLow, fromHigh, toLow, toHigh)
-
-Parámetros
-value: el número a mapear.
-fromLow: el límite inferior del rango actual del valor.
-fromHigh: el límite superior del rango actual del valor.
-toLow: el límite inferior del rango objetivo del valor.
-toHigh: el límite superior del rango objetivo del valor.
-
-Devoluciones
-El valor mapeado.
-  </p>
-
+              <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">/*********
+                Rui Santos
+                Complete project details at https://randomnerdtutorials.com  
+              *********/</span>
+              
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Load Wi-Fi library</span>
+              <span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;ESP8266WiFi.h&gt;</span></span>
+              
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Replace with your network credentials</span>
+              <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">char</span>* ssid     = <span class="hljs-string" style="color: rgb(136, 0, 0);">"REPLACE_WITH_YOUR_SSID"</span>;
+              <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">char</span>* password = <span class="hljs-string" style="color: rgb(136, 0, 0);">"REPLACE_WITH_YOUR_PASSWORD"</span>;
+              
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Set web server port number to 80</span>
+              <span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFiServer</span> server(<span class="hljs-number" style="color: rgb(136, 0, 0);">80</span>);
+              
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Variable to store the HTTP request</span>
+              <span class="hljs-keyword" style="font-weight: 700;">String</span> header;
+              
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Auxiliar variables to store the current output state</span>
+              <span class="hljs-keyword" style="font-weight: 700;">String</span> output5State = <span class="hljs-string" style="color: rgb(136, 0, 0);">"off"</span>;
+              <span class="hljs-keyword" style="font-weight: 700;">String</span> output4State = <span class="hljs-string" style="color: rgb(136, 0, 0);">"off"</span>;
+              
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Assign output variables to GPIO pins</span>
+              <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> output5 = <span class="hljs-number" style="color: rgb(136, 0, 0);">5</span>;
+              <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">int</span> output4 = <span class="hljs-number" style="color: rgb(136, 0, 0);">4</span>;
+              
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Current time</span>
+              <span class="hljs-keyword" style="font-weight: 700;">unsigned</span> <span class="hljs-keyword" style="font-weight: 700;">long</span> currentTime = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">millis</span>();
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Previous time</span>
+              <span class="hljs-keyword" style="font-weight: 700;">unsigned</span> <span class="hljs-keyword" style="font-weight: 700;">long</span> previousTime = <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>; 
+              <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Define timeout time in milliseconds (example: 2000ms = 2s)</span>
+              <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">long</span> timeoutTime = <span class="hljs-number" style="color: rgb(136, 0, 0);">2000</span>;
+              
+              <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>() {
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">115200</span>);
+                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Initialize the output variables as outputs</span>
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(output5, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pinMode</span>(output4, <span class="hljs-literal" style="color: rgb(120, 169, 96);">OUTPUT</span>);
+                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Set outputs to LOW</span>
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(output5, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(output4, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+              
+                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Connect to Wi-Fi network with SSID and password</span>
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Connecting to "</span>);
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(ssid);
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(ssid, password);
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">while</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.status() != WL_CONNECTED) {
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">500</span>);
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"."</span>);
+                }
+                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Print local IP address and start web server</span>
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">""</span>);
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"WiFi connected."</span>);
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"IP address: "</span>);
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">localIP</span>());
+                server.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>();
+              }
+              
+              <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>(){
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFiClient</span> client = server.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">available</span>();   <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Listen for incoming clients</span>
+              
+                <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (client) {                             <span class="hljs-comment" style="color: rgb(136, 136, 136);">// If a new client connects,</span>
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"New Client."</span>);          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// print a message out in the serial port</span>
+                  <span class="hljs-keyword" style="font-weight: 700;">String</span> currentLine = <span class="hljs-string" style="color: rgb(136, 0, 0);">""</span>;                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// make a String to hold incoming data from the client</span>
+                  currentTime = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">millis</span>();
+                  previousTime = currentTime;
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">while</span> (client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">connected</span>() &amp;&amp; currentTime - previousTime &lt;= timeoutTime) { <span class="hljs-comment" style="color: rgb(136, 136, 136);">// loop while the client's connected</span>
+                    currentTime = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">millis</span>();         
+                    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">available</span>()) {             <span class="hljs-comment" style="color: rgb(136, 136, 136);">// if there's bytes to read from the client,</span>
+                      <span class="hljs-keyword" style="font-weight: 700;">char</span> c = client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">read</span>();             <span class="hljs-comment" style="color: rgb(136, 136, 136);">// read a byte, then</span>
+                      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">write</span>(c);                    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// print it out the serial monitor</span>
+                      header += c;
+                      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (c == <span class="hljs-string" style="color: rgb(136, 0, 0);">'\n'</span>) {                    <span class="hljs-comment" style="color: rgb(136, 136, 136);">// if the byte is a newline character</span>
+                        <span class="hljs-comment" style="color: rgb(136, 136, 136);">// if the current line is blank, you got two newline characters in a row.</span>
+                        <span class="hljs-comment" style="color: rgb(136, 136, 136);">// that's the end of the client HTTP request, so send a response:</span>
+                        <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (currentLine.length() == <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// HTTP headers always start with a response code (e.g. HTTP/1.1 200 OK)</span>
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// and a content-type so the client knows what's coming, then a blank line:</span>
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"HTTP/1.1 200 OK"</span>);
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Content-type:text/html"</span>);
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Connection: close"</span>);
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>();
+                          
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// turns the GPIOs on and off</span>
+                          <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (header.indexOf(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GET /5/on"</span>) &gt;= <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
+                            <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GPIO 5 on"</span>);
+                            output5State = <span class="hljs-string" style="color: rgb(136, 0, 0);">"on"</span>;
+                            <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(output5, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+                          } <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (header.indexOf(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GET /5/off"</span>) &gt;= <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
+                            <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GPIO 5 off"</span>);
+                            output5State = <span class="hljs-string" style="color: rgb(136, 0, 0);">"off"</span>;
+                            <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(output5, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+                          } <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (header.indexOf(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GET /4/on"</span>) &gt;= <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
+                            <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GPIO 4 on"</span>);
+                            output4State = <span class="hljs-string" style="color: rgb(136, 0, 0);">"on"</span>;
+                            <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(output4, <span class="hljs-literal" style="color: rgb(120, 169, 96);">HIGH</span>);
+                          } <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (header.indexOf(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GET /4/off"</span>) &gt;= <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>) {
+                            <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GPIO 4 off"</span>);
+                            output4State = <span class="hljs-string" style="color: rgb(136, 0, 0);">"off"</span>;
+                            <span class="hljs-built_in" style="color: rgb(57, 115, 0);">digitalWrite</span>(output4, <span class="hljs-literal" style="color: rgb(120, 169, 96);">LOW</span>);
+                          }
+                          
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Display the HTML web page</span>
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;!DOCTYPE html&gt;&lt;html&gt;"</span>);
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;head&gt;&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;"</span>);
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;link rel=\"icon\" href=\"data:,\"&gt;"</span>);
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// CSS to style the on/off buttons </span>
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Feel free to change the background-color and font-size attributes to fit your preferences</span>
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;style&gt;html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}"</span>);
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">".button { background-color: #195B6A; border: none; color: white; padding: 16px 40px;"</span>);
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}"</span>);
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">".button2 {background-color: #77878A;}&lt;/style&gt;&lt;/head&gt;"</span>);
+                          
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Web Page Heading</span>
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;body&gt;&lt;h1&gt;ESP8266 Web Server&lt;/h1&gt;"</span>);
+                          
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Display current state, and ON/OFF buttons for GPIO 5  </span>
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;p&gt;GPIO 5 - State "</span> + output5State + <span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;/p&gt;"</span>);
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// If the output5State is off, it displays the ON button       </span>
+                          <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (output5State==<span class="hljs-string" style="color: rgb(136, 0, 0);">"off"</span>) {
+                            client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;p&gt;&lt;a href=\"/5/on\"&gt;&lt;button class=\"button\"&gt;ON&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;"</span>);
+                          } <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> {
+                            client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;p&gt;&lt;a href=\"/5/off\"&gt;&lt;button class=\"button button2\"&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;"</span>);
+                          } 
+                             
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Display current state, and ON/OFF buttons for GPIO 4  </span>
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;p&gt;GPIO 4 - State "</span> + output4State + <span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;/p&gt;"</span>);
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// If the output4State is off, it displays the ON button       </span>
+                          <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (output4State==<span class="hljs-string" style="color: rgb(136, 0, 0);">"off"</span>) {
+                            client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;p&gt;&lt;a href=\"/4/on\"&gt;&lt;button class=\"button\"&gt;ON&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;"</span>);
+                          } <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> {
+                            client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;p&gt;&lt;a href=\"/4/off\"&gt;&lt;button class=\"button button2\"&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;"</span>);
+                          }
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"&lt;/body&gt;&lt;/html&gt;"</span>);
+                          
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// The HTTP response ends with another blank line</span>
+                          client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>();
+                          <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Break out of the while loop</span>
+                          <span class="hljs-built_in" style="color: rgb(57, 115, 0);">break</span>;
+                        } <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> { <span class="hljs-comment" style="color: rgb(136, 136, 136);">// if you got a newline, then clear currentLine</span>
+                          currentLine = <span class="hljs-string" style="color: rgb(136, 0, 0);">""</span>;
+                        }
+                      } <span class="hljs-built_in" style="color: rgb(57, 115, 0);">else</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (c != <span class="hljs-string" style="color: rgb(136, 0, 0);">'\r'</span>) {  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// if you got anything else but a carriage return character,</span>
+                        currentLine += c;      <span class="hljs-comment" style="color: rgb(136, 136, 136);">// add it to the end of the currentLine</span>
+                      }
+                    }
+                  }
+                  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Clear the header variable</span>
+                  header = <span class="hljs-string" style="color: rgb(136, 0, 0);">""</span>;
+                  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Close the connection</span>
+                  client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">stop</span>();
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Client disconnected."</span>);
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">""</span>);
+                }
+              }</pre>
             </div>
           </div>
         </div>
