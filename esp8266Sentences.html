@@ -34,11 +34,11 @@
           <div class="miranda">
 
             <!-- Project Details Go Here -->
-            <h2 class="text-uppercase text-center"><bl>ESP8266</bl></h2>
+            <h2 class="text-uppercase text-center"><bl>ESP8266 ARDUINO CON WIFI</bl></h2>
             <br>
             <img class="img-fluid d-block mx-auto" src="img/tutoriales/Arduino1.png" alt="">
             <br>
-            <h2 class="text-center"><or>Referencias Arduino</or></h2>
+            <h2 class="text-center"><or>CARACTERÍSTICAS DEL ESP8266</or></h2>
             <br>
             <div  class="text-left">
               <!-- ESP8266 -->
@@ -61,20 +61,7 @@
 <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Dirección IP: "</span>);
 <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">localIP</span>());
 }</pre>
-            <p><a href="https://www.arduino.cc/en/Reference/WiFiClient"><h5><bl>WiFiClient()</bl></h5></h3></a>
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">WiFiClient <span class="hljs-keyword" style="font-weight: 700;">client</span>;</pre>
-            <p>Crea un cliente que puede conectarse a una dirección IP y puerto de Internet especificados como se define en client.connect ()</p>
-            <p><a href="https://www.arduino.cc/en/Reference/WiFiClientConnect"><h5><bl>cliente.connect()</bl></h5></h3></a></p>
-              <p>Se conecta a la dirección IP y al puerto especificados en el constructor. El valor de retorno 
-                indica éxito o fracaso. connect () también admite búsquedas DNS cuando se usa un nombre de dominio 
-                (por ejemplo, google.com).</p> 
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"> <span class="hljs-selector-tag" style="font-weight: 700;">if</span> (client.connect(servername, <span class="hljs-number" style="color: rgb(136, 0, 0);">80</span>)) {
-  Serial<span class="hljs-selector-class" style="color: rgb(136, 0, 0);">.println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"connected"</span>);
-  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Make a HTTP request:</span>
-  client<span class="hljs-selector-class" style="color: rgb(136, 0, 0);">.println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GET /search?q=arduino HTTP/1.0"</span>);
-  client<span class="hljs-selector-class" style="color: rgb(136, 0, 0);">.println</span>();
-}</pre>    
-  <p><a href="https://www.arduino.cc/en/Reference/ClientAvailable"><h5><bl>client.available()</bl></h5></h3></a>
+            <p><a href="https://www.arduino.cc/en/Reference/ClientAvailable"><h5><bl>client.available()</bl></h5></h3></a>
             <p>Devuelve el número de bytes disponibles para leer (es decir, la cantidad de datos que el 
                 servidor al que está conectado ha escrito al cliente).</p>
              <p><a href="https://www.arduino.cc/en/Reference/ClientRead"><h5><bl>client.read()</bl></h5></h3></a></p>   
@@ -85,32 +72,10 @@
 <span class="hljs-keyword" style="font-weight: 700;">char</span> c = client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">read</span>();
 <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(c);
 }</pre>
-          
-              
-            <p><a href="https://www.arduino.cc/en/Reference/ClientPrintln"><h5><bl>cliente.println()</bl></h5></h3></a>
-              <p>Envía datos, seguidos de un retorno de carro y una nueva línea, al servidor al que está 
-                conectado un cliente. Imprime los números como una secuencia de dígitos, cada uno un 
-                carácter ASCII (por ejemplo, el número 123 se envía como los tres caracteres '1', '2', '3').</p>
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esto envia strings "cadenas" al servidor</span>
-  Serial<span class="hljs-selector-class" style="color: rgb(136, 0, 0);">.println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Enviando datos al servidor"</span>);
-  <span class="hljs-selector-tag" style="font-weight: 700;">if</span> (client.connected()) {
-    client<span class="hljs-selector-class" style="color: rgb(136, 0, 0);">.println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Hola desde ESP8266"</span>);
-  }</pre>
-                <p><a href="https://www.arduino.cc/en/Reference/WiFiServer"><h5><bl>WiFiServer server(80);</bl></h5></h3></a>
-                <p>Crea un servidor que escucha las conexiones entrantes en el puerto especificado.</p>
-            <p><a href="https://html"><h5><bl>server.begin()</bl></h5></h3></a></p>
-            <p>Le dice al servidor que comience a escuchar las conexiones entrantes</p>
-            <p><h5><bl>server.setNoDelay(true);</bl></h5></h3></p>
-            <p>Este algoritmo está destinado a reducir el tráfico TCP / IP de pequeños paquetes enviados 
-              a través de la red combinando una cantidad de pequeños mensajes salientes y enviándolos 
-              todos a la vez. La desventaja de este enfoque es retrasar efectivamente los mensajes 
-              individuales hasta que se reúna un paquete lo suficientemente grande.</p>
-            <p><a href="https://html"><h5><bl></bl></h5></h3></a></p>
-            <p><a href="https://html"><h5><bl></bl></h5></h3></a></p>
-            <p><a href="https://html"><h5><bl></bl></h5></h3></a></p>
-            <p><a href="https://html"><h5><bl></bl></h5></h3></a></p>
-            <p><a href="https://html"><h5><bl></bl></h5></h3></a></p>
-            <p><a href="https://html"><h5><bl></bl></h5></h3></a></p>
+            <p><a href="https://html"><h5><bl></bl></h5></h3></a>
+            <p><a href="https://html"><h5><bl></bl></h5></h3></a>
+            <p><a href="https://html"><h5><bl></bl></h5></h3></a>
+            <p><a href="https://html"><h5><bl></bl></h5></h3></a>
  <h5><bl></bl></h5> <h5><bl></bl></h5>
             </div>
           </div>
