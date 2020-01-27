@@ -200,6 +200,120 @@ server.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(
     <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">""</span>);
 }
 }</pre>
+<br>
+<h4>Cómo funciona el código</h4>
+<p>
+  Veamos cómo funciona el código para que pueda modificarlo para mis necesidades.
+</p>
+<p>Lo primero que debe hacer es incluir la biblioteca ESP8266WiFi.</p>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;ESP8266WiFi.h&gt;</span></span>
+</pre>
+<p>insertar su ssid y contraseña en las siguientes líneas dentro de las comillas dobles.
+</p>
+
+
+const char * ssid = "";
+const char * contraseña = "";
+Luego, configura su servidor web en el puerto 80.
+
+// Establecer el número de puerto del servidor web en 80
+Servidor WiFiServer (80);
+La siguiente línea crea una variable para almacenar el encabezado de la solicitud HTTP:
+
+Encabezado de cadena;
+A continuación, crea variables auxiliares para almacenar el estado actual de sus salidas. Si desea agregar más salidas y guardar su estado, debe crear más variables.
+
+// Variables auxiliares para almacenar el estado de salida actual
+Cadena output5State = "off";
+Cadena output4State = "off";
+También debe asignar un GPIO a cada una de sus salidas. Aquí estamos usando GPIO 4 y GPIO 5. Puede usar cualquier otro GPIO adecuado.
+
+// Asigna variables de salida a pines GPIO
+const int output5 = 5;
+const int output4 = 4;
+preparar()
+Ahora, vamos a la configuración (). La función setup () solo se ejecuta una vez cuando su ESP se inicia por primera vez. Primero, comenzamos una comunicación en serie a una velocidad en baudios de 115200 para propósitos de depuración.
+
+Serial.begin (115200);
+También define sus GPIO como SALIDAS y los establece en BAJO.
+
+// Inicializa las variables de salida como salidas
+pinMode (salida5, SALIDA);
+pinMode (salida4, SALIDA);
+// Establecer salidas a BAJO
+digitalWrite (salida5, BAJO);
+digitalWrite (salida4, BAJA);
+Las siguientes líneas comienzan la conexión Wi-Fi con WiFi.begin (ssid, contraseña), espera una conexión exitosa e imprime la dirección IP ESP en el Monitor de serie.
+
+// Conéctate a la red Wi-Fi con SSID y contraseña
+Serial.print ("Conexión a");
+Serial.println (ssid);
+WiFi.begin (ssid, contraseña);
+while (WiFi.status ()! = WL_CONNECTED) {
+ retraso (500);
+ Serial.print (".");
+}
+// Imprima la dirección IP local e inicie el servidor web
+Serial.println ("");
+Serial.println ("WiFi conectado");
+Serial.println ("Dirección IP:");
+Serial.println (WiFi.localIP ());
+server.begin ();
+lazo()
+En el bucle () programamos lo que sucede cuando un nuevo cliente establece una conexión con el servidor web.
+
+El ESP siempre está escuchando a los clientes entrantes con esta línea:
+
+Cliente WiFiClient = server.available (); // Escucha a los clientes entrantes
+Cuando se recibe una solicitud de un cliente, guardaremos los datos entrantes. El ciclo while que sigue se ejecutará mientras el cliente permanezca conectado. No recomendamos cambiar la siguiente parte del código a menos que sepa exactamente lo que está haciendo.
+
+if (client) {// Si se conecta un nuevo cliente,
+ Serial.println ("Cliente nuevo"); // imprime un mensaje en el puerto serie
+ String currentLine = ""; // crea una cadena para contener los datos entrantes del cliente
+ while (client.connected ()) {// loop mientras el cliente está conectado
+ if (client.available ()) {// si hay bytes para leer del cliente,
+  char c = client.read (); // lee un byte, luego
+  Serial.write (c); // imprime el monitor en serie
+  encabezado + = c;
+  if (c == '\ n') {// si el byte es un carácter de nueva línea
+   // si la línea actual está en blanco, tienes dos caracteres de nueva línea seguidos.
+   // ese es el final de la solicitud HTTP del cliente, así que envíe una respuesta:
+   if (currentLine.length () == 0) {
+    // Los encabezados HTTP siempre comienzan con un código de respuesta (por ejemplo, HTTP / 1.1 200 OK)
+    // y un tipo de contenido para que el cliente sepa lo que viene, luego una línea en blanco:
+    client.println ("HTTP / 1.1 200 OK");
+    client.println ("Tipo de contenido: texto / html");
+    client.println ("Conexión: cerrar");
+    client.println ();
+La siguiente sección de sentencias if y else verifica qué botón se presionó en su página web y controla los resultados en consecuencia. Como hemos visto anteriormente, hacemos una solicitud en diferentes URL dependiendo del botón que presionamos.
+
+// enciende y apaga los GPIO
+if (header.indexOf ("GET / 5 / on")> = 0) {
+  Serial.println ("GPIO 5 encendido");
+  output5State = "on";
+  digitalWrite (salida5, ALTA);
+} else if (header.indexOf ("GET / 5 / off")> = 0) {
+  Serial.println ("GPIO 5 desactivado");
+  output5State = "off";
+  digitalWrite (salida5, BAJO);
+} else if (header.indexOf ("GET / 4 / on")> = 0) {
+  Serial.println ("GPIO 4 en");
+  output4State = "on";
+  digitalWrite (salida4, ALTA);
+} else if (header.indexOf ("GET / 4 / off")> = 0) {
+  Serial.println ("GPIO 4 desactivado");
+  output4State = "off";
+  digitalWrite (salida4, BAJA);
+}
+Por ejemplo, si presionó el botón GPIO 5 ON, la URL cambia a la dirección IP ESP seguida de / 5 / ON, y recibimos esa información en el encabezado HTTP. Entonces, podemos verificar si el encabezado contiene la expresión GET / 5 / on.
+
+Si contiene, el código imprime un mensaje en el monitor en serie, cambia la variable output5State a on y enciende el LED.
+
+Esto funciona de manera similar para los otros botones. Entonces, si desea agregar más salidas, debe modificar esta parte del código para incluirlas.
+
+Mostrar la página web HTML
+Lo siguiente que debe hacer es generar la página web.
+</p>
             </div>
           </div>
         </div>
