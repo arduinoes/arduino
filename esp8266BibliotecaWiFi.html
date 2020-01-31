@@ -74,29 +74,36 @@
             <p>Para conectar el módulo ESP a Wi-Fi (como conectar un teléfono móvil a un punto de acceso), 
                 solo necesita un par de líneas de código:
             </p>
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240) none repeat scroll 0% 0%; color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;ESP8266WiFi.h&gt;</span></span>
-
-  <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>()
-  {
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">115200</span>);
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>();
-  
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"nombre-red"</span>, <span class="hljs-string" style="color: rgb(136, 0, 0);">"contraseña"</span>);
-  
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Conectando"</span>);
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">while</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.status() != WL_CONNECTED)
-    {
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">500</span>);
-      <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"."</span>);
-    }
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>();
-  
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Conectado, dirección IP: "</span>);
-    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">IP local</span>());
-  }
-  
-  <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">loop</span>() {}</pre>
-<p>En la línea</p> 
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;ESP8266WiFi.h&gt;</span></span>
+ 
+                <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Sustituir con datos de vuestra red</span>
+                <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">char</span>* ssid     = <span class="hljs-string" style="color: rgb(136, 0, 0);">"nombreDeLaRed"</span>;
+                <span class="hljs-keyword" style="font-weight: 700;">const</span> <span class="hljs-keyword" style="font-weight: 700;">char</span>* password = <span class="hljs-string" style="color: rgb(136, 0, 0);">"Contraseña"</span>;
+                 
+                <span class="hljs-keyword" style="font-weight: 700;">void</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">setup</span>()
+                {
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">115200</span>);
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">10</span>);
+                  
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.mode(WIFI_STA);
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(ssid, password);
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Conectando a:\t"</span>);
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(ssid); 
+                 
+                  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Esperar a que nos conectemos</span>
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">while</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.status() != WL_CONNECTED) 
+                  {
+                    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">200</span>);
+                   <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">'.'</span>);
+                  }
+                 
+                  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Mostrar mensaje de exito y dirección IP asignada</span>
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>();
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Conectado a:\t"</span>);
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">SSID</span>()); 
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Dirección IP:\t"</span>);
+                  <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">localIP</span>());
+                }</pre><p>En la línea</p> 
 <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240) none repeat scroll 0% 0%; color: rgb(68, 68, 68);">WiFi<span class="hljs-selector-class" style="color: rgb(136, 0, 0);">.begin</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"nombre-red"</span>, <span class="hljs-string" style="color: rgb(136, 0, 0);">"contraseña"</span>);</pre> 
 <p>
     reemplace "nombre-red" y "contraseña" para conectarse y suba este sketch al módulo ESP y abra el 

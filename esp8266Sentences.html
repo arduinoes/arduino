@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>ESP8266 ARDUINO CON WIFI</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/tutoriales/Arduino1.png" alt="">
+            <br>
+            <h2 class="text-center"><or>CARACTERÍSTICAS DEL ESP8266</or></h2>
+            <br>
+            <div  class="text-left">
+              <!-- ESP8266 -->
+            <p><a href="https://www.arduino.cc/en/Reference/WiFiBegin"><h5><bl>WiFi.begin()</bl></h5></h3></a></p>
+            <p>Inicializa la configuración de red de la biblioteca WiFi y proporciona el estado actual.</p>
+            <p><a href="https://www.arduino.cc/en/Reference/WiFiStatus"><h5><bl>WiFi.status()</bl></h5></h3></a></p>
+            <p>Devuelve el estado de la conexión.</p> 
+            <p><a href="https://www.arduino.cc/en/Reference/WiFiLocalIP"><h5><bl> WiFi.localIP()</bl></h5></h3></a>
+            <p>Obtiene la dirección IP del dispositivo WiFi</p>
+              
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">begin</span>(ssid, password);
+
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">while</span> (<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.status() != WL_CONNECTED) {
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">delay</span>(<span class="hljs-number" style="color: rgb(136, 0, 0);">500</span>);
+    <span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"."</span>);
+}
+
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">""</span>);
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"WiFi conectado"</span>);
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Dirección IP: "</span>);
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">println</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">localIP</span>());
+}</pre>
+            <p><a href="https://www.arduino.cc/en/Reference/ClientAvailable"><h5><bl>client.available()</bl></h5></h3></a>
+            <p>Devuelve el número de bytes disponibles para leer (es decir, la cantidad de datos que el 
+                servidor al que está conectado ha escrito al cliente).</p>
+             <p><a href="https://www.arduino.cc/en/Reference/ClientRead"><h5><bl>client.read()</bl></h5></h3></a></p>   
+            <p>Devuelve el número de bytes disponibles para leer (es decir, la cantidad de datos que el servidor al que está conectado ha escrito al cliente).</p>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">  <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Si hay bytes entrantes disponibles</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// desde el servidor, léelos e imprímelos read:</span>
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">if</span> (client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">available</span>()) {
+<span class="hljs-keyword" style="font-weight: 700;">char</span> c = client.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">read</span>();
+<span class="hljs-built_in" style="color: rgb(57, 115, 0);">Serial</span>.<span class="hljs-built_in" style="color: rgb(57, 115, 0);">print</span>(c);
+}</pre>
+            <p><a href="https://html"><h5><bl></bl></h5></h3></a>
+            <p><a href="https://html"><h5><bl></bl></h5></h3></a>
+            <p><a href="https://html"><h5><bl></bl></h5></h3></a>
+            <p><a href="https://html"><h5><bl></bl></h5></h3></a>
+ <h5><bl></bl></h5> <h5><bl></bl></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
