@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description=" content="curso tutorial aprende arduino básico desde cero facíl"> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Curso Arduino">
+  <meta name="author" content="Studio Miranda">
+
+  <title>arduinoes</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet" type='text/css'>
+  <link href="css/studio.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sección -->
+  <div class="container" style = "margin-top: 50px">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="modal-body">
+          <div class="miranda">
+
+            <!-- Project Details Go Here -->
+            <h2 class="text-uppercase text-center"><bl>hass</bl></h2>
+            <br>
+            <img class="img-fluid d-block mx-auto" src="img/tutoriales/Arduino1.png" alt="">
+            <br>
+            <h2 class="text-center"><or>Yi Camera</or></h2>
+            <br>
+            <div  class="text-left">
+<!-- <p><a href="https://examples.html"><or>Ejemplos</or></h3></a></p> -->
+              <!-- ESP8266 -->
+              <h4>Configuración</h4>
+              <br>
+              <p>
+                Descargamos <a href="https://github.com/TheCrypt0/yi-hack-v4"><or>yi-hack-v4 GitHub project</or></a>
+            </p>
+            <p>Las cámaras compatibles tienen las siguientes características de manera predeterminada:</p>
+            <ul>
+                <li>
+                    Wifi
+                </li>
+                <li>
+                    Detección de movimiento: genera un archivo de video si se ha detectado un movimiento en los últimos 60 segundos.
+                </li>
+                <li>
+                    Envía datos de video/audio a través de un servicio en la nube al móvil.
+                </li>
+                <li>
+                    Configuración a través de la aplicación del móvil.
+                </li>
+                <li>
+                    Almacenamiento local de video en tarjeta microSD
+                </li>
+            </ul>
+            <p>
+                Este firmware incluye:
+            </p>
+            <ul>
+                <li>
+                    Servidor SSH: habilitado de forma predeterminada.
+                </li>
+                <li>
+                    Servidor Telnet: deshabilitado de forma predeterminada.
+                </li>
+                <li>
+                    Servidor FTP: habilitado de forma predeterminada.
+                </li>
+                <li>
+                    Servidor web: habilitado de forma predeterminada.
+                </li>
+                <li>
+                    Proxychains-ng: habilitado de forma predeterminada. Útil si la cámara está bloqueada en el país.
+                </li>
+            </ul>
+            <br>
+            <h4>Comenzando</h4>
+            <br>
+
+            <ol>
+                <li>
+                    Una tarjeta microSD menor de 16 gb.
+                </li>
+                <li>
+                    Formatear en FAT32.
+                </li>
+                <li>
+                    Obtenga los archivos de firmware correctos para su cámara desde este enlace:
+                    <a href="https://github.com/shadow-1/yi-hack-v3/releases"><or>yi hack v3</or></h3></a> :
+                </li>
+                <li>
+                    Seleccione Yi 1080p Home <bl>rootfs_y20	home_y20</bl> firmware.
+                </li>
+                <li>
+                    Desconecte la alimentación de la cámara, inserte la tarjeta microSD y vuelva a encenderla
+                </li>
+                <li>
+                    La luz amarilla se ENCENDERÁ y parpadeará durante aproximadamente 30 segundos, lo que significa que el firmware se está flasheando con éxito. La cámara se iniciará.
+                </li>
+                <li>
+                    Instale la aplicación del móvil correcta, esta es la <a href="http://app.mi.com/details?id=com.ants360.yicamera"><or>China</or></h3></a>.
+                </li>
+                <li>
+                    Configure la cámara con el código QR en el móvil. 
+                    Asegúrese de que su móvil esté conectado a la red inalámbrica de 2.4GHz.
+                </li>
+                <li>
+                    La luz azul debe encenderse indicando que la conexión WiFi se ha establecido.
+                </li>
+                <li>
+                    Acceda a la interfaz web en su navegador ingresando: http://yi-hack-v3, si no a través de su ip. 
+                </li>
+                <li>
+                    Se abrirá una página de configuración de la cámara.
+                </li>
+                <img class="img-fluid d-block mx-auto" src="img/HomeAssistant/YiCamera.png" alt="">
+                <li>
+                    Para aquellos con la versión internacional de la cámara . ProxyChains-ng no es necesario. Se puede desactivar yendo a "Configuración del sistema", seleccione "No" en Proxy-Chains-ng y haga clic en "Aplicar". No se requiere más configuración
+                </li>
+                <li>
+                    Haga clic en "Descargar lista de proxy".
+                </li>
+                <li>
+                    Haga clic en "Descargar proxies"
+                </li>
+                <li>
+                    Haga clic en "Guardar servidores proxy seleccionados"
+                </li>
+            </ol>
+            <h4>Usando la cámara</h4>
+            <br>
+            <ul>
+                <li>
+                    <p>Servidor SSH</p>
+                    <p>Puerto 22</p>
+                    <p>Usuario: root</p>
+                    <p>Contraseña: "sin contraseña"</p>
+                </li>
+                <li>
+                    <p>Servidor Telnet</p>
+                    <p>Puerto 23</p>
+                    <p>Usuario: root</p>
+                    <p>Contraseña: "sin contraseña"</p>
+                </li>
+                <li>
+                    <p>Servidor FTP</p>
+                    <p>Puerto 21</p>
+                    <p>Usuario: root</p>
+                    <p>Contraseña: "sin contraseña"</p>
+                </li>
+                <li>
+                <p>Script de Shell</p>
+                <pre>startup.sh</pre>
+                </li>
+                <li>
+                <p>Programas externos y bibliotecas</p>
+                <p>Coloque programas adicionales compilados para la cámara en cualquiera de estas carpetas en la tarjeta microSD:</p>
+                <pre>
+yi-hack-v3\bin
+yi-hack-v3\sbin</pre>
+                <p>Coloque bibliotecas adicionales compiladas para la cámara en la siguiente carpeta en la tarjeta microSD:
+                    <pre>
+yi-hack-v3\lib
+                    </pre>
+                </p>
+                </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
